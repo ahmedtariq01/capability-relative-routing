@@ -1,0 +1,26 @@
+[
+  {
+    "id": "H1",
+    "type": "hypothesis",
+    "wording": "After routing overhead is included, CRR will reduce inference cost at one or more matched quality levels relative to the best fixed-model strategy.",
+    "status": "prospective",
+    "evidence": [],
+    "falsifier": "No matched quality level has lower total CRR cost, or the apparent gain disappears when routing cost is charged."
+  },
+  {
+    "id": "H2",
+    "type": "hypothesis",
+    "wording": "Uncertainty-triggered escalation will recover difficult cases while avoiding strong-model inference on every item.",
+    "status": "prospective",
+    "evidence": [],
+    "falsifier": "Escalation either fails to recover quality or routes nearly all items to the strongest route."
+  },
+  {
+    "id": "H3",
+    "type": "hypothesis",
+    "wording": "The potential benefit of routing increases with measurable disagreement in model rankings across capability regions.",
+    "status": "prospective",
+    "evidence": [],
+    "falsifier": "Routing benefit is unrelated to rank disagreement, or the relationship vanishes under held-out model/task sets."
+  }
+]
