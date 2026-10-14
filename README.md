@@ -46,4 +46,4 @@ artifacts/               Generated receipts (ignored unless deliberately added)
 4. Add uncertainty-aware escalation and model-set perturbation tests.
 5. Publish receipts, ablations, negative results, and a paper only after independent readback.
 
-No external repository has been created or pushed by this local scaffold.
+The repository is public at https://github.com/leo-guinan/capability-relative-routing. External publication does not imply empirical validity; the evidence boundary above remains unchanged.

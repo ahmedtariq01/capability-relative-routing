@@ -2,8 +2,8 @@
   "fixture_status": "synthetic_fixture_not_empirical",
   "routing_overhead": {"tokens": 12, "latency_ms": 0.4, "dollars": 0.00002},
   "models": [
-    {"name": "cheap-specialist", "cost_dollars": 0.0004, "latency_ms": 30.0, "capabilities": {"retrieval": 0.88, "reasoning": 0.61}},
-    {"name": "balanced", "cost_dollars": 0.0012, "latency_ms": 55.0, "capabilities": {"retrieval": 0.78, "reasoning": 0.83}},
-    {"name": "strong-generalist", "cost_dollars": 0.0040, "latency_ms": 110.0, "capabilities": {"retrieval": 0.91, "reasoning": 0.92}}
+    {"name": "cheap-specialist", "cost_dollars": 0.0004, "latency_ms": 30.0, "capabilities": {"retrieval": 0.88, "reasoning": 0.61}, "uncertainty": {"retrieval": 0.12, "reasoning": 0.24}},
+    {"name": "balanced", "cost_dollars": 0.0012, "latency_ms": 55.0, "capabilities": {"retrieval": 0.78, "reasoning": 0.83}, "uncertainty": {"retrieval": 0.18, "reasoning": 0.14}},
+    {"name": "strong-generalist", "cost_dollars": 0.0040, "latency_ms": 110.0, "capabilities": {"retrieval": 0.91, "reasoning": 0.92}, "uncertainty": {"retrieval": 0.08, "reasoning": 0.09}}
   ]
 }

@@ -11,6 +11,7 @@ models = tuple(
     ModelProfile(
         name=row["name"],
         capabilities=row["capabilities"],
+        uncertainty=row["uncertainty"],
         inference_cost_dollars=row["cost_dollars"],
         inference_latency_ms=row["latency_ms"],
     )

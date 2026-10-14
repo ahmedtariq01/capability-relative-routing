@@ -9,8 +9,8 @@ from crr import ModelProfile, Problem, RouterCost, route
 class RoutingTests(unittest.TestCase):
     def setUp(self):
         self.models = (
-            ModelProfile("cheap", {"retrieval": 0.86}, 0.1, 10.0),
-            ModelProfile("strong", {"retrieval": 0.95}, 0.5, 20.0),
+            ModelProfile("cheap", {"retrieval": 0.86}, 0.1, 10.0, {"retrieval": 0.10}),
+            ModelProfile("strong", {"retrieval": 0.95}, 0.5, 20.0, {"retrieval": 0.05}),
         )
         self.overhead = RouterCost(dollars=0.01, latency_ms=2.0, tokens=5)
 
@@ -31,18 +31,32 @@ class RoutingTests(unittest.TestCase):
 
     def test_uncertainty_escalation_is_explicit(self):
         near = (
-            ModelProfile("cheap", {"retrieval": 0.81}, 0.1, 10.0),
-            ModelProfile("near", {"retrieval": 0.82}, 0.2, 15.0),
+            ModelProfile("cheap", {"retrieval": 0.81}, 0.1, 10.0, {"retrieval": 0.30}),
+            ModelProfile("near", {"retrieval": 0.82}, 0.2, 15.0, {"retrieval": 0.20}),
         )
         decision = route(
             Problem("d", {"retrieval": 1.0}, 0.70),
             near,
             self.overhead,
-            confidence_margin=0.05,
+            uncertainty_threshold=0.25,
             escalation_model=self.models[1],
         )
         self.assertEqual(decision.selected_model, "strong")
         self.assertTrue(decision.escalated)
+    def test_uncertainty_is_not_score_gap(self):
+        models = (
+            ModelProfile("cheap", {"retrieval": 0.81}, 0.1, 10.0, {"retrieval": 0.01}),
+            ModelProfile("near", {"retrieval": 0.82}, 0.2, 15.0, {"retrieval": 0.01}),
+        )
+        decision = route(
+            Problem("e", {"retrieval": 1.0}, 0.70),
+            models,
+            self.overhead,
+            uncertainty_threshold=0.05,
+            escalation_model=self.models[1],
+        )
+        self.assertEqual(decision.selected_model, "cheap")
+        self.assertFalse(decision.escalated)
 
 
 if __name__ == "__main__":
