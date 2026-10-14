@@ -3,7 +3,7 @@ from pathlib import Path
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from crr.oracle import ModelOutcome, fixed_policies, matched_cost, opportunity_capture, oracle_policy
+from crr.oracle import ModelOutcome, fixed_policies, matched_cost, opportunity_capture, oracle_frontier, oracle_policy
 
 
 class OracleTests(unittest.TestCase):
@@ -23,7 +23,16 @@ class OracleTests(unittest.TestCase):
         self.assertAlmostEqual(result.solved_rate, 2 / 3)
         self.assertAlmostEqual(result.total_cost_dollars, 6.0)
 
-    def test_fixed_policies_make_the_comparison_explicit(self):
+    def test_oracle_frontier_has_matched_quality_costs(self):
+        frontier = oracle_frontier(self.outcomes)
+        self.assertEqual([(point.solved_count, point.total_cost_dollars) for point in frontier], [(1, 3.0), (2, 6.0)])
+        low = matched_cost(frontier, 1 / 3)
+        high = matched_cost(frontier, 2 / 3)
+        if low is None or high is None:
+            self.fail("expected both target qualities on the oracle frontier")
+        self.assertAlmostEqual(low, 3.0)
+        self.assertAlmostEqual(high, 6.0)
+
         fixed = {row.policy: row for row in fixed_policies(self.outcomes)}
         self.assertAlmostEqual(fixed["cheap"].solved_rate, 1 / 3)
         self.assertAlmostEqual(fixed["strong"].solved_rate, 2 / 3)
@@ -36,7 +45,10 @@ class OracleTests(unittest.TestCase):
         self.assertAlmostEqual(opportunity_capture(9.0, 7.0, 6.0), 2 / 3)
         self.assertIsNone(opportunity_capture(5.0, 5.0, 5.0))
 
-    def test_incomplete_model_matrix_fails_closed(self):
+    def test_duplicate_item_model_rows_fail_closed(self):
+        with self.assertRaises(ValueError):
+            fixed_policies(self.outcomes + (self.outcomes[0],))
+
         with self.assertRaises(ValueError):
             fixed_policies(self.outcomes[:-1])
 

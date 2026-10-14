@@ -63,6 +63,7 @@ class RouteDecision:
     total_latency_ms: float
     routing_cost: RouterCost
     escalated: bool = False
+    threshold_met: bool = True
 
 
 def route(
@@ -109,4 +110,5 @@ def route(
         total_latency_ms=selected.inference_latency_ms + routing_cost.latency_ms,
         routing_cost=routing_cost,
         escalated=escalated,
+        threshold_met=quality >= problem.quality_threshold,
     )

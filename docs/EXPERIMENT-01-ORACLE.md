@@ -10,11 +10,21 @@ The oracle is an analytical upper bound, not a deployable router. It has access 
 
 ## Contract
 
-Each item must have exactly one `ModelOutcome` row for every model. Each row records `item_id`, `model_name`, `solved`, `cost_dollars`, and `latency_ms`. Incomplete matrices, negative costs, and negative latencies fail closed.
+Each item must have exactly one `ModelOutcome` row for every model. Duplicate `(item_id, model_name)` keys are rejected. Each row records `item_id`, `model_name`, `solved`, `cost_dollars`, and `latency_ms`. Incomplete matrices, negative costs, and negative latencies fail closed.
 
-For each item, the oracle selects the lowest-cost successful model. If every model misses, it selects the cheapest available route and preserves the miss in the solved rate. Fixed policies run one model over every item.
+## Frontier construction
 
-## Frontier quantities
+The oracle frontier is not a single maximum-quality point. It starts with the cheapest available model on every item, then identifies each missed item’s cheapest successful upgrade. If `b_i` is the cheapest baseline cost and `s_i` is the cheapest successful cost, the upgrade cost is `Delta_i = s_i - b_i`. Solvable upgrades are sorted by `Delta_i` and purchased incrementally. This produces the cheapest oracle policy at each attainable solved rate. Items that every model misses remain misses and are never silently removed from the denominator.
+
+For the committed fixture, the frontier is:
+
+```text
+solved rate    oracle cost
+1/3            $3
+2/3            $6
+```
+
+The maximum-quality endpoint still corresponds to choosing the cheapest successful model per item. The frontier additionally answers matched-quality questions at lower targets. Fixed policies run one model over every item for the comparison.
 
 For a target solved rate `q`, define:
 

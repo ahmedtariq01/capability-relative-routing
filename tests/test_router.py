@@ -43,6 +43,17 @@ class RoutingTests(unittest.TestCase):
         )
         self.assertEqual(decision.selected_model, "strong")
         self.assertTrue(decision.escalated)
+
+    def test_escalation_failure_is_reported(self):
+        decision = route(
+            Problem("f", {"retrieval": 1.0}, 0.99),
+            self.models,
+            self.overhead,
+            escalation_model=self.models[1],
+        )
+        self.assertTrue(decision.escalated)
+        self.assertFalse(decision.threshold_met)
+
     def test_uncertainty_is_not_score_gap(self):
         models = (
             ModelProfile("cheap", {"retrieval": 0.81}, 0.1, 10.0, {"retrieval": 0.01}),

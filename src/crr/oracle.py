@@ -2,16 +2,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from math import isclose
-from typing import Iterable, Mapping
+from typing import Iterable
 
 
 @dataclass(frozen=True)
 class ModelOutcome:
-    """Observed outcome for one model on one item.
-
-    The oracle consumes already-scored outcomes. It does not claim to predict
-    them and should never be confused with a deployable routing policy.
-    """
+    """Observed outcome for one model on one item."""
 
     item_id: str
     model_name: str
@@ -29,12 +25,25 @@ class PolicySummary:
     routes: tuple[tuple[str, str], ...]
 
 
+@dataclass(frozen=True)
+class FrontierPoint:
+    solved_count: int
+    total_items: int
+    solved_rate: float
+    total_cost_dollars: float
+    total_latency_ms: float
+    routes: tuple[tuple[str, str], ...]
+
+
 def _validate(outcomes: Iterable[ModelOutcome]) -> tuple[ModelOutcome, ...]:
     rows = tuple(outcomes)
     if not rows:
         raise ValueError("at least one model outcome is required")
     if any(row.cost_dollars < 0 or row.latency_ms < 0 for row in rows):
         raise ValueError("cost and latency must be non-negative")
+    keys = [(row.item_id, row.model_name) for row in rows]
+    if len(keys) != len(set(keys)):
+        raise ValueError("duplicate outcome for an item/model pair")
     items = {row.item_id for row in rows}
     models = {row.model_name for row in rows}
     for item_id in items:
@@ -63,40 +72,73 @@ def fixed_policies(outcomes: Iterable[ModelOutcome]) -> tuple[PolicySummary, ...
     return tuple(summaries)
 
 
-def oracle_policy(outcomes: Iterable[ModelOutcome]) -> PolicySummary:
-    """Choose the cheapest successful model per item.
+def oracle_frontier(outcomes: Iterable[ModelOutcome]) -> tuple[FrontierPoint, ...]:
+    """Build the cost frontier by buying successful upgrades incrementally.
 
-    If no model solves an item, the cheapest available model is still routed so
-    the oracle accounts for the complete item set and records the miss.
+    The baseline runs the cheapest model on every item. For each item that the
+    baseline misses, the oracle can purchase the cheapest successful upgrade.
+    Those upgrades are sorted by incremental cost, so every returned point is
+    the cheapest oracle policy for the successes it has accumulated.
     """
     rows = _validate(outcomes)
     items = tuple(dict.fromkeys(row.item_id for row in rows))
-    chosen: list[ModelOutcome] = []
+    base: list[ModelOutcome] = []
+    upgrades: list[tuple[float, ModelOutcome]] = []
     for item_id in items:
         candidates = [row for row in rows if row.item_id == item_id]
+        cheapest = min(candidates, key=lambda row: (row.cost_dollars, row.latency_ms, row.model_name))
+        base.append(cheapest)
         successful = [row for row in candidates if row.solved]
-        chosen.append(min(successful or candidates, key=lambda row: (row.cost_dollars, row.latency_ms, row.model_name)))
-    return PolicySummary(
-        policy="oracle",
-        solved_rate=sum(row.solved for row in chosen) / len(items),
-        total_cost_dollars=sum(row.cost_dollars for row in chosen),
-        total_latency_ms=sum(row.latency_ms for row in chosen),
-        routes=tuple((row.item_id, row.model_name) for row in chosen),
-    )
+        if successful and not cheapest.solved:
+            success = min(successful, key=lambda row: (row.cost_dollars, row.latency_ms, row.model_name))
+            upgrades.append((success.cost_dollars - cheapest.cost_dollars, success))
+
+    routes = {row.item_id: row for row in base}
+    total_cost = sum(row.cost_dollars for row in base)
+    total_latency = sum(row.latency_ms for row in base)
+    solved_count = sum(row.solved for row in base)
+    points = [
+        FrontierPoint(
+            solved_count=solved_count,
+            total_items=len(items),
+            solved_rate=solved_count / len(items),
+            total_cost_dollars=total_cost,
+            total_latency_ms=total_latency,
+            routes=tuple((item_id, routes[item_id].model_name) for item_id in items),
+        )
+    ]
+    for delta, success in sorted(upgrades, key=lambda pair: (pair[0], pair[1].item_id, pair[1].model_name)):
+        total_cost += delta
+        total_latency += success.latency_ms - routes[success.item_id].latency_ms
+        routes[success.item_id] = success
+        solved_count += 1
+        points.append(
+            FrontierPoint(
+                solved_count=solved_count,
+                total_items=len(items),
+                solved_rate=solved_count / len(items),
+                total_cost_dollars=total_cost,
+                total_latency_ms=total_latency,
+                routes=tuple((item_id, routes[item_id].model_name) for item_id in items),
+            )
+        )
+    return tuple(points)
 
 
-def matched_cost(summary: Iterable[PolicySummary], quality: float) -> float | None:
-    """Return minimum cost among policies meeting a solved-rate target."""
+def oracle_policy(outcomes: Iterable[ModelOutcome]) -> PolicySummary:
+    """Return the maximum-quality endpoint of the oracle frontier."""
+    point = oracle_frontier(outcomes)[-1]
+    return PolicySummary("oracle", point.solved_rate, point.total_cost_dollars, point.total_latency_ms, point.routes)
+
+
+def matched_cost(summary: Iterable[PolicySummary | FrontierPoint], quality: float) -> float | None:
+    """Return minimum cost among policies/frontier points meeting a target."""
     eligible = [row.total_cost_dollars for row in summary if row.solved_rate >= quality]
     return min(eligible) if eligible else None
 
 
 def opportunity_capture(best_fixed: float, routed: float, oracle: float) -> float | None:
-    """Fraction of oracle savings captured by a routed policy.
-
-    Returns None when the oracle offers no measurable savings, avoiding a
-    misleading division by zero in homogeneous or cost-neutral settings.
-    """
+    """Fraction of oracle savings captured by a routed policy."""
     denominator = best_fixed - oracle
     if isclose(denominator, 0.0, abs_tol=1e-12):
         return None
