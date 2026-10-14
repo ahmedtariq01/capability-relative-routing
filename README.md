@@ -6,6 +6,18 @@ Researcher: Leo Guinan
 Primary benchmark: LAB-Bench  
 Status: prospective; the current executable layer is a deterministic synthetic routing fixture, not benchmark evidence.
 
+## Grant application summary
+
+Grant proposal: [Capability-Relative Routing on LAB-Bench](docs/PROPOSAL.md)
+
+Hypothesis: heterogeneous model capabilities can be exploited to reduce inference cost at matched quality after routing overhead.
+
+Current status: synthetic infrastructure validated; empirical frontier experiment proposed.
+
+First empirical test: 100–200 LAB-Bench items × 3–4 real models → fixed-model frontier versus retrospective oracle frontier.
+
+Prior trajectory: [dynamic and semantic routing experiments](docs/PRIOR-WORK.md) established the motivating tension between improved outcomes and coordination cost.
+
 ## Research question
 
 When heterogeneous models have different local strengths, can a router select the least expensive route that reaches a declared quality threshold after charging routing overhead?
