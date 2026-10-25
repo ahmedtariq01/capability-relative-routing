@@ -14,7 +14,9 @@ Hypothesis: heterogeneous model capabilities can be exploited to reduce inferenc
 
 Current status: synthetic infrastructure validated; empirical frontier experiment proposed.
 
-First empirical test: 100–200 LAB-Bench items × 3–4 real models → fixed-model frontier versus retrospective oracle frontier.
+First empirical test proposed in the current protocol: 180 LAB-Bench items with four provisional model slots, comparing fixed-model and retrospective oracle frontiers.
+
+A [protocol review package](docs/experiment-01/README.md) proposes the agreed 180-item slice, a 60/120 development/held-out split, and ScreamingFace compatibility checks. It includes offline preparation checks and a draft ID manifest. Model access, the empirical profile estimator and the execution freeze remain unresolved.
 
 Prior trajectory: [dynamic and semantic routing experiments](docs/PRIOR-WORK.md) established the motivating tension between improved outcomes and coordination cost.
 

@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-25",
+  "scope": "Offline protocol preparation; no provider calls or engine integration run",
+  "base_commit": "c713f2ab1df4d934a444e2225767271a54e876a1",
+  "branch": "research/lab-bench-protocol",
+  "selected_items": 180,
+  "development_items": 60,
+  "held_out_items": 120,
+  "smoke_items_within_development": 15,
+  "source_rows_prepared": 907,
+  "selection_sha256": "974e722fe0f342bfb26a7111b3c97d95b791dc187a2bc32de599381c9e5befec",
+  "upstream_task_versions": {
+    "inspect_ai": "0.3.263",
+    "inspect_evals": "0.20.0",
+    "datasets": "5.0.1"
+  },
+  "template_sha256": "96c75e269f763304330ffc999bc99b47ae77da7ae3312fd1b0953a9b72afe9c4",
+  "choice_order_check": {
+    "LitQA2": {
+      "prepared": 199,
+      "selected": 60,
+      "filter_before_shuffle_changed_choice_order": 58
+    },
+    "ProtocolQA": {
+      "prepared": 108,
+      "selected": 60,
+      "filter_before_shuffle_changed_choice_order": 60
+    },
+    "SeqQA": {
+      "prepared": 600,
+      "selected": 60,
+      "filter_before_shuffle_changed_choice_order": 59
+    }
+  },
+  "mock_scores": {
+    "abstain": "N",
+    "correct": "C",
+    "incorrect": "I",
+    "malformed": "I"
+  },
+  "draft_integrity": "passed",
+  "freeze_prerequisites": "expected_failure_unresolved_decisions",
+  "repository_tests": {
+    "passed": 20,
+    "scope": "10 existing routing/oracle tests and 10 protocol guard tests"
+  },
+  "receipt_schema_checks": {
+    "passed": 9,
+    "scope": "synthetic valid and invalid records"
+  },
+  "not_verified": [
+    "ScreamingFace deployment",
+    "hosted catalogue/access",
+    "selected-ID engine variant",
+    "original-to-engine ID mapping",
+    "engine/upstream scorer equivalence",
+    "real-model outcomes",
+    "provider costs",
+    "unique research gap"
+  ]
+}

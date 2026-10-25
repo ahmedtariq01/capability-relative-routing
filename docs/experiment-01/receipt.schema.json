@@ -1,0 +1,575 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "manifest_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "call_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "original_item_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "subset": {
+      "enum": [
+        "LitQA2",
+        "ProtocolQA",
+        "SeqQA",
+        null
+      ]
+    },
+    "split": {
+      "enum": [
+        "development",
+        "held_out",
+        null
+      ]
+    },
+    "model_slot": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "enum": [
+        "answer",
+        "router",
+        "profile",
+        "confidence"
+      ]
+    },
+    "routing_decision_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "attempt_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "previous_attempt_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "success",
+        "error",
+        "timeout",
+        "refusal",
+        "parse_error",
+        "abstained"
+      ]
+    },
+    "model": {
+      "type": "object",
+      "properties": {
+        "requested_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "effective_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "effective_version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "provider_route": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "settings_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "requested_id",
+        "effective_id",
+        "effective_version",
+        "provider_route",
+        "settings_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "engine": {
+      "type": "object",
+      "properties": {
+        "instance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "benchmark_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "benchmark_revision": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "case_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "run_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "cache_status": {
+          "enum": [
+            "fresh",
+            "replayed",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "instance",
+        "version",
+        "benchmark_id",
+        "benchmark_revision",
+        "case_id",
+        "run_id",
+        "cache_status"
+      ],
+      "additionalProperties": false
+    },
+    "artifacts": {
+      "type": "object",
+      "properties": {
+        "prepared_item_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "request_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "response_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "request_path": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "response_path": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "required": [
+        "prepared_item_sha256",
+        "request_sha256",
+        "response_sha256",
+        "request_path",
+        "response_path"
+      ],
+      "additionalProperties": false
+    },
+    "time": {
+      "type": "object",
+      "properties": {
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ended_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "wall_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "queue_ms": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "provider_ms": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "scoring_ms": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "required": [
+        "started_at",
+        "ended_at",
+        "wall_ms",
+        "queue_ms",
+        "provider_ms",
+        "scoring_ms"
+      ],
+      "additionalProperties": false
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "input_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "reasoning_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "cached_input_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "required": [
+        "input_tokens",
+        "output_tokens",
+        "reasoning_tokens",
+        "cached_input_tokens"
+      ],
+      "additionalProperties": false
+    },
+    "cost": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "const": "USD"
+        },
+        "billed_usd": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "estimated_usd": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "pricing_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "missing_reason": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "required": [
+        "currency",
+        "billed_usd",
+        "estimated_usd",
+        "pricing_sha256",
+        "source",
+        "missing_reason"
+      ],
+      "additionalProperties": false
+    },
+    "outcome": {
+      "type": "object",
+      "properties": {
+        "parsed_choice": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "grade": {
+          "enum": [
+            "C",
+            "I",
+            "N",
+            null
+          ]
+        },
+        "refusal": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "parser_status": {
+          "enum": [
+            "parsed",
+            "malformed",
+            "not_run"
+          ]
+        },
+        "finish_reason": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "error_code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "scorer_version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "required": [
+        "parsed_choice",
+        "grade",
+        "refusal",
+        "parser_status",
+        "finish_reason",
+        "error_code",
+        "scorer_version"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "manifest_sha256",
+    "call_id",
+    "original_item_id",
+    "subset",
+    "split",
+    "model_slot",
+    "purpose",
+    "routing_decision_id",
+    "attempt_index",
+    "previous_attempt_id",
+    "status",
+    "model",
+    "engine",
+    "artifacts",
+    "time",
+    "usage",
+    "cost",
+    "outcome"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CRR Experiment 01 per-attempt receipt",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "cost": {
+            "properties": {
+              "billed_usd": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "cost": {
+            "properties": {
+              "missing_reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "cost": {
+            "properties": {
+              "source": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "cost": {
+            "properties": {
+              "estimated_usd": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "cost": {
+            "properties": {
+              "pricing_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "attempt_index": {
+            "const": 1
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "previous_attempt_id": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "previous_attempt_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "purpose": {
+            "const": "answer"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "original_item_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subset": {
+            "enum": [
+              "LitQA2",
+              "ProtocolQA",
+              "SeqQA"
+            ]
+          },
+          "split": {
+            "enum": [
+              "development",
+              "held_out"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

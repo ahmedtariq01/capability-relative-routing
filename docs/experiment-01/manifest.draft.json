@@ -1,0 +1,1806 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "date": "2026-10-25",
+  "dataset": {
+    "name": "futurehouse/lab-bench",
+    "revision": "5c77cec648430f30611808808861eb86f81d5eaa",
+    "license": "CC-BY-SA-4.0",
+    "files": [
+      {
+        "subset": "LitQA2",
+        "sha256": "3e578fdaaa4728a77e884954dbf85ae0e3899791631a3be0838313b3e2334114",
+        "url": "https://huggingface.co/datasets/futurehouse/lab-bench/resolve/5c77cec648430f30611808808861eb86f81d5eaa/LitQA2/train-00000-of-00001.parquet"
+      },
+      {
+        "subset": "ProtocolQA",
+        "sha256": "d48d455638ff49b0c02ae96135703f239ea865a5936233045ee010a5d819239a",
+        "url": "https://huggingface.co/datasets/futurehouse/lab-bench/resolve/5c77cec648430f30611808808861eb86f81d5eaa/ProtocolQA/train-00000-of-00001.parquet"
+      },
+      {
+        "subset": "SeqQA",
+        "sha256": "5864776d3d85774f91d82432e30ac31e9222f1670621e8ea141414173c5e9b46",
+        "url": "https://huggingface.co/datasets/futurehouse/lab-bench/resolve/5c77cec648430f30611808808861eb86f81d5eaa/SeqQA/train-00000-of-00001.parquet"
+      }
+    ]
+  },
+  "selection": {
+    "salt": "crr-lab-bench-experiment-01-review-v1",
+    "algorithm": "source-separated-hash-and-seqqa-stratified-v1",
+    "items_sha256": "974e722fe0f342bfb26a7111b3c97d95b791dc187a2bc32de599381c9e5befec",
+    "audit": {
+      "LitQA2": {
+        "available_items": 199,
+        "selected_items": 60,
+        "development": 20,
+        "held_out": 40,
+        "smoke": 5,
+        "selected_full_input_duplicates": 0,
+        "selected_source_groups_crossing_split": 0
+      },
+      "ProtocolQA": {
+        "available_items": 108,
+        "selected_items": 60,
+        "development": 20,
+        "held_out": 40,
+        "smoke": 5,
+        "selected_full_input_duplicates": 0,
+        "selected_source_groups_crossing_split": 0
+      },
+      "SeqQA": {
+        "available_items": 600,
+        "selected_items": 60,
+        "development": 20,
+        "held_out": 40,
+        "smoke": 5,
+        "selected_full_input_duplicates": 0,
+        "selected_source_groups_crossing_split": 0
+      }
+    },
+    "items": [
+      {
+        "subset": "LitQA2",
+        "original_id": "0bac8974-554c-439a-a9a2-22fa509c8d5d",
+        "split": "development",
+        "smoke": true,
+        "subtask": "litqa-v2-public",
+        "source_group": "7a60baf013c757ef23681c2dcb22f3c3e8e07320d86fa57fb8d4ac3050340a1d",
+        "full_input_sha256": "05230f36074e8a5255a55c0ceb3c8f190100f7a89a10494e6dcbd841c9e3d62b"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "1ccdc348-50e1-4941-9151-5e50411a2b41",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "86046f05bd74264d8bee9641dd9e3dc09fb50264ceeb260bdda25bec7c12130c",
+        "full_input_sha256": "6ea30df575636cfc10c12f2c517f8e9f034726c3309661004675f3cbe377480e"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "28ebecdf-949e-4d20-aca9-5989b7a9d6e9",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "32345afae2b4d44d860b7f9832fbeab3aad2edb440c31bf3cade2801d05bf628",
+        "full_input_sha256": "d118d876c8560e8f0494f1b67e467faef0958e52414d6e5111030e82022eec34"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "2dc20a2f-de54-4bfe-a34f-1ba395f342cf",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "28b499a172ab75ceae2ccc21946e71d8d704b3737cc539f85df5bd748fa9c07e",
+        "full_input_sha256": "b80dd05f31c133cf1cde451147f6788e9ef0e50ff498328d205c837a88c8ae24"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "3d40f373-59d3-4666-87bd-6db64fd7b4fb",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "772a2f253fc26d39a748084b25330fab9a42648fc60a28d66048291375e11b1a",
+        "full_input_sha256": "952103e8de2d5c3f08d8b864778cd3303d2fc66d69f7c64c2b6bde464f5f56ab"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "4949fc05-5f78-4dd0-8d9c-3dbb6004740a",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "5508edfb5fced1824fa296c1723f6ecb088fa764f77ac61ac9cc69e66fe29b9b",
+        "full_input_sha256": "276cd5f630d83b86a59937b3db393783ee8188c5204b6a2739ae113fa467741b"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "517e7cf8-c5d2-4391-9e2a-235b79d93050",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "580a3d8bdeee274946601e52c99ae969dfa9163cb298691f0f97140c7d536c81",
+        "full_input_sha256": "c29facaae0b83e601fc69a102cb52384b50a78f6fa235910251989d81eeaff14"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "55668039-396e-488a-b2c3-bbe840550433",
+        "split": "development",
+        "smoke": true,
+        "subtask": "litqa-v2-public",
+        "source_group": "6f021c445f7ea183dd381a81f3d6680429dcc92aed19a2a76192c2830282dc98",
+        "full_input_sha256": "45ddf643dcc946b072fcd88548bf86dc0461147c4ca1143a61a0efe208bb44a8"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "58b39fab-337b-452d-b74f-84f9a188ce88",
+        "split": "development",
+        "smoke": true,
+        "subtask": "litqa-v2-public",
+        "source_group": "4cadd679993980f0b0b648defa70786b98d6ec2acfc984b2072eee2803942fc0",
+        "full_input_sha256": "1733470a337b46863ac7079987796a4ca2942608ee1659068db108f055c9da88"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "5a9c6697-a65c-49c0-9e02-38b2a276fde7",
+        "split": "development",
+        "smoke": true,
+        "subtask": "litqa-v2-public",
+        "source_group": "b647ef4ecb0bb0f40bd3c2514cc6f803b030dd732dd21e23037644327e60121c",
+        "full_input_sha256": "5e870f1f556562fdda465354bc70d50cc9475e576298df7e3165fa62c06b976c"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "76184ccf-4bf0-469e-a442-11d04b4ff8b0",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "ecc1a3354903c171b5ccebeee71c0a1c0bfc386637f0c9a0fb75223edae44879",
+        "full_input_sha256": "7aaf9c03cd3e3794bd1f5d15e535e69d4a2cefe1ca838097af370e4ea1a0bf74"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "7a88e6f7-fb8e-4a24-b08d-9b7a6edafe57",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "6e7c0cf27f89207fb91af12daa3701a8e4aebd203f9c77c9a37b83a66e9b23cf",
+        "full_input_sha256": "9875a15d5327ad823862322d099b303dc03fcbab38c6394e6ee9ac134ba3fbde"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "7d805bb8-4c7c-431f-b068-acf5e5459985",
+        "split": "development",
+        "smoke": true,
+        "subtask": "litqa-v2-public",
+        "source_group": "82c8d6b1be01b8a5d8d0d990258ec2b8fff2901dc8f34367160df3179a9ba0ba",
+        "full_input_sha256": "59e36acf7065003e1cd65238115a443a130b74fa432a28f83270390abe6d678b"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "8ade3e3a-4792-4965-b9d9-05e528ebbfa0",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "0def752143ff796ec9e2a6ae97dd5363d2d1fcca2f2910fdf5e55382bf889e83",
+        "full_input_sha256": "d130863e05f55250d84bf6c81d67842eeca48493e28ff59b83712b10598ade18"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "925ffe20-b8a9-4ac4-943c-7a16966f4a4b",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "7b6d19d7812bff3fe7c5ba8baa789b0fa5189512c72e43bc12ddb07774c15114",
+        "full_input_sha256": "185a83b230c0f9fc2205c34c2cd492d963825733f52256bd31b866ed63f1ae5c"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "a73b2c2d-a3ac-49e6-8e2e-44b4c1e6de94",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "c38c1d277cedaeeba65a64e466a2493277ec7321773dad3cb07f68534829460d",
+        "full_input_sha256": "39a01b30c94de660cdd7680b485bb60f90ee2743b34f51e58ffadbb18a909517"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "aaa85379-1e4b-4642-9ec4-e1a6d6c29c3b",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "914801b79341f50307a96d2701383079e21c4120dbfbcadfb553fdee8cea3799",
+        "full_input_sha256": "bca3c03027097fa40d3c9a4898b753ab0e8443a54700ea970401661056b51479"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "d1307e50-3c03-4c76-81ee-2decb5de5f14",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "4cb9ba9838e34678aa733f252b388277dbf5378b919f0ec78f39013c4d570186",
+        "full_input_sha256": "c7102515d57686e4ab1faccb8f5fad7009c369c2b4e9dc2b3d6a06d746c51aca"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "e2fb56b7-08cd-4dc0-bc63-b45931a74fc9",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "8b5726c5c06d6f7b05a954555c8e2cf489a6be436c35e6c7bd7f0f30cc7e801d",
+        "full_input_sha256": "da41402b177cb2a70fb7c90a40c76b3e1f390546f0e33639cd2485ea60221d7a"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "ef07d562-fc18-43c9-8201-7a189d76eeb9",
+        "split": "development",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "35cc3974b8a61e040349ed2ec95aebd2e283d93fe7ef57554a955fbe60c65ccd",
+        "full_input_sha256": "11df0951f9c8c731ecc373d79db72800cf06c57aa26ff522816728205c5c95db"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "154e7b14-4ed5-4cf3-9149-0c4843fc62cc",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "49e61801bb541245db91953a4c8168f3ab167c7df2a49e41826b511974931eef",
+        "full_input_sha256": "ec7fb4ae8276c173104706d1d93ff90539de881672c5be04d55531fe77a17bd0"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "1f1b07d7-39ce-4665-9b70-4ab77e3c87aa",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "03903a1bc2c784cfde10ae6e09638576a3f1da3663fd0ea86cd6d1b2f3ff9edf",
+        "full_input_sha256": "258d47494e315851523b4ffce0ec6e27070baa5cf1abf5c29bf1e0d1f2b78739"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "1ff2b2e4-492e-4e35-bf33-f0fb53ab938c",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "00a80872d1cc1ad3cc926781b7064e9a41d166699dd3afb3e083fb2c2765f91a",
+        "full_input_sha256": "1b472e389abb595349367f72c875da50a72be7c1d26e5826010bc88f968df797"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "247eeb85-a552-4b87-b83e-327538fcb8a9",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "332ee4855fa679867d11322f0e74d341af5c480a52cd454c0889ffb971250572",
+        "full_input_sha256": "5b50181d959e0a3c9fd6663a42aabf88f1813be13f35d69e0d3f720ead8c0f38"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "26691c84-514b-4712-a43e-09705d681e45",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "065b86117b3d074f8fa58be06f3a43bfd3e1384ab93b9d642beae127ed06ba3b",
+        "full_input_sha256": "ec19ce11d053bb56286f4f72a438ad03a2bab1edc8de0c229e7888fe8841b799"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "2c3ba95c-47d5-4798-9911-ffdb11c940e4",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "ceaf60b68375b16e6d27ea2b410a8ea26d5054fc8d1bf72f7f6c70ccbc964d67",
+        "full_input_sha256": "08b23a8c4d2310566510344f25393a207016a1b531af64bfe4956a43f856025d"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "322454df-45a8-41b3-9b0a-4e808144023c",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "b5ac408266b8b83873f78612affa5cc9a26351e322487f19e68c612ac21bf2a3",
+        "full_input_sha256": "f4971e6954b2ab1777c5e19737cb25cb4c06ecd563ccc63375a7aba9bdf6ec62"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "37a4d007-793e-4a89-922a-c1b05f4f82c1",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "241ff27f12dc8f9427f3401a7d9a303cc6079ace3e408fea88e362a377878242",
+        "full_input_sha256": "ad127cd09b21768aeaa71d4fd405420953478f3cbd38e93187224dad056827a5"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "38ada695-2c79-459b-8e68-dbed734c74f9",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "40a5b6857eacaaabe8ec96240393a3344c3d87c46ed8a9f1eebdef036cb324d2",
+        "full_input_sha256": "ff557dc5a16903574d53c373d2619a70beb82543813336627392c938538c2094"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "39c985ce-70e8-48e4-bd76-744cd07cb56a",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "dc5a272a0c4f53c61a9c11d3a5b35e58c253d08f6e6093c5dac6d667825408e4",
+        "full_input_sha256": "58209c8e54e322f065ec8cccd2b0dce1c6500f574bc2eb3d9dd6222854c678c4"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "400786c1-e6c6-4f46-a501-86fdd048ed88",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "8a5ddc4b9180ead495abb7c221d5f09f9d47aad9df9f4b545f739e19179fb0f4",
+        "full_input_sha256": "5d75eda62fc3cdd9a1d6ae57a266b665e80f45b03818a082bf1c0bf00e64fe76"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "4bb69c9d-2485-42d2-b8aa-aa647b407ca4",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "f32af78afe75c11b5e206e46c2a1a6f96f479baab2bc223a369c284379f7bfd9",
+        "full_input_sha256": "a0efdd463da4e4dfed68d77bd86e58d48c99c28de242a2ed967c21d2f46d9639"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "55187fb4-e7ee-4027-b74f-cab50f328442",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "28b8dd1793b7898f1e6d6ad9be8ffa2b4fc83c8c16417fc11606912cfc664ee5",
+        "full_input_sha256": "ac52580a7f9393674090648bad2cf8d5d2d399d78d693c0324335a7786aef9dd"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "58f69c8d-cb94-4021-a84f-c549a7b976e1",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "1d16177b7c76724d49f23bbacc590537d7c6af34854453e5c23f9f3457f69f99",
+        "full_input_sha256": "ef19df64e1238e5127666cbe978e6f152b322921abb69fa52a4a13487de41400"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "5a2128ad-3127-4595-b810-db128d1a2335",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "4fb47dad13a28b8ce047343a18f430f5a78393a8caf5bfcb560aa18ce530a242",
+        "full_input_sha256": "9788506c2cd254265905b4c7234d5cf4f11c16823b7774afc354b3a2a7097686"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "623a831f-41ee-4e0e-936a-87f93d96369e",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "b08636ad2f65b0fc65c96d247d6f8c958d3fe531c66c9b59df153e96ea331bfd",
+        "full_input_sha256": "4727f241beaa8f2617f44348d942d2af4ac2702f2c943c29e8700964e7ab49c0"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "6fff0994-6d02-470a-9d61-8e35420412b6",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "2ec67620a8daa3bbcdea79b3c6893b91849d818463e6c9a5805a0c3d2e66a7f9",
+        "full_input_sha256": "4590d3fab3accf92dbb5508d135fbb92e146df44278382d77c0715e07bc49947"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "720e20c2-9ad1-4d98-9f01-8b7fb3782a46",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "f6291d0001a44ad32fc84d3abe9a51f6db9a9bfaef6a834b14ba530523dbfa56",
+        "full_input_sha256": "12ed944b6f1eb0f273314acdb79cc209e5b2f677b671da2da95263977db084d6"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "7d2c8d44-ecf3-40d2-ab69-b6195c46ffe9",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "196678947ddc1b4fb078bce3b76d556611e3d20b763e4ba3de16e7cc7fbb2cb5",
+        "full_input_sha256": "33c1adecf8af86b09e903597e342cd102c80f654815fd56fba8bbf3e86b2eace"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "8266ac61-92d6-423d-8e7a-fe47b3a7e885",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "9e894c46adaba609154e9d59be30d59c9267504d3373ed972fbb82f07dc29a57",
+        "full_input_sha256": "610ac45fbcfa3a2acbe60833b3bf1cd71974304be2d60707eb31e9a1a60a1ef2"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "837b2489-723a-4099-9b68-c2a9ea688f4d",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "82dc6e8ce7a08fd5ef58f13c26721692be2f0020ddcafae7b7c4976e66aedb14",
+        "full_input_sha256": "2c0a8be5302d6e55bc72254c8da52557979343ca1ecb941f94ce81664a24db00"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "8696273a-7fea-411a-b6c6-0e826e1e02b5",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "b477fca492209ca0d68410c0a34308e77c31cf417b2da4837dd3b7feae993b5e",
+        "full_input_sha256": "3319f01ea50d2896394f4d404a8eb269ecb25a63ce384792526f235431a754fd"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "8d12cb90-73c6-4cc1-9f83-0fa9fd822e92",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "b3e2eaf16d956238b0c6ec809403795fdd3d9e5b3a81bbc99ceff276cc07c4f1",
+        "full_input_sha256": "a4c122f1ab49bd90604d0d95873c40edd7e99eee4fe1d9d99b79372684e7c1d2"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "91387526-9268-4a3c-9abe-73819707d0b0",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "97e65ebdae8e2f38ce3955ac33060518c9892a57e7895de0841e7ea1c78f3400",
+        "full_input_sha256": "a5ecfddcfb96be2877d1ad3ba28a3a1b235caa96c975b8f277ae2e19710fa727"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "983f1ef5-fc7d-4f4a-8f48-e704641eae12",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "e1a7ffa81d28c64d77632480d0507767c4b3d1176b7cd3295326972be5767188",
+        "full_input_sha256": "235a4f2bc26f65dd95de5237aec600aef7ddaad461fd302bd762c22d8ef50f23"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "9a0b82cb-6a99-4e50-83fc-3ef2ebd277cc",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "91cd03991dd4cd17ad80122a9bd81bd53f16fdd5125bd47aba5c65a026ac91c6",
+        "full_input_sha256": "6b252d58bc55e8a8225819a2acaa477dd24b87ddf21df0d81f9ed58295cce90c"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "9f797d29-9f3a-481d-b2fe-326cbc686273",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "7e8a5e39947bc8081effa4e59f7f7109c13bb4cfe612ea36990cf4405a6cc504",
+        "full_input_sha256": "cebd6ba17e867358072507a737ae8266b1072d2d935bac662d50c50017c75542"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "a214f5f8-0de8-43cf-82e0-7930003e4a0c",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "f92201c739b8557698fc906bebe11ce6ce7340b3f475968dce313ac5316f11ed",
+        "full_input_sha256": "842b1638c1e75c4a2a297b0edb856b6a5116a8714b0fc134d82282149663c7e7"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "ab5eb050-d134-4445-9307-6faa08be7474",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "df8f4de3beb690d705a58df993af02d78c909204900e8baf3f2be66510222216",
+        "full_input_sha256": "44b945972625249b57c3ce021eac26a81b9a571869f48bf3c496a67c3bac2fad"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "afb36e40-0836-4810-909e-eabfe17dcd8b",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "368c8238590f4d0052db2ef6ce7248a53a1e0c57d22349ba06b6140a54fc2847",
+        "full_input_sha256": "449534f81adcc541a659ecabb259e26d140c68d4d956b2765f2f67377157c82a"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "b1d5a5f5-6e89-4dfb-b60d-5a9824b015f3",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "a5745bb6c2d57dce38f901f4886426953e31ad06cb92154ed65a555fe6695662",
+        "full_input_sha256": "415b865e15422c79912e03799f710896ed950a46348ba11947e0de82bc2ceeca"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "bca1be77-208b-4d57-ac29-05aa6d58bdbf",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "40805db7174287d66304396c0aaf789f7a1a2af25e048cb8251bc9c0959f5fe8",
+        "full_input_sha256": "49d0d21ae4e3646b841ee86a0d37e38b023ecfc0f39fb483ffcf5347229588a0"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "c6e11fac-8f9c-4cf1-aa6e-4d25731ba74f",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "daf71612f05ed0b7af87d3617169dafdc1025a84c0f1454b14802a54445827e4",
+        "full_input_sha256": "bc7fbd41d920dcfbd02392e622fe9d598b0b6129b0973d41f7e454805cc0abe2"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "cbe93a43-09cd-4cb4-9edd-f22fe8c28415",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "29bd2c9bdc1acfcb67d8f7444dbb9a6c42a73faeca921baee173899e48155bff",
+        "full_input_sha256": "c88170a05d0c21c7c64576f5a13505eb552fcf7c4737ab9c7723ab8ad15c7e89"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "d65103ae-c881-4116-a0a7-1b233eb6275a",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "f1d8292991bd0b2ae55ba2b440823345ebacac90c8dabad895ac29d02af551d2",
+        "full_input_sha256": "43547980d8f7eba4081a3d42d9974eec54c001f9e41fe7a1867e3bbf34de1946"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "df061613-2591-4faa-be03-791c76375cb5",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "e69342c893ccc8f271ec1a605603a0b2f8f76d327482d6c1f8852b276ecf48ee",
+        "full_input_sha256": "d84d3b6c37efea4623b66c69a8638c68959f55bcc1204d8a1595636313d5e1b6"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "e3b5a4af-41d9-48db-becf-29a08d0ad28e",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "13fb81601427b0c2da93f90b6fe7c3175b0d24b070b22ca6c0b21e59d259bdc6",
+        "full_input_sha256": "ad323386cf57cbb0379b276db30619362e8606327f1245bc87a1796b807bd7e6"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "e90ea0fc-4659-4b20-acae-75dc4b97a101",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "dbe787d3f36e028d68eaf022fa94288a95ba4d825bbc902100aa19afcf46b3f1",
+        "full_input_sha256": "2853448e8876fe3d1b65a9cb37d291563edef7d9aa233fb8f73e07ce016e204d"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "fca26d7c-05cf-40b0-9fd6-a63ed7950909",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "c41d7b4cd0577df458104dee3fa52f30882c3a6eb69593eaca5e2bedeff64e71",
+        "full_input_sha256": "01fca9969658cfc81c7aa51c1cc799b1b536c04bcc77f164cb57edf9bed7c295"
+      },
+      {
+        "subset": "LitQA2",
+        "original_id": "fd60a0e7-ba64-49a9-843a-6f5cb17c5fa9",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "litqa-v2-public",
+        "source_group": "0fde965c4ab8961360233d4ebee1614a67f187fc609abbed46aa6b57cf773d87",
+        "full_input_sha256": "c7b7840ffed0c6b8b432752c12acd7961b17786cb42a8184082330a61a71688d"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "0ab55714-9ed1-4e4d-924a-0b297d5260d2",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "85f41bd9fd9ed844ff960b053c8575623661e1af4a0c9a178aa99da8c15c470f",
+        "full_input_sha256": "dfec321cb5f192346afcb550759a38526e51b86439caff6366004568b63e48cb"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "11d73398-7b2b-4720-bf75-9f63af095c80",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "7641ff094f82c1f3d4e88c87c31c1af2c1bb556c6884c219dd51236bdfd4b631",
+        "full_input_sha256": "318ded9cdc2bcb1995cbda7533588cdd8e70641895fc181dead137b0fe054e71"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "11d7d19c-cb15-4ced-968f-8a270ce38477",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "b5c5a5cf97e68ba3e31781bab57bcb4e64acae466c54a8749708ac3e6437f906",
+        "full_input_sha256": "3ced4bb176a5a0f1e998b71c1f210e1bddb010f6102fb8121e44f26f6de68a43"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "2fd6e57a-3da6-4952-8d36-da12414b4882",
+        "split": "development",
+        "smoke": true,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "fbcf4a509f705a7113080ed99b2da120312c495e9ba7efeece189614a913ea28",
+        "full_input_sha256": "24a9c954cead23c8500510fd1af1d2c26bd3e2a5a850a225655aa4f2c5bab67d"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "3b5bd87a-a3f5-4082-a5b0-20e0806fdfe7",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "b913672644ba4b5607ff985490d1af1168e0b716ab0b146362e8c1c00f3760f5",
+        "full_input_sha256": "2dccfd297f271e294d3b20b70a75ada89d8ad4498f33f3d0f04c70ab886c0c69"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "3c62b0cb-f6cf-480a-8a37-d54c90d5c287",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "80a74789e00d418cb4a8f7c229be5cc1adb3864c723a0d4c52c5f41db594242a",
+        "full_input_sha256": "1c324b90977959cb4649ffef65ef027233fb6fa4687156acc727030683775144"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "4fb3c795-2181-4f3b-a231-c84d1ec7ebf2",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "192c0c22b97c47f96a3118ab8ecc2d2cfe2a6363f3e4727210339f9e7d731c64",
+        "full_input_sha256": "b9d804ff0cacf872ada6e63dd0071f7a36c4804290f518f988d02e0c42d5bc7b"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "51b68661-5ee1-4089-9b98-65327180a4cf",
+        "split": "development",
+        "smoke": true,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "978bfd3ab6a30dcae964c2d028e4da21f30c691702d26ad1ab639589f951864a",
+        "full_input_sha256": "d3e271b8dfb12802d90560c8b617cd5d5fd683a82f1d394659b308558c3337ea"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "53b5b115-0c63-446e-b671-b6017f518cef",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "15cda89b61b46ba26a6500aace20681d403562bf7e1a490aa637777bd23781d2",
+        "full_input_sha256": "cecf4375d754d4f2655f657095c89bdc768a5a51354470070362166234290d1f"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "6928664e-070a-45a8-9a14-074dac6941e7",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "c4d1b950bc7968208c58c61703340a770b35f6a23e062fb708f294a2a0fd04f3",
+        "full_input_sha256": "f021187b12e1a309d33129ed563f4d4b7f4551d03c554ad00dd926e11349e317"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "6bc0df89-5aae-47b4-9d2e-2ebc5fa08e96",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "2561d9dbbb71708980779584c316c7e0f7dceb082b6f0add1f38e86c45752a43",
+        "full_input_sha256": "c38988c3ef74519c90f24b1af21ed41fd20ac37e06d35ecaf3f90e4baf8c0852"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "6d2e1370-8c82-4142-9bcc-6675e730aa46",
+        "split": "development",
+        "smoke": true,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "2d883033acde68c070665200e81ff646026a23836b414850ad0fc049a6adae9f",
+        "full_input_sha256": "abda7dc430c89cc847f4f2baea6b41368f53c879cfea190b0a252b46d13b257e"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "6de81829-08c5-4466-acb3-36b72451f1ee",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "cb07f21e271e13d5bc39b12ae0a76b1b4c8582fa332a7f9541963aa91173614c",
+        "full_input_sha256": "baca7921b566925785fdb109beabc9b4ad587082904284bb04b3b6112e2ef837"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "819abfdb-fcf6-4678-847f-bd1c6f2699e1",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "3c64d56d0de83f65efad8dc6068fae5d1d5b45d367a0c1371e876cc7455fa8de",
+        "full_input_sha256": "6b95c43448af4d512d2857c1623d3f7a61fe232087f527443154a2594da4e21d"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "a28d2081-f953-45cb-992f-8d0e394e60ab",
+        "split": "development",
+        "smoke": true,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "bb9d3746a2ca858ebc470fbf044696b7a39e860ac733c3d4377411cfad149b1a",
+        "full_input_sha256": "3672672c9c8071176701c054ebcb428bd3d9ef30d86486dd55fff8d9fc179b68"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "a516333c-21b1-47cf-851f-4c1f34f83aaf",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "5d9be82ec4cb9d2f1a742e9f92b52791c593ad5ddbe07a354000dc5e71e30df1",
+        "full_input_sha256": "329cf5864408dfdce442f7a75903f0ff4301c2143201d2e55ea1cb098700c979"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "a6231697-bb0c-41bc-b3bf-c7e237d7d423",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "06489997b2c582ab243c94a3ae31cec728e62f651afc713b03e83b532bbe7a26",
+        "full_input_sha256": "c9bf57b870fd5b4c8824f66f6b3da3b8829c90a5e357ea5f8246094d11050393"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "a9c6aaa4-ce50-4225-9073-b88a7e671bfd",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "1ec7273ca83d920cdfc078e3a91ffa8c3cbe36a1fe87f501400b48689ae04413",
+        "full_input_sha256": "6214a6f1dc02ba317402423715005c90ad78ec11af3fb24a67e9edfa1d475e02"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "be697753-fe7c-4ed5-ad28-4853e435d21e",
+        "split": "development",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "ecde002f55bcca8cfe8dfe759dabf1aab2e2467a7f021f6eac8d147203fd4d4d",
+        "full_input_sha256": "b8504bc75f2409d9cab218af23f67c654e1fe07c5ff8cbaa7793f5388bc51b27"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "e39ca05b-5554-4287-a2f7-f9737df86931",
+        "split": "development",
+        "smoke": true,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "bde8cb0bad644aad7688e5aa9953ac846b660e36cef1032d1e514e9501fa3cc2",
+        "full_input_sha256": "e3a389407f5458c06775ca2652a90f9bf41c3e71e1ee45bbe487eb1b468c74f3"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "087157ee-e683-4a01-a4a1-9be49bf421ea",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "35c10eb52aa878af2fded73d5c87da798665b59d9d6d14eac86c7e91942c016f",
+        "full_input_sha256": "4b24fc10c97f2030f3b9155cf9ca4c55775f33b1731dbb4b2c2eaccc15c3e023"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "0ab2f959-298f-4ac3-81a2-d36d36263d92",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "e747f2bcdd122ad53fed82939782fc80c027238dbabf973b6c5f1f1cf54c2ea8",
+        "full_input_sha256": "e8b1d86032d7d46f228cbfa06a552b529abd94fc08cbb5d2651632a3ead21845"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "17eae5ea-5267-45d5-ae3a-a631b8328d38",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "5cff3d73b6c5c79027402800ffded1ba9761cad158e10f237bad286bb0a9eda4",
+        "full_input_sha256": "e563ffa1c4c826319639d59a09b8bd91ff99c31d819819f500196ae4460ed5b8"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "307207d1-c5bc-453a-ba50-d518ab3f3aa5",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "82ac20ae1bf0f0cbd8e201bb1b6d27b7c72cadd50716df605070f8afefb1d5ed",
+        "full_input_sha256": "7abc0d6666a96ca244488bf66e419e36882056c021ccabcbf7b91f3f34900232"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "36cae278-14d8-4402-b0cd-a1883e9c7828",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "44d56260a4cd630e5e7fc929e6958c2cef6361f36cca8c44d3432b50762abdbd",
+        "full_input_sha256": "248d043a27581487b058823b4d70cde22473a6955e9247d40f4da0c28b9461b6"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "389b4ed8-3a58-401d-9532-b0215b8148b9",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "c253872a669e8e9247790521d21a2abfe27b3d5e2a9148a852fcdfe645be18ad",
+        "full_input_sha256": "35066cb70df3697d467ff5c957815347f1e5f0e0bfc1aee0d9edecc4020aeba2"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "3fce3c93-46a9-4215-ad2e-93417e8a03b9",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "ae9112d81e01bd9ea95fd3f31e34654f24628fc7c418a7f1258dc286715d8d0c",
+        "full_input_sha256": "4cdc0aa0455b9b64aeea2eb4431295236ae3f38b7dbf98e12b04b6556fe8ebc5"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "44b66cdb-bfc4-44db-a5c2-94d32d878123",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "33580960b88f353e5f8d252f6ee20a01172e844c7ccabc47975e45e02c9ea677",
+        "full_input_sha256": "5db6cd8cd311a77ba327ef0d2e5092a0aaa1c2a74bf7d470924e80e3e05d9179"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "467eef48-3aab-4195-aa79-0838f35da84f",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "51af7eebdbe18883f6a833ae50e96b3fbf9d6c8adf3819ebd91ceea05316d10b",
+        "full_input_sha256": "40a30b822ec92f43e0eb7a4d63a365ee58cb12e6274a142e63bd0aa683972d60"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "4f8da757-bd4f-4412-8a57-cc52445d4e68",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "6d02868342aec1de8fb530a5c32ed7d2e195af4921ccfd3ab38ef593e65c5045",
+        "full_input_sha256": "9e32eb8fcd0d620bdf133d46ca96f4e2a329c17de09d0ca14b59349ae5647f3c"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "520f4620-e45c-43c2-b1c3-fef978d32320",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "7f5d1aa9622e6b30baa9f55a7e4bdecf81edcbc5868d235c2b979360b2d478cf",
+        "full_input_sha256": "112ba1b4e72257cdff5685733cf4e2b75ad10b378ede30fc26fffb7d2d8f1403"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "71a8dc4b-f324-4840-9432-5f02d54c0f4c",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "01fcba51bc77355731214961163a4ea210b219ffa6b8ae9e13ed7d61d3d7c3ad",
+        "full_input_sha256": "a11372f04d2efea933542e620586e286f859792a0db44b5606a83052e91bd5f1"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "74ff0dcc-2f9c-4243-866c-7a2375e6f0a2",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "1a19a05552c7a7d7f346cbf26155879645daa3403f61345e8325fb0c4555c11b",
+        "full_input_sha256": "41c45c457b21a9300be3bb73e81c520cef1e304056f2ab790a788977c830827f"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "79a335fd-578f-4c3c-a8e7-5b6c07458b18",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "c14653e36797aeaa90ded23f2b17256e3d32da5f19e8c2eb99917fe68756d85b",
+        "full_input_sha256": "f272f6aa91e8ed6911f208a01046353b81f7dc2a533c736ca8d34ef65a589d55"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "7e6c4405-41d0-4e63-a146-891db7215c34",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "46868fbc099d7e9840145d115487b47bde4f335b1202fe01ed99213aa604b0bd",
+        "full_input_sha256": "f4a84692bfb4f219f8f9fd5bedb49bfb07da091ca3cee6bbb7405f345e1c3ef8"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "8014d58c-9bed-46d6-8550-6da17740bb66",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "e90f92a9c1b6f30136c19b9e82ef553df97c1a36de0bc290f4ff078275af5fa6",
+        "full_input_sha256": "9ac6e030c1a729256fe400ea7da463703848b694aa3e72c62b13fcb46b23acbe"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "810de65a-5568-41e5-b98c-9a2b03da0e56",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "63d9b4b42ac037184b870a4771a2090591c720e3d6d699840c500a98903cdaa6",
+        "full_input_sha256": "d365391cc65e085c517bcca0c1afbca298844a63ce148f904e4b3eb198f655cf"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "82e210e8-ac32-41fa-a9fa-0bc563903a86",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "25d93ca22134a3807fd3226cc05fc8a8177d4470405093c6e63eea601616bbb0",
+        "full_input_sha256": "ca3ee18014720295af08587c71c8622875168e4db5c6c7652040d0fec3f572cc"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "96f5969a-931e-4b6c-9d4c-ec01db548500",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "6d99b824134310159252b0d4cab6732379a038ad92ae1e7c0e2b56f15597ea6f",
+        "full_input_sha256": "63b5052c39755fb92fa565907a99f36b5f80edff7d8d154150197f274a78d9f3"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "9ff90cc6-2eb8-45b8-bf55-c8804d723e26",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "d4db170dda1539b90703fc597c4945ee885d0b55329d3d772ff63a5b0900e13c",
+        "full_input_sha256": "f38b4be4af144f86ad4d6572832ccfd185a81506a1828d3b2f77c499292fcf63"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "a55b740f-8ead-4d88-ab62-b4408ebc489a",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "c0ab9a315dad76280a416098dc5d182a6a74a770ff5faeee744b72e2e5d7bc27",
+        "full_input_sha256": "1641ba80d31452554469919ba6dd426b0fe53d87037a6f1c8d8006196402cdf4"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "abfb2fec-5218-4c94-b90d-f4ec35b5a12c",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "7f3db5b8a83dee4c5624c121a8d1a774a98de7e722cf2d8694e8eaf01e8caed6",
+        "full_input_sha256": "43b21c730990a2f3bb6058fec5a7e1d1ed58586b5b53654deed49d48311a6b95"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "aed5fff6-10fa-4e2d-b444-edcaec74a644",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "f7f984505b4dba087fa562a4f33ecf432220a77aa024460a89303053cc8d265c",
+        "full_input_sha256": "a6fccf3d360b950c6228e9cb75f48c8b9cf3dce1bf58dcebcd211b77748f01df"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "b39e9e55-33c6-4e9a-8ef8-33c973dc6bc7",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "77be9e1c538e735d2c07f4801fa3c243c193b8bf466b782c1f152494aa71fd19",
+        "full_input_sha256": "eb283b0ecdee2277a4f45207476bf604c335886eeb97575a73933cfde06ebc61"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "bb98fa12-c13b-4058-876b-7eee6f85d4d0",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "097fe271357f8fcc010757dc83b202c309714aac63085c928b55639500ef9684",
+        "full_input_sha256": "a78ea02c7618470d73101bdb92eecacabb4d0f59fcb66e9f34b30a431ef25e7e"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "bee8b322-2843-4be7-9adc-9e9dbf4c47a4",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "9e80637968a1488fb5e23e1035b8eca08b4c52a58949b8db19e89205e0d5ed49",
+        "full_input_sha256": "7e4e7633dda4e55186298d9f8c16d4223e9c39f285c63315d8da0d0d3eebfa85"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "c3c04a88-e7fc-455a-9660-1e0f3d742fc9",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "65d014e8985e917f875695b52ad4ea9a9076f6387d6d103972417643e4083f7e",
+        "full_input_sha256": "67bb20770ba8b81ed501f5167fe7fb58ffb4aa55e3f7efe0add33bd19030a547"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "c8341c3c-9e94-4567-9a26-186ad6fe1384",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "d72f7abd0ca2155a8926bf14ff0c32d92e04ea19329e9b8235db005e395c2aef",
+        "full_input_sha256": "c6d0a3bf2ee9be5e3953e3016ea993f42d73a2122b5b116f342e05670f3f8410"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "cad5e744-2600-4674-a8ad-8a02897c6fd4",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "40d0d043a570e84967de521480ad025363c8d62b82acb659ea5eb007f9f2b273",
+        "full_input_sha256": "84f0904b569eb8de39d117a799dd43397de559c0d20317c9e34ce085812faf4c"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "d43744b1-c8f7-4421-a3e9-b95c5a639e8e",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "34922ac103cf8fd5b7ca07289309bd219789c2edeb88cde51927b509067c7c86",
+        "full_input_sha256": "5883dedb5da23e7d424d62f59f911f0c584ab366f0c85a2d12935dad6a3048f9"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "d5764058-86d0-4f2e-a076-02e14a18d663",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "cadfc70eb6e19b1aa5cc9e2b9ce888584ffcbee2a193074de7675ce1da148742",
+        "full_input_sha256": "88e1958671ea65da3474f6641d14d60fe8385415c9d06eb8e9366b7673abec37"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "d7c7547e-2a8b-4da5-8c79-9bc24f8ca018",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "1dc7591bfbafb4faf56d37c1bee7881b4667d94afde69756c4f2555c815ed4c2",
+        "full_input_sha256": "513c12aa4a8586aa75317137b01895b79ecb728263b0db2563b7eeed1e16bf00"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "d9c7b154-997d-4a9c-bfe2-24aadacbc67e",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "18427440bc2fd8d22a065e4652433994fdad8462469b79623110877ef54213ae",
+        "full_input_sha256": "adc4380debd205c3ab57c4b5c893fec32363230df09b070929188e0d7f47a3d2"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "dd06a1ee-2492-4878-884a-e73282cd755f",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "bd6981a980feaa5ec8f5c81ede9bf711323760bfe7d2e146b4acc2fba86235da",
+        "full_input_sha256": "e899e58982a5da284da32f9d483077c07c03de0e9c9488dd85d31f3e099362b9"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "ea524341-5ac2-46a7-82a6-e857c5e411fa",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "13e00570829601e3b8aff91d96b8f865e791419ebd513210561f9b78cff0e435",
+        "full_input_sha256": "062510f8baee8ea0069dc5e3f61df9fc3e3131572b12c93204590823ed7fcc4c"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "ec4a3241-3f52-4008-a6bd-cd668878bfb4",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "8953cc3e495c733a0b0f2cc710c14b5aa18caaad2a4d348d8718e088e0f4f3de",
+        "full_input_sha256": "60afc17a131436219800ceb206691634ef706d8174a037c5b985bf5e5162e529"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "ec8dfbd9-fbee-4ea8-aa0c-d14112eb36d5",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "9d6cd97f881e6d0cf0bcb7b3132d7e19a67d586bc75e5ebe4b1f8d0ea37bc84b",
+        "full_input_sha256": "8217ef22c8543f63e5352307a89b253ff5cb20b155921287b55c5fae321368ad"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "eebdad6c-9209-40bd-88a2-23ceb6e9db66",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "a2238785bae81d4d52b40310e0fb1dbc99f132eec9fbd7ad655ad04a65cd3d28",
+        "full_input_sha256": "49e8d3369b7728436c91faddb19a997cdb99acf8bd7963dc58ee619650785708"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "efbaa096-4b77-4de2-87ad-d308ff63ede1",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "adc87f887eb72a3f4125e045872eb82dee9b5b820da5ffc91455237e7cf53881",
+        "full_input_sha256": "fbde4dd80995a19a89c6c0738a58e81c42614b218268ff7f1c9ae4e09d33153f"
+      },
+      {
+        "subset": "ProtocolQA",
+        "original_id": "fca46ec7-f3b9-488d-82c6-4a9bc2fd9bc4",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "protocolqa-v1-public",
+        "source_group": "70833b119d8eb2894be742cf6208acab4a24cfef7c82669544d8a1b2e1421929",
+        "full_input_sha256": "70bf2a84022c0e74f48640ae95b00ae9092b20e7963986d0b0a8fcc3e4cb74d6"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "1355683c-b52b-49dd-845a-7d282c211010",
+        "split": "development",
+        "smoke": false,
+        "subtask": "ORF-seq-numlen-v1-public",
+        "source_group": "5737f1a0fec6fdc4751753181c9b6e10de26636c7d844cebc3973598724c6f07",
+        "full_input_sha256": "0df438865b877e2b311e6b2bdafe4f727ac708dc17075454cac89a775489de93"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "18d20d53-b90a-4dfb-be27-d52e540aa614",
+        "split": "development",
+        "smoke": true,
+        "subtask": "PCR-primers-len-v1-public",
+        "source_group": "65cea29418bc429e73b1971c7a9a59328d0952fed6d4d5e74e6882d1cec26a23",
+        "full_input_sha256": "f5bb25f6a3b6680313622cd12200121428a5a814a97771eb11f98083dcc1ccf9"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "34701a08-857d-435f-ae2a-d9357eddbbff",
+        "split": "development",
+        "smoke": false,
+        "subtask": "PCR-seq-primers-v1-public",
+        "source_group": "c3fcc5a52e3b577c2f948bd8ddb96721c25392a00ca77119131afd98b8fb0f2b",
+        "full_input_sha256": "5e242ff601663361b46fc0516861967c69c222cde92b5eb48506b8b33ed6907e"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "679691a7-2b52-4e76-bb23-89774a8fa4f4",
+        "split": "development",
+        "smoke": false,
+        "subtask": "ORF-seq-numlen-v1-public",
+        "source_group": "f9ab180f958d44788f700568bbe0d5b3c1e1cd1ca3eb62e88d5b8c649bd083be",
+        "full_input_sha256": "1dd4e53af44b4615b5912c486914b61c0885a46df31bcbd2bb50f513dcb4bc58"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "700e03a7-385f-4d7c-b4dd-2e3320d52262",
+        "split": "development",
+        "smoke": false,
+        "subtask": "PCR-gene-gibshindprimers-v1-public",
+        "source_group": "b7512c4200cb1363c989f417916c2f1848ed4d59478a1b2cdd117b5de09e5b41",
+        "full_input_sha256": "d7f9e2f2f52319772e264b6c3e20c4c5649dca7f7f6cc659b86aee22b0215f9f"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "836a5015-5209-48c0-9901-6f3fdbc9ea2c",
+        "split": "development",
+        "smoke": false,
+        "subtask": "Prop-seq-gcpercent-v1-public",
+        "source_group": "00d4291d3df7c49fd22f0f4c7e4d3274e7e11aa3dc22f577a9bcb8efa96c40dc",
+        "full_input_sha256": "bdfd66b3f609f86889e29bef9bf32c3629621c29f7196f0898e04d7b5829e68b"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "934eac94-2b6c-491f-9326-ca7ac52f669c",
+        "split": "development",
+        "smoke": false,
+        "subtask": "PCR-seq-enzprimers-v1-public",
+        "source_group": "63b1cfa04f5050bcad17d78ef9b55497a34016f7bc5ef65143af954f9e57e86f",
+        "full_input_sha256": "89c97e2531d0e2586e8ae6df34e90a599451007085addc7f2f2dbc1014438177"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "9d2e1186-32f7-48a5-abeb-e721d6baa91b",
+        "split": "development",
+        "smoke": false,
+        "subtask": "PCR-gene-gibshindprimers-v1-public",
+        "source_group": "9114b994513cec64c05d453942a734f5948de8fd923f3b9bf9aa9320328e015b",
+        "full_input_sha256": "291b745d0e0a67172c0a6032a17f43447b882ed036c452513feb69acda4995df"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "9db6ef72-fa9d-4e20-a54b-9b8e53b86bbf",
+        "split": "development",
+        "smoke": false,
+        "subtask": "ORF-seq-AAid-v1-public",
+        "source_group": "121d6e17a62f92b256901c5657d426c3ac146c0f959e0e247f81fc5a76055625",
+        "full_input_sha256": "f52558b0f3518917a2112f20d469b5097990907ac257bb02b2c5b2a8f2c6b6da"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "9e2c4de8-8179-4c5d-97d4-b75b6aad5692",
+        "split": "development",
+        "smoke": false,
+        "subtask": "PCR-gene-gibssmaprimers-v1-public",
+        "source_group": "92aa2c22bc3bbcdf9b41f3422b5a6e26029bd4b02d9e255f5f30dc71e614dc93",
+        "full_input_sha256": "e047c903d363b91956c29e89e2a950c616c211b7289230ce02f0adf330abb7a2"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "a3775559-e542-4142-a882-8e87a2ef2efd",
+        "split": "development",
+        "smoke": true,
+        "subtask": "ORF-transeff-v1-public",
+        "source_group": "4237c1230cace7777039f1c0c34ef78c3e978ab1096a12291006d4f8cf523699",
+        "full_input_sha256": "202155665df0cc857148ff2387e931e69d65a901f64e2ffb9e41351d7856d26c"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "af3b3a9b-4567-4391-bfcd-61c621dce7da",
+        "split": "development",
+        "smoke": false,
+        "subtask": "ORF-seq-AAseq-v1-public",
+        "source_group": "e965f9e9d33eaf7a1b59a0d52dfd61a5878d1c90d075ab00a3a2769cb00290cf",
+        "full_input_sha256": "1cfc8f298173597055b5f6b9f8c95147675ff55409663b908c2f97bf72872170"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "b0f80f7b-fb37-4d03-b8a0-34c1e6c1db96",
+        "split": "development",
+        "smoke": false,
+        "subtask": "ORF-seq-AAseq-v1-public",
+        "source_group": "a4e0c3ffad4955b8babfdf2e1922fbc03c1c72bf8fe52779f0648d72c769ed07",
+        "full_input_sha256": "4513969daf7076c2816dc6346afd111b7c55ea1236697a50c6d9625c8c6c61d3"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "b2e42042-2590-4564-ab23-961ef7adea2f",
+        "split": "development",
+        "smoke": false,
+        "subtask": "ORF-seq-AAid-v1-public",
+        "source_group": "ff0b82d0d9ac018f983ebe1d4e002b6ffcd7f24dd0d9ef31c8c6bb203bfbde1f",
+        "full_input_sha256": "c340d21396e9ed7be1596a86aedc8ade2ef508baea62184661f4b38c6cb9bb37"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "c0f530dd-ca31-4bcb-86cb-93b7b5523bf7",
+        "split": "development",
+        "smoke": true,
+        "subtask": "RE-seq-numfrags-v1-public",
+        "source_group": "4acd784f96f351b25041c564422e25a256df15d345698335d80b3d16b98d17f1",
+        "full_input_sha256": "b507e9064cabcb9adcb073b5548e68d4670ad881c8d3882739c037d79d260227"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "de756539-c341-4af2-9895-803ef8082ec8",
+        "split": "development",
+        "smoke": true,
+        "subtask": "RE-seq-lenfrags-v1-public",
+        "source_group": "e60b4daa056db8764142b5685a56dc00b5f364f9206cfe2a2077daa911fbfd5b",
+        "full_input_sha256": "ae72e1d4ffa51fbbb3e9eaf7ad46f3d819540f0bb6bfb64ff5688cd8561812f4"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "ded3f6ac-c54c-4626-86b4-cc607a44334f",
+        "split": "development",
+        "smoke": false,
+        "subtask": "PCR-geneprimers-enz-v1-public",
+        "source_group": "dc70b38d36f380f95e60b08f289f0ebef9c2f6846a685414e0e110652987c878",
+        "full_input_sha256": "1933f5ddf4ce1fc934eac8842f9c276b645c3e66c893b7236f08345eab1e03aa"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "e673fe4c-e776-45ab-9821-7e77eaee0c53",
+        "split": "development",
+        "smoke": true,
+        "subtask": "PCR-geneprimers-enz-v1-public",
+        "source_group": "4c96750c0a1da29753c26e306d98c0a977b1154db5f88486884a259957d28f09",
+        "full_input_sha256": "e0da87cc9f4758d792e0cace4621f0c18131d1ea5e363be3fe1037ceb8d43809"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "edc8f52b-2054-4ed3-9d8a-1263966e39cb",
+        "split": "development",
+        "smoke": false,
+        "subtask": "PCR-gene-enzprimers-v1-public",
+        "source_group": "7b9ad41d62be0f7a37311ec16d236d7156e23cf6a22804a4d5ecd5253e6d7e68",
+        "full_input_sha256": "eedc4f63e55df936b93f01ff93c62ead97744fcc34c816e2bd394e721fdad78d"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "edfe16a8-b7a7-4dd5-b1fb-d185c9bd204c",
+        "split": "development",
+        "smoke": false,
+        "subtask": "PCR-len-primers-v1-public",
+        "source_group": "99a78965864ca286f49f538031a96cf745beda604f28975d74b4a4865f1c1426",
+        "full_input_sha256": "975ee0aee031552ec01367149fa24f7f3942ce552604d65eed159f1a1dfd9830"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "0628521b-2989-4bbe-837b-84252d516868",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-seq-enzprimers-v1-public",
+        "source_group": "8a6c03f62f5ad3da71e6968194a7d5ce34893ea1906c1f3051aa466edbaaeb71",
+        "full_input_sha256": "a1a145cf11655a66fd29a0fb40be0043506dd55ba66ffed75ec20336fc67bfd0"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "0c6d3c5a-c1ab-4cae-820c-d12b683d0ecc",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "ORF-transeff-v1-public",
+        "source_group": "2bc80d527ffe7cceb39b1db61d9d2cc1ce1c889897b3bb067d44244a6f57509a",
+        "full_input_sha256": "534d0418ff8355afbf5b97150efedf6232c600592fb9c7e2d6ec8e79759c2723"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "2c5ef6b4-00f4-4558-b89a-0204819504a7",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-gene-gibshindprimers-v1-public",
+        "source_group": "11214e303eb55d91b6f776561b7decb95ac2e7d97db462a8260a222e510148c6",
+        "full_input_sha256": "7e76dca50553420096cdadc08d30920b9c761bd414b236baf7dc7935606c0fa6"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "2f013b1b-1914-41ce-a2c6-7636ffe78cce",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-gene-gibssmaprimers-v1-public",
+        "source_group": "e6f779bb8c0d94d2b670538b44601dbaf94d9dc7b6ebc3a25b32de5809efc7ae",
+        "full_input_sha256": "f0c3fc2d491fa8e05a3fe2f4527cf6dcfabfbcc04e228567d292139e02d3a425"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "430aaad9-aa36-4199-8726-ce4936314146",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-seq-primers-v1-public",
+        "source_group": "71e3ae4fcad6e850f71dd02813c73ad56c192b89d588fe1f9faee825191d5cec",
+        "full_input_sha256": "13235b3d760f1f938892ae7e506d4fca07bac76e01fbc87c833cb9191628c5cd"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "45006824-15bb-4928-95ea-a4c19b6408b0",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "ORF-seq-AAid-v1-public",
+        "source_group": "1aeb08d1704460ee8474cd58c1b45c4c649df9ab77ddab27da0dcbdb352ab5ae",
+        "full_input_sha256": "6c64585306e1a1757d8db8e613ee31823ff239f54fbe3b417de6cd45caf30b4e"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "4da60aa1-7212-4bef-a23a-00abbc869bc3",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-len-primers-v1-public",
+        "source_group": "ff929993237e66d36645d7198003abd6cde980f4b24d6e63fd1fc0b86806db64",
+        "full_input_sha256": "42dd5b03fba3bd12a6b27f3a760bc7db4e17b568f8d4a1976c93061079cdd617"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "51613312-e6de-4e56-9d16-ea25f6e2d813",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "ORF-seq-AAseq-v1-public",
+        "source_group": "4cdab0da1271641a7d556ebf9a12722aaf7c5ad5908ca3692d6f85c2958ba96c",
+        "full_input_sha256": "b0bd0ea343a47d1a56112e4d7301e4191f962014f125d51fb72ff5bef2e319eb"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "5d930d88-1de4-4c00-a4ab-87de4206557d",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "ORF-transeff-v1-public",
+        "source_group": "8c32961d48aa9e33c4959bac91db5867513733d025a456564cdecfd08c66c617",
+        "full_input_sha256": "d0d51848bfd505477e1f81478476eb729c140abe9858ffaf248246f2a3c3cdf6"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "5f5539ba-f75d-4d1b-ba8c-46828a6f6743",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "ORF-transeff-v1-public",
+        "source_group": "d28c9d5a86663744ba88fcc683acd04e8b1e76ecf7e322dfebb4531013030e93",
+        "full_input_sha256": "9e2a2f7529657f657e65572a8a8d1b8404ace8acedea7dea6c1855ebdc2135c1"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "6452f1be-4efb-4146-8cdc-4ff48357560c",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-gene-gibssmaprimers-v1-public",
+        "source_group": "a3b5ae157311fd41731607a905ce4fa703d10090e9d41d38e74a302f9fc1a59e",
+        "full_input_sha256": "ba717d652bd195176b11bd5518e793274d2969e034a373bc20dabc3a33a78f23"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "6678765a-3f3c-4320-8bdb-cd69a7ede0f2",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-primers-len-v1-public",
+        "source_group": "4e872bf8038a74dfa883cc39f9bdc25e769352514741ef2dff31847bb32f4061",
+        "full_input_sha256": "9219425dda4f59316cbb2a28c66170d8dcdfafc0f7718bc1d426d208c40f28d7"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "67c04e58-e5c1-4edf-8725-ec3c69c49807",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "ORF-seq-AAseq-v1-public",
+        "source_group": "bb4d0ca95f210b246887fead39979214ad15c251a6d1e3b645a3940612f3978d",
+        "full_input_sha256": "7979034ea7394edadf641338fef725002ea116ee6eee9d11ffb645127cfe6e1b"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "68f480e2-ee31-4da0-be73-e4e125f9d844",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-gene-gibshindprimers-v1-public",
+        "source_group": "2925f6013bba03c872297fbc60d8108b1ed837ad3136afc53eb2cfedb300b858",
+        "full_input_sha256": "662fdabdab22d860f55eaea5929f1304b093e218f88ab045e2f8d1d705df94a4"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "6c5c6e5e-f0e3-4ce6-8b60-cb544657da7f",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-geneprimers-enz-v1-public",
+        "source_group": "e63e881b5049fe2474025ceeb4439ce9453e497e093043250be7c1e932800ac8",
+        "full_input_sha256": "779a15bc7a4c3d8ed5db856bbfc9773a9b1ba763ff9d285f880cc85e72777ca4"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "705da22c-cb6a-4f88-a20f-8791df57d96c",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-gene-gibssmaprimers-v1-public",
+        "source_group": "dccb73cb38606378ea0c62a23b349c0a4528b93262779bc78e539811c8e8e19e",
+        "full_input_sha256": "69b91a076c42c021f8ca29aa10ee53cc33b661a2a478accadf62a91542dfee82"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "7c7c542c-0758-480b-bb52-af895766c679",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-primers-len-v1-public",
+        "source_group": "3aaf6a55d023a668cc30462c42b7bb48d1a4d31d89e9e5855679192ae395e9ba",
+        "full_input_sha256": "f25b478edadb115b28673cae2c1914e4308874f6054879096e1f28d53f1aac36"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "7d75baf7-3f6f-46d3-8e4e-b22fb3c5a7a9",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "RE-seq-lenfrags-v1-public",
+        "source_group": "5c7cbb4ff3574b05de1e5f31fd23fc9f58e62d2bad93ef36298282201b69d132",
+        "full_input_sha256": "2898334a05d08a313379900f780ccd1615c3f6db13a1f0e1a3ad28cd724399f8"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "7df21e90-5110-450b-9e9b-0e64df27a9a1",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-seq-enzprimers-v1-public",
+        "source_group": "27ddd053b8ef8c21a3dbe85b1191e7bb604a48f4883d4b82666d1256b4cac3b0",
+        "full_input_sha256": "4b649ba8df8a638dd39ff1e167cf678933674a6cd20729e27ac61182f51bf99e"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "84b9894f-d663-4379-9cfa-33ce0549533b",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "Prop-seq-gcpercent-v1-public",
+        "source_group": "585df6bf8e5d4c352b107694cfc662ede4023d80528166865f1c65c4d3c8e51a",
+        "full_input_sha256": "270199997c3e48feb38348cb5d18ca1f0ded94cc6ebfbd8d86be6b1f7b038a2b"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "88ec8b3d-1f94-4338-b381-ce68db14485e",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "Prop-seq-gcpercent-v1-public",
+        "source_group": "42a141ddc23cfe4c3ff454b0f4cfea4ad5b35d6b50d05b9040d1cb6c0390313d",
+        "full_input_sha256": "dc288c950ffd715a8a640ae660648d84e6bb4e41f097662e39052972376cf2f3"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "91b41824-de09-4690-8b84-c92e8d1e7a4c",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "RE-seq-lenfrags-v1-public",
+        "source_group": "a7b6a97650c83291d6d1897a7d0bc9b57bc471a32bb24d079a2850e4bb5ac308",
+        "full_input_sha256": "f340c6cbdeeaa5c48a68342b6f880211ecfb14dd01f765503a117a4e437a709f"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "94ca9d6a-26a0-447b-9c11-467762ad34b3",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-len-primers-v1-public",
+        "source_group": "11978b7500ee0fdb6b3d27736fbec98472205206a19382e7a2d217c103e0ba17",
+        "full_input_sha256": "fa04276f70cbeb7758e7cefecaad1db1346043de40c9bcc216af5433a05c8447"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "a1e77200-fb26-4356-9d6b-105ebd60ecd5",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "ORF-seq-numlen-v1-public",
+        "source_group": "0e9cadf004304d23250c64ee46416eb4a13a0b7f1eb4deb404a527e3b678d7bf",
+        "full_input_sha256": "460d0cd4f73e3001ef65cc79bb41a97e6d93f2e56a9b46746685fcf9c5b1da54"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "aaf7009c-d14f-45fd-84c6-ab6b447e7dd1",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-len-primers-v1-public",
+        "source_group": "d079db6eb6810a3e8bb3ea2404b4464ff7d0ac6bf2e826d97c5bb3158826da44",
+        "full_input_sha256": "ce4d25d352e7003bf810ae0318a5c3995f42d1789e7b865e800c3fe744ad59e8"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "b4ae4a4b-adf8-48fc-83d6-682a38163b09",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-gene-enzprimers-v1-public",
+        "source_group": "c70d6c160d938881e4a17a210c1450e3642465a8e976cba017ade2f345ce0a37",
+        "full_input_sha256": "84e5889a31d2b8b8d3294191392aba8e603a431a4ba9af486dd52693db26169c"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "c6ed0a91-ccc6-466a-98b8-544ed3607164",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-geneprimers-enz-v1-public",
+        "source_group": "cd6fe5001f0ce860b4c5e069658d77a71a11f202d393412b14dee549945e4db7",
+        "full_input_sha256": "258604c9697385e9a53ab7662748dc353b6e47baca441e7f9a525240a44ffb02"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "c79459b2-36cb-40af-bb1d-fdc9e6d8f3aa",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-seq-primers-v1-public",
+        "source_group": "aec9e5228248272b4b267314c96864e818e848b6414b5d483558b2271b4a338f",
+        "full_input_sha256": "ad5030064a5f3ca9c62d782a7f5f6500c35fff73f65fdc4073acd2f4e44658de"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "ca7eb3d2-acbb-42db-9642-f058ee42ab46",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-gene-enzprimers-v1-public",
+        "source_group": "dcb5397fee3e75b6b241b2285be2684c86e3257cfb8da36a24913ca1cab58eb8",
+        "full_input_sha256": "2e58e00073a6cefe25ab9c6914d5c6dadd3628b1a59a2e89076cc6fa40cd4465"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "cbeb9204-422f-4782-81ec-09453aa07d34",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "Prop-seq-gcpercent-v1-public",
+        "source_group": "f25b33e1141bcc029efcdc6b1798dbac0ff5906040c7e8bb94b45f444142bb26",
+        "full_input_sha256": "165135ef3a20bed661ad33572e9359d9f2b39dd69906f5b7b7aa4173ed5bf174"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "d064dc3f-cf71-4dfb-8886-2e9286d77252",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "RE-seq-numfrags-v1-public",
+        "source_group": "6e2a5b2c92712cce48850d8712e58cb9cc4f1053c47580619b1157adca27e11d",
+        "full_input_sha256": "5517712564256b588a43cd484c3e6f4ec08cc11b6c356bdfec0016996b73bf93"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "d10d3eef-8aec-450a-a765-36bf165a11d3",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "RE-seq-numfrags-v1-public",
+        "source_group": "9c7a7ab89208bc3294f0866622b1257c8078b9a8cbb1d4100312c00fba9ecf4f",
+        "full_input_sha256": "a9cfd3ba17a7b9d69e0562ecf036bca0153ee628eb88225a1749e8ba851982f8"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "d3568ca3-1417-484d-8e48-0c3c3dcadf10",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "ORF-seq-AAid-v1-public",
+        "source_group": "8154648d9ebce61728057a0adb3ae9b6ab75a4686b00b92f417ff2faa4714e46",
+        "full_input_sha256": "a5b4cbba3605e7ac6f6ae044376320a317c495515ea0428d30511c4610e193f1"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "d3bfca5c-71bd-4066-9a29-aff14a7f56e2",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "RE-seq-lenfrags-v1-public",
+        "source_group": "3da683b75fb772f2283f94768b742215773f55ea95cad158bf439099b06028fa",
+        "full_input_sha256": "b890fd9336527c2e86fb8650213c88ffe06d1f7a180bb3201c1cc230bcfeb2be"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "d70a1a6d-fa51-434d-a25f-f495c15757c8",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-primers-len-v1-public",
+        "source_group": "888be8667f9908c45451554391e563f61e19220b33db4b11e8a6635e3e8bf352",
+        "full_input_sha256": "7e3131a3499ad5ef7d5054b4b95dd613edea37b0ac3f545d18767a229d9796f3"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "d832067c-5ce6-4247-8156-83fb7520e0ee",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "ORF-seq-numlen-v1-public",
+        "source_group": "8790d2fa8ed435da44114d2cc7bbe818c694d4f622c36e19295987b5c4c84e72",
+        "full_input_sha256": "200af16ac1a10ec56a13508979b96e65278dfbe3e998b5529d470519fbfed1bd"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "dd6291b9-a008-4f39-a362-47fbf01eaf4d",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-seq-primers-v1-public",
+        "source_group": "8906e9b01cf97ab10ffd46cb2f97929675d23607c6e4073ffbebc4af47085ca0",
+        "full_input_sha256": "2e78534c4e4ac579c534d0f2fd378b3281c7122b335c9f23050d0d38483cc464"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "e4711511-5e6c-4448-9026-861806d422c5",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-seq-enzprimers-v1-public",
+        "source_group": "ddbd4629284c33d5ad9cd84ba9410684131c117c26e596ea4e231cf6df309e66",
+        "full_input_sha256": "1ca08bd16a3a13a72227486cbf053c07d6ce6bd225f2b25a1ee5ba528722ef43"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "e62f6da5-d411-405c-a917-d16f8e83e1d3",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "PCR-gene-enzprimers-v1-public",
+        "source_group": "528d417b226b9df861c7e7d75faec9b7fa528ed253e25beb44ddf6255e328a5f",
+        "full_input_sha256": "75f06f31c7cb8963d6415fc1458734209bf33fd6d706d560435cd817b4594a1a"
+      },
+      {
+        "subset": "SeqQA",
+        "original_id": "f4d8de2c-3315-4d46-9113-34d38c7b3cb2",
+        "split": "held_out",
+        "smoke": false,
+        "subtask": "RE-seq-numfrags-v1-public",
+        "source_group": "7d23dbad7d30b21cbbc77c59226607b9bbb2c678a50df8575bcedfb77b1ec296",
+        "full_input_sha256": "99fa23de4d267f4342645356caee2e332c7fe573f5882e4231b4c438d09f51c0"
+      }
+    ]
+  },
+  "upstream_task": {
+    "inspect_ai": "0.3.263",
+    "inspect_evals": "0.20.0",
+    "dataset_shuffle_seed": 7,
+    "choice_shuffle_seed": 7
+  },
+  "models": [
+    {
+      "slot": "model_1",
+      "api_id": null,
+      "version": null,
+      "provider_route": null,
+      "settings": null
+    },
+    {
+      "slot": "model_2",
+      "api_id": null,
+      "version": null,
+      "provider_route": null,
+      "settings": null
+    },
+    {
+      "slot": "model_3",
+      "api_id": null,
+      "version": null,
+      "provider_route": null,
+      "settings": null
+    },
+    {
+      "slot": "model_4",
+      "api_id": null,
+      "version": null,
+      "provider_route": null,
+      "settings": null
+    }
+  ],
+  "backend": {
+    "source_revision": "3f2b3a6efacf9b9b4604de49f49b69130b36a847",
+    "execution_location": null,
+    "variant_revision": null,
+    "hosted_access_confirmed": false,
+    "local_engine_verified": false,
+    "id_mapping_verified": false,
+    "scorer_equivalence_verified": false
+  },
+  "method": {
+    "feature_definition": null,
+    "profile_estimator": null,
+    "threshold_rule": null,
+    "analysis_plan_revision": null,
+    "calibration_item_ids": [
+      "0ab55714-9ed1-4e4d-924a-0b297d5260d2",
+      "0bac8974-554c-439a-a9a2-22fa509c8d5d",
+      "11d73398-7b2b-4720-bf75-9f63af095c80",
+      "11d7d19c-cb15-4ced-968f-8a270ce38477",
+      "1355683c-b52b-49dd-845a-7d282c211010",
+      "18d20d53-b90a-4dfb-be27-d52e540aa614",
+      "1ccdc348-50e1-4941-9151-5e50411a2b41",
+      "28ebecdf-949e-4d20-aca9-5989b7a9d6e9",
+      "2dc20a2f-de54-4bfe-a34f-1ba395f342cf",
+      "2fd6e57a-3da6-4952-8d36-da12414b4882",
+      "34701a08-857d-435f-ae2a-d9357eddbbff",
+      "3b5bd87a-a3f5-4082-a5b0-20e0806fdfe7",
+      "3c62b0cb-f6cf-480a-8a37-d54c90d5c287",
+      "3d40f373-59d3-4666-87bd-6db64fd7b4fb",
+      "4949fc05-5f78-4dd0-8d9c-3dbb6004740a",
+      "4fb3c795-2181-4f3b-a231-c84d1ec7ebf2",
+      "517e7cf8-c5d2-4391-9e2a-235b79d93050",
+      "51b68661-5ee1-4089-9b98-65327180a4cf",
+      "53b5b115-0c63-446e-b671-b6017f518cef",
+      "55668039-396e-488a-b2c3-bbe840550433",
+      "58b39fab-337b-452d-b74f-84f9a188ce88",
+      "5a9c6697-a65c-49c0-9e02-38b2a276fde7",
+      "679691a7-2b52-4e76-bb23-89774a8fa4f4",
+      "6928664e-070a-45a8-9a14-074dac6941e7",
+      "6bc0df89-5aae-47b4-9d2e-2ebc5fa08e96",
+      "6d2e1370-8c82-4142-9bcc-6675e730aa46",
+      "6de81829-08c5-4466-acb3-36b72451f1ee",
+      "700e03a7-385f-4d7c-b4dd-2e3320d52262",
+      "76184ccf-4bf0-469e-a442-11d04b4ff8b0",
+      "7a88e6f7-fb8e-4a24-b08d-9b7a6edafe57",
+      "7d805bb8-4c7c-431f-b068-acf5e5459985",
+      "819abfdb-fcf6-4678-847f-bd1c6f2699e1",
+      "836a5015-5209-48c0-9901-6f3fdbc9ea2c",
+      "8ade3e3a-4792-4965-b9d9-05e528ebbfa0",
+      "925ffe20-b8a9-4ac4-943c-7a16966f4a4b",
+      "934eac94-2b6c-491f-9326-ca7ac52f669c",
+      "9d2e1186-32f7-48a5-abeb-e721d6baa91b",
+      "9db6ef72-fa9d-4e20-a54b-9b8e53b86bbf",
+      "9e2c4de8-8179-4c5d-97d4-b75b6aad5692",
+      "a28d2081-f953-45cb-992f-8d0e394e60ab",
+      "a3775559-e542-4142-a882-8e87a2ef2efd",
+      "a516333c-21b1-47cf-851f-4c1f34f83aaf",
+      "a6231697-bb0c-41bc-b3bf-c7e237d7d423",
+      "a73b2c2d-a3ac-49e6-8e2e-44b4c1e6de94",
+      "a9c6aaa4-ce50-4225-9073-b88a7e671bfd",
+      "aaa85379-1e4b-4642-9ec4-e1a6d6c29c3b",
+      "af3b3a9b-4567-4391-bfcd-61c621dce7da",
+      "b0f80f7b-fb37-4d03-b8a0-34c1e6c1db96",
+      "b2e42042-2590-4564-ab23-961ef7adea2f",
+      "be697753-fe7c-4ed5-ad28-4853e435d21e",
+      "c0f530dd-ca31-4bcb-86cb-93b7b5523bf7",
+      "d1307e50-3c03-4c76-81ee-2decb5de5f14",
+      "de756539-c341-4af2-9895-803ef8082ec8",
+      "ded3f6ac-c54c-4626-86b4-cc607a44334f",
+      "e2fb56b7-08cd-4dc0-bc63-b45931a74fc9",
+      "e39ca05b-5554-4287-a2f7-f9737df86931",
+      "e673fe4c-e776-45ab-9821-7e77eaee0c53",
+      "edc8f52b-2054-4ed3-9d8a-1263966e39cb",
+      "edfe16a8-b7a7-4dd5-b1fb-d185c9bd204c",
+      "ef07d562-fc18-43c9-8201-7a189d76eeb9"
+    ],
+    "held_out_outcomes_seen": false
+  },
+  "billing": {
+    "approved_limit_usd": null,
+    "pricing_sha256": null
+  },
+  "review": {
+    "protocol_approved": false,
+    "method_approved": false,
+    "freeze_record": null
+  }
+}

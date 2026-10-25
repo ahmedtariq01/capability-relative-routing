@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "call_id": "SYNTHETIC-EXAMPLE-NOT-A-RUN",
+  "original_item_id": "synthetic-item",
+  "subset": "LitQA2",
+  "split": "development",
+  "model_slot": "model_1",
+  "purpose": "answer",
+  "routing_decision_id": null,
+  "attempt_index": 1,
+  "previous_attempt_id": null,
+  "status": "timeout",
+  "model": {
+    "requested_id": "synthetic-model",
+    "effective_id": null,
+    "effective_version": null,
+    "provider_route": null,
+    "settings_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "engine": {
+    "instance": "synthetic-offline-example",
+    "version": null,
+    "benchmark_id": null,
+    "benchmark_revision": null,
+    "case_id": null,
+    "run_id": null,
+    "cache_status": "unknown"
+  },
+  "artifacts": {
+    "prepared_item_sha256": null,
+    "request_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "response_sha256": null,
+    "request_path": null,
+    "response_path": null
+  },
+  "time": {
+    "started_at": "2026-10-25T00:00:00Z",
+    "ended_at": "2026-10-25T00:00:30Z",
+    "wall_ms": 30000,
+    "queue_ms": null,
+    "provider_ms": null,
+    "scoring_ms": null
+  },
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "reasoning_tokens": null,
+    "cached_input_tokens": null
+  },
+  "cost": {
+    "currency": "USD",
+    "billed_usd": null,
+    "estimated_usd": null,
+    "pricing_sha256": null,
+    "source": null,
+    "missing_reason": "Synthetic timeout example. Provider usage unavailable."
+  },
+  "outcome": {
+    "parsed_choice": null,
+    "grade": null,
+    "refusal": null,
+    "parser_status": "not_run",
+    "finish_reason": null,
+    "error_code": "synthetic_timeout",
+    "scorer_version": null
+  }
+}
