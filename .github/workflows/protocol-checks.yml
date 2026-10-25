@@ -1,0 +1,40 @@
+name: Protocol checks
+
+on:
+  push:
+    branches:
+      - main
+      - feat/**
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: protocol-checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Install receipt-schema validator
+        run: python -m pip install -r requirements-checks.txt
+      - name: Run routing and protocol tests
+        run: python -m unittest discover -s tests -v
+      - name: Check the synthetic routing fixture
+        run: python verify.py
+      - name: Validate the proposed manifest
+        run: python scripts/validate_lab_bench_protocol.py docs/experiment-01/manifest.draft.json
+      - name: Validate synthetic receipt cases
+        run: python scripts/check_receipt_contract.py

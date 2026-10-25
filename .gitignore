@@ -10,3 +10,8 @@ data/outputs/
 .env
 .env.*
 !.env.example
+compute.env
+.private/
+data/source/
+artifacts/checks/
+*.eval

@@ -22,6 +22,15 @@ python3 scripts/validate_lab_bench_protocol.py docs/experiment-01/manifest.draft
 
 It checks recorded prerequisites, not the authenticity of approvals or engine behaviour.
 
+The feature branch's GitHub Actions workflow runs the unit tests, synthetic routing fixture, draft-manifest validator and receipt-schema cases. It uses no provider credentials and makes no model calls. A green check confirms those offline checks only. It does not mean the experiment has passed its freeze requirements.
+
+Install `requirements-checks.txt` to run the same receipt checks locally:
+
+```sh
+python3 -m pip install -r requirements-checks.txt
+python3 scripts/check_receipt_contract.py
+```
+
 ## Rebuilding the proposed selection
 
 Download the three parquet files from the exact URLs recorded in `manifest.draft.json`. Keep them outside the repository as `LitQA2_train-00000-of-00001.parquet`, `ProtocolQA_train-00000-of-00001.parquet` and `SeqQA_train-00000-of-00001.parquet`. The builder refuses mismatched SHA-256 values. The dataset licence is CC BY-SA 4.0. Keep its attribution and canaries with any redistributed material.
