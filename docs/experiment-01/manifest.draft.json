@@ -1726,10 +1726,10 @@
     "scorer_equivalence_verified": false
   },
   "method": {
-    "feature_definition": null,
-    "profile_estimator": null,
-    "threshold_rule": null,
-    "analysis_plan_revision": null,
+    "feature_definition": "within_category_visible_structure_v1",
+    "profile_estimator": "crr-empirical-v0.1",
+    "threshold_rule": "min_oof_cost_at_target_then_accuracy_then_threshold",
+    "analysis_plan_revision": "crr-analysis-v0.1",
     "calibration_item_ids": [
       "0ab55714-9ed1-4e4d-924a-0b297d5260d2",
       "0bac8974-554c-439a-a9a2-22fa509c8d5d",
@@ -1792,7 +1792,17 @@
       "edfe16a8-b7a7-4dd5-b1fb-d185c9bd204c",
       "ef07d562-fc18-43c9-8201-7a189d76eeb9"
     ],
-    "held_out_outcomes_seen": false
+    "held_out_outcomes_seen": false,
+    "plan_sha256": "8eac71332dad58487184a36063660a2b5a7bcfb6edb99f12f5c7a483e9482579",
+    "documents_sha256": {
+      "METHOD.md": "147bacc499d1eeb0e3e312905eed010c779ddb2d686416c28ede8435aa86acee",
+      "ANALYSIS.md": "4ac7e0441488fb8dcb3910edb2cec42d5cffa1a93d099b27ad23ce7829233c10"
+    },
+    "proposal_status": "implemented_for_review_not_fitted",
+    "fit_artifact_sha256": null,
+    "implementation_revision": null,
+    "overhead_measurement_sha256": null,
+    "router_cpu_usd_per_second": null
   },
   "billing": {
     "approved_limit_usd": null,

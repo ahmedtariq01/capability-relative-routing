@@ -1,6 +1,6 @@
 # Experiment 01: LAB-Bench routing pilot
 
-Status: draft for review, 25 October 2026. No model calls or empirical routing results accompany this proposal. The files preserve the agreed 180-question scope. The proposals below still need Leo's review before a freeze.
+Status: method extension for review, 26 October 2026. Leo endorsed the protocol foundation in his [26 October review](https://github.com/leo-guinan/capability-relative-routing/pull/1#issuecomment-6427262211). The new [empirical method](METHOD.md) and [analysis policy](ANALYSIS.md) make his requested next step concrete. Their numerical choices still need review. No model calls or empirical routing results accompany this proposal. The 180-question scope remains unchanged.
 
 ## Question and interpretation
 
@@ -54,7 +54,7 @@ For fresh collection, disable engine response reuse where supported and keep cap
 
 ## Routing and baselines
 
-The current `ModelProfile` and `Problem` objects require empirical capability estimates and task weights. The repository currently supplies synthetic profiles. It does not yet define a validated way to estimate these from the 60 development items. Leo needs to choose the method. An implementation that uses only category-level profiles is a category router and cannot support an additional within-category capability claim.
+The original `ModelProfile` and `Problem` objects remain the synthetic routing primitive. The proposed empirical v0 uses Beta-smoothed category success rates and a six-feature regularized logistic adjustment within categories. Both use the same development-estimated costs and routing rule. Five source-group folds supply out-of-fold predictions for threshold selection. No additional routing LLM or fitted probability calibrator enters v0. [METHOD.md](METHOD.md) gives the exact estimator, features and selection rules. No real development outcomes have fitted it yet.
 
 Compare the following on identical held-out items:
 
@@ -63,7 +63,7 @@ Compare the following on identical held-out items:
 | Every fixed model | No per-item adaptation | All individual cost/quality points |
 | Development-selected fixed model | Development results only | Deployable baseline with a declared selection rule |
 | Task-category router | Three subset labels and development results | Tests whether category recognition explains the benefit |
-| Finer subtask lookup, if allowed | Source subtask metadata and development results | Secondary control, sparse with this sample |
+| Finer subtask lookup | Requires a separate pre-test amendment | Excluded from v0 because metadata permission and sparse support remain unresolved |
 | CRR | Frozen pre-inference features and development profiles | Candidate method under test |
 | Cheap-to-strong cascade | Cheap model output plus an observable gate | Separate sequential policy, with both calls charged when escalating |
 | Fixed-model mixtures | A declared random mixture independent of item content | Cost/quality reference. A test-selected convex hull is retrospective |
@@ -71,13 +71,15 @@ Compare the following on identical held-out items:
 
 For each accuracy target, choose thresholds or mixtures on development and freeze them. Plot the predeclared grid on held out. Do not select a new threshold using held-out results and call it a deployable improvement.
 
+The proposed primary target is 0.80, with 0.50, 0.60, 0.70 and 0.90 as secondary targets. The analysis separates retrospective oracle opportunity from CRR's incremental benefit over category routing. [ANALYSIS.md](ANALYSIS.md) fixes the comparators, ties, unavailable-target handling, cascade gate and secondary expected-mixture interpretation. The primary deterministic oracle comparison uses individual fixed models only. A common target alone does not establish matched quality.
+
 The cascade gate must use observable evidence such as abstention or a predeclared confidence signal. It must never escalate because the cheap answer is known to be wrong. A confidence-generation call also costs money. Matrix replay is valid only if the strong model receives the same independent prompt as its collected call. If it sees the cheap answer or critique, that is another execution condition requiring new data. CRR's current uncertainty escalation happens before execution and is not this cascade.
 
 Charge feature extraction, embeddings, profiling calls, router inference and escalation. Separate one-time calibration cost from per-query cost and report both. A single scalar model cost needs an explicit approximation policy when output length varies across questions.
 
 ## Oracle and accounting
 
-Build an outcome matrix for every assigned item and every frozen model. Include failed and all-model-miss items. At target accuracy `q`, compare the least-cost fixed policy or allowed mixture with CRR and the retrospective oracle under the same denominator and price table. Report unattainable targets as undefined.
+Build an outcome matrix for every assigned item and every frozen model. Include failed and all-model-miss items. At target accuracy `q`, compare the least-cost eligible individual fixed model with the retrospective oracle under the same denominator and price table. Report fixed-model mixtures separately as expected randomisation points. Compare frozen CRR and category policies with each other's achieved accuracy and full cost. Report unattainable targets as undefined.
 
 The current oracle uses observed outcomes and per-item costs. This selects successes after seeing them, including lucky single samples. It does not estimate reliable per-item success probabilities or an achievable future saving. Any capture fraction `(C_fixed - C_CRR) / (C_fixed - C_oracle)` is undefined when the denominator is zero, negative or based on an unattainable target. Report raw costs and accuracies alongside it.
 
@@ -87,7 +89,7 @@ With four models, the matrix contains 720 first attempts: 240 development and 48
 
 ## Uncertainty and stopping rules
 
-Use paired item-level comparisons, stratified by subset. Where selected items share a recorded source, keep the cluster together in resampling and record the independent-unit count. Proposed reporting uses 5,000 bootstrap resamples with a fixed seed, alongside raw numerators, denominators and paired accuracy differences. Report invalid or degenerate intervals instead of silently dropping them. Finite-data intervals do not measure model/provider stochastic variation with one draw per cell.
+Use paired source-group comparisons, stratified by subset and equally weighted across subsets. Proposed reporting uses 5,000 bootstrap resamples with seed 261026, alongside raw numerators, denominators and paired accuracy differences. Report invalid or degenerate intervals instead of silently dropping them. Finite-data intervals condition on the development fit and do not measure model/provider stochastic variation with one draw per cell.
 
 With 120 held-out items, small gains have substantial uncertainty, especially within 40-item subsets. An overlapping interval or a non-significant accuracy difference does not establish equivalent quality. A confirmatory matched-quality claim requires an agreed non-inferiority margin and adequate design, which this draft does not supply.
 
@@ -97,4 +99,4 @@ Stop or narrow the claim if the cheapest fixed model dominates, oracle headroom 
 
 Keep the manifest, selected IDs, prepared-input and choice-order hashes, versioned configuration, route decisions, per-attempt receipts, scoring outputs and analysis commands together. The [receipt contract](RECEIPTS.md) specifies the join keys and missing-data handling. The offline validator checks selection and freeze prerequisites. It is not an engine or model evaluation.
 
-The review questions in [DECISIONS.md](DECISIONS.md) concern the empirical CRR mapping, backend/variant acceptance, model settings and the claim the pilot should test. No paid run follows from passing local checks.
+The review questions in [DECISIONS.md](DECISIONS.md) concern the proposed numerical method/analysis choices, backend/variant acceptance, model settings and execution prerequisites. The manifest now hashes the method plan and documents. A real fitted-artifact hash, routing-overhead measurement and CPU price remain separate freeze requirements. No paid run follows from passing local checks.

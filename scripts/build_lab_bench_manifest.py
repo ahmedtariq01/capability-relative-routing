@@ -10,6 +10,7 @@ from collections import defaultdict
 import hashlib
 import json
 from pathlib import Path
+from validate_lab_bench_protocol import proposal_metadata
 
 REVISION = "5c77cec648430f30611808808861eb86f81d5eaa"
 SALT = "crr-lab-bench-experiment-01-review-v1"
@@ -122,8 +123,9 @@ def build(data_dir: Path) -> dict:
                     "execution_location": None, "variant_revision": None,
                     "hosted_access_confirmed": False, "local_engine_verified": False,
                     "id_mapping_verified": False, "scorer_equivalence_verified": False},
-        "method": {"feature_definition": None, "profile_estimator": None,
-                   "threshold_rule": None, "analysis_plan_revision": None,
+        "method": {**proposal_metadata(), "proposal_status": "implemented_for_review_not_fitted",
+                   "fit_artifact_sha256": None, "implementation_revision": None,
+                   "overhead_measurement_sha256": None, "router_cpu_usd_per_second": None,
                    "calibration_item_ids": sorted(r["original_id"] for r in items if r["split"] == "development"),
                    "held_out_outcomes_seen": False},
         "billing": {"approved_limit_usd": None, "pricing_sha256": None},

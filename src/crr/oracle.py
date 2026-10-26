@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import isclose
+from math import isclose, isfinite
 from typing import Iterable
 
 
@@ -39,8 +39,11 @@ def _validate(outcomes: Iterable[ModelOutcome]) -> tuple[ModelOutcome, ...]:
     rows = tuple(outcomes)
     if not rows:
         raise ValueError("at least one model outcome is required")
-    if any(row.cost_dollars < 0 or row.latency_ms < 0 for row in rows):
-        raise ValueError("cost and latency must be non-negative")
+    if any(type(value) not in (int, float) or not isfinite(value) or value < 0
+           for row in rows for value in (row.cost_dollars, row.latency_ms)):
+        raise ValueError("cost and latency must be known, finite and non-negative")
+    if any(type(row.solved) is not bool for row in rows):
+        raise ValueError("solved must be boolean")
     keys = [(row.item_id, row.model_name) for row in rows]
     if len(keys) != len(set(keys)):
         raise ValueError("duplicate outcome for an item/model pair")
@@ -133,13 +136,17 @@ def oracle_policy(outcomes: Iterable[ModelOutcome]) -> PolicySummary:
 
 def matched_cost(summary: Iterable[PolicySummary | FrontierPoint], quality: float) -> float | None:
     """Return minimum cost among policies/frontier points meeting a target."""
+    if type(quality) not in (float, int) or not isfinite(quality) or not 0 <= quality <= 1:
+        raise ValueError("quality target must be in [0, 1]")
     eligible = [row.total_cost_dollars for row in summary if row.solved_rate >= quality]
     return min(eligible) if eligible else None
 
 
 def opportunity_capture(best_fixed: float, routed: float, oracle: float) -> float | None:
     """Fraction of oracle savings captured by a routed policy."""
+    if any(type(v) not in (int, float) or not isfinite(v) or v < 0 for v in (best_fixed, routed, oracle)):
+        raise ValueError("capture requires known, finite and non-negative costs")
     denominator = best_fixed - oracle
-    if isclose(denominator, 0.0, abs_tol=1e-12):
+    if denominator < 0 or isclose(denominator, 0.0, abs_tol=1e-12):
         return None
     return (best_fixed - routed) / denominator

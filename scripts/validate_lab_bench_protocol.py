@@ -9,6 +9,20 @@ import math
 from pathlib import Path
 import re
 
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def proposal_metadata() -> dict:
+    folder = ROOT / "docs/experiment-01"
+    plan = json.loads((folder / "method-plan.json").read_text())
+    return {"feature_definition": "within_category_visible_structure_v1",
+            "profile_estimator": plan["method_version"],
+            "threshold_rule": plan["selection"],
+            "analysis_plan_revision": plan["analysis_version"],
+            "plan_sha256": digest(plan),
+            "documents_sha256": {name: hashlib.sha256((folder / name).read_bytes()).hexdigest()
+                                 for name in ("METHOD.md", "ANALYSIS.md")}}
+
 
 def digest(value: object) -> str:
     return hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False,
@@ -52,6 +66,9 @@ def check_manifest(m: dict, require_frozen: bool = False) -> list[str]:
         errors.append("calibration IDs must be unique development IDs")
     if m["method"]["held_out_outcomes_seen"] is not False:
         errors.append("held-out outcomes already seen or status unknown")
+    for key, expected_value in proposal_metadata().items():
+        if m["method"].get(key) != expected_value:
+            errors.append(f"method.{key} differs from the reviewed proposal files")
     seq = [r for r in items if r["subset"] == "SeqQA"]
     if len({r["subtask"] for r in seq}) != 15 or set(Counter(r["subtask"] for r in seq).values()) != {4}:
         errors.append("expected four SeqQA items from each of 15 subtasks")
@@ -90,6 +107,14 @@ def check_manifest(m: dict, require_frozen: bool = False) -> list[str]:
         for key in ("feature_definition", "profile_estimator", "threshold_rule", "analysis_plan_revision"):
             if not m["method"][key]:
                 errors.append(f"method.{key} unresolved")
+        for key in ("fit_artifact_sha256", "overhead_measurement_sha256"):
+            if not re.fullmatch(r"[a-f0-9]{64}", m["method"].get(key) or ""):
+                errors.append(f"method.{key} unresolved")
+        if not re.fullmatch(r"[a-f0-9]{40}", m["method"].get("implementation_revision") or ""):
+            errors.append("method.implementation_revision unresolved")
+        cpu_rate = m["method"].get("router_cpu_usd_per_second")
+        if type(cpu_rate) not in (float, int) or not math.isfinite(cpu_rate) or cpu_rate <= 0:
+            errors.append("positive router CPU price missing for the full-cost comparison")
         limit = m["billing"]["approved_limit_usd"]
         if type(limit) not in (int, float) or not math.isfinite(limit) or limit <= 0:
             errors.append("approved positive spend limit missing")

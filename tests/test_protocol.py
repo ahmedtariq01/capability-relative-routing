@@ -52,9 +52,18 @@ class ProtocolTests(unittest.TestCase):
     def test_status_alone_cannot_freeze(self):
         self.m["status"] = "frozen"
         errors = MOD.check_manifest(self.m)
-        self.assertIn("method.profile_estimator unresolved", errors)
+        self.assertIn("method.fit_artifact_sha256 unresolved", errors)
         self.assertIn("backend.id_mapping_verified unresolved", errors)
         self.assertIn("freeze record missing", errors)
+
+    def test_method_hash_and_fit_are_distinct_freeze_requirements(self):
+        self.m["method"]["plan_sha256"] = "0" * 64
+        self.assertIn("method.plan_sha256 differs from the reviewed proposal files", MOD.check_manifest(self.m))
+        self.assertIn("method.overhead_measurement_sha256 unresolved", MOD.check_manifest(self.m, True))
+
+    def test_zero_cpu_price_cannot_enable_full_cost_claim(self):
+        self.m["method"]["router_cpu_usd_per_second"] = 0
+        self.assertIn("positive router CPU price missing for the full-cost comparison", MOD.check_manifest(self.m, True))
 
     def test_string_false_is_not_engine_verification(self):
         self.m["backend"]["id_mapping_verified"] = "false"

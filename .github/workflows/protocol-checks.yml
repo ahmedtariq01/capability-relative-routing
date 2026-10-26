@@ -34,6 +34,8 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Check the synthetic routing fixture
         run: python verify.py
+      - name: Check the synthetic empirical method and paired analysis
+        run: python scripts/check_empirical_method.py
       - name: Validate the proposed manifest
         run: python scripts/validate_lab_bench_protocol.py docs/experiment-01/manifest.draft.json
       - name: Validate synthetic receipt cases

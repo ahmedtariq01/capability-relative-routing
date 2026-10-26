@@ -11,7 +11,7 @@ class ModelProfile:
     inference_cost_dollars: float
     inference_latency_ms: float
     # This is an explicit uncertainty estimate, not a score-gap proxy. In the
-    # empirical phase it must be calibrated against held-out outcomes.
+    # empirical phase it must be calibrated within development data only.
     uncertainty: Mapping[str, float] = field(default_factory=dict)
 
     def estimated_quality(self, problem: "Problem") -> float:
@@ -78,7 +78,7 @@ def route(
 
     Quality estimates and uncertainty estimates are separate quantities. The
     uncertainty threshold is intentionally not called confidence: calibration
-    against held-out outcomes is required before interpreting it as one.
+    within development data is required before interpreting it as one.
     """
     if not models:
         raise ValueError("at least one candidate model is required")

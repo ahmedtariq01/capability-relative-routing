@@ -2,6 +2,8 @@
 
 Reviewed 25 October 2026. This is a targeted review, not a systematic-review claim. Paper results below are the authors' reports. We have not reproduced their experiments.
 
+26 October implementation note: [METHOD.md](METHOD.md) now defines the proposed category-plus-feature estimator, and [ANALYSIS.md](ANALYSIS.md) separates oracle opportunity from CRR's incremental comparison. The earlier review below describes the repository state on 25 October. The new reference implementation does not establish novelty or empirical benefit.
+
 ## Closest prior work
 
 | Work and source | Relevant overlap | Consequence for CRR |

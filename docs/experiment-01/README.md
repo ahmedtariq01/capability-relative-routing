@@ -1,8 +1,8 @@
 # Experiment 01 review package
 
-Start with [the protocol](PROTOCOL.md), then [the decisions that need review](DECISIONS.md). The [compatibility check](SCREAMINGFACE-COMPATIBILITY.md) answers Leo's source-level questions. [Related work](RELATED-WORK.md) covers overlapping methods and Reddit's practical cautions. [Receipts](RECEIPTS.md) defines the record we need from any backend.
+Start with [the protocol](PROTOCOL.md), [empirical CRR v0](METHOD.md), [the analysis policy](ANALYSIS.md) and [remaining decisions](DECISIONS.md). The [compatibility check](SCREAMINGFACE-COMPATIBILITY.md) answers Leo's source-level questions. [Related work](RELATED-WORK.md) covers overlapping methods and Reddit's practical cautions. [Receipts](RECEIPTS.md) defines the record we need from any backend.
 
-`manifest.draft.json` contains 180 original IDs, including 60 development, 120 held out and 15 smoke questions drawn from development. The selection is a proposal for review. Model IDs, settings, method details and execution prerequisites remain open. The scripts make no provider calls.
+`manifest.draft.json` contains 180 original IDs, including 60 development, 120 held out and 15 smoke questions drawn from development. The new method/analysis proposal has an offline implementation and hashed definitions in `method-plan.json`. Exact model settings, real development fitting and execution prerequisites remain open. The scripts make no provider calls.
 
 ## Offline checks
 
@@ -11,6 +11,7 @@ From the repository root:
 ```sh
 python3 -m unittest discover -s tests -v
 python3 verify.py
+python3 scripts/check_empirical_method.py
 python3 scripts/validate_lab_bench_protocol.py docs/experiment-01/manifest.draft.json
 ```
 
@@ -22,7 +23,22 @@ python3 scripts/validate_lab_bench_protocol.py docs/experiment-01/manifest.draft
 
 It checks recorded prerequisites, not the authenticity of approvals or engine behaviour.
 
-The feature branch's GitHub Actions workflow runs the unit tests, synthetic routing fixture, draft-manifest validator and receipt-schema cases. It uses no provider credentials and makes no model calls. A green check confirms those offline checks only. It does not mean the experiment has passed its freeze requirements.
+The feature branch's GitHub Actions workflow runs the unit tests, both synthetic integration checks, draft-manifest validator and receipt-schema cases. It uses no provider credentials and makes no model calls. A green check confirms those offline checks only. It does not mean the experiment has passed its freeze requirements.
+
+## Development fitting interface
+
+After authorized development collection, the adapter supplies one JSON bundle with `data_kind`, `cost_basis`, `pricing_sha256`, `preparation_record_sha256`, `questions` and `observations`. The cost basis must be `frozen_price_all_attempts`. The price hash must match the manifest. A question has exactly `item_id`, `subset`, `source_group`, `input_text` and `choices`. An observation has `item_id`, `model`, boolean `solved`, observable `response_status` and `cost_usd`. Status is one of `answered`, `abstained`, `malformed`, `failed`. Correct and incorrect valid answers both use `answered`.
+
+The bundle covers only the 60 development IDs and 240 terminal observations. The adapter must preserve and reconcile the underlying per-attempt receipt ledger. A declared hash does not prove external preparation or billing correctness.
+
+```sh
+python3 scripts/fit_empirical_method.py \
+  --manifest docs/experiment-01/manifest.draft.json \
+  --development-bundle /absolute/path/to/reconciled-development.json \
+  --output artifacts/generated/development-fit-v1.json
+```
+
+The command refuses an existing output path. Preserve every fit version. `plan_routes` then consumes the final fit and visible inputs only, before outcome collection. Neither entry point calls a provider or approves a freeze. The method validator also requires a fitted-artifact hash, implementation revision and routing-overhead records for a complete freeze.
 
 Install `requirements-checks.txt` to run the same receipt checks locally:
 
