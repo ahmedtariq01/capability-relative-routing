@@ -8,7 +8,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from crr.empirical import (Question, Observation, features, grouped_folds, fit_development,
-                           restore_profiles, plan_routes, validate_development, choose)
+                           restore_profiles, plan_routes, validate_development, choose, PRIMARY_TARGET)
 from empirical_fixtures import fixture
 
 
@@ -39,6 +39,25 @@ class EmpiricalTests(unittest.TestCase):
         self.assertAlmostEqual(p["probability"], (successes + 1) / 22)
         self.assertGreater(p["posterior_sd"], 0)
         self.assertAlmostEqual(p["expected_cost_usd"], .01)
+
+    def test_bookkeeping_ids_cannot_change_frozen_predictions_costs_or_routes(self):
+        changed = tuple(replace(q, item_id=f"renamed-{i}", source_group=f"other-{i}")
+                        for i, q in enumerate(self.questions))
+        for profile in restore_profiles(self.fitted):
+            for original, renamed in zip(self.questions, changed):
+                self.assertEqual(profile.predict(original), profile.predict(renamed))
+        for family in ("category", "crr"):
+            original_routes = plan_routes(self.fitted, self.questions, family, .5)["routes"]
+            renamed_routes = plan_routes(self.fitted, changed, family, .5)["routes"]
+            for original, renamed in zip(self.questions, changed):
+                self.assertEqual(original_routes[original.item_id], renamed_routes[renamed.item_id])
+
+    def test_unknown_category_cannot_be_inferred_from_bookkeeping(self):
+        question = replace(self.questions[0], subset="undeclared_task")
+        with self.assertRaises(ValueError):
+            restore_profiles(self.fitted)[0].predict(question)
+        with self.assertRaises(ValueError):
+            plan_routes(self.fitted, (question,), "crr", .5)
 
     def test_features_center_within_category_on_training_only(self):
         profile = restore_profiles(self.fitted)[0]
@@ -100,6 +119,24 @@ class EmpiricalTests(unittest.TestCase):
         self.assertEqual(plan_routes(fit, self.questions, "category", .8)["status"], "unattainable_on_development")
         for family in fit["selections"].values():
             self.assertTrue(all(s["selected"] is None for s in family))
+
+    def test_attainable_secondary_cannot_replace_unavailable_primary(self):
+        # All models solve the same 12 of 20 questions per category, so every
+        # route reaches 0.60 and none can attain the primary target of 0.80.
+        obs = tuple(replace(r, solved=int(r.item_id.rsplit("-", 1)[1]) < 12) for r in self.observations)
+        fit = fit_development(self.manifest, self.questions, obs)
+        self.assertEqual(fit["primary_comparison"]["target"], .8)
+        self.assertEqual(fit["primary_comparison"]["status"], "unavailable_on_development")
+        self.assertFalse(fit["primary_comparison"]["secondary_target_promotion_allowed"])
+        for family in ("category", "crr"):
+            primary = plan_routes(fit, self.questions, family, PRIMARY_TARGET)
+            secondary = plan_routes(fit, self.questions, family, .5)
+            self.assertIsNone(primary["routes"])
+            self.assertEqual(primary["target_role"], "primary")
+            self.assertIsNotNone(secondary["routes"])
+            self.assertEqual(secondary["target_role"], "secondary")
+            self.assertEqual(fit["primary_comparison"]["family_status"][family], "unattainable_on_development")
+        self.assertIsNone(fit["fixed_model_selections"]["0.8"]["selected"])
 
     def test_degenerate_features_recover_category_probabilities(self):
         qs = tuple(replace(q, input_text="identical visible input", choices=("a", "b")) for q in self.questions)

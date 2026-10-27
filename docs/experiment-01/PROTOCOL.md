@@ -1,6 +1,6 @@
 # Experiment 01: LAB-Bench routing pilot
 
-Status: method extension for review, 26 October 2026. Leo endorsed the protocol foundation in his [26 October review](https://github.com/leo-guinan/capability-relative-routing/pull/1#issuecomment-6427262211). The new [empirical method](METHOD.md) and [analysis policy](ANALYSIS.md) make his requested next step concrete. Their numerical choices still need review. No model calls or empirical routing results accompany this proposal. The 180-question scope remains unchanged.
+Status: review revision, 27 October 2026. Leo conditionally supports the v0 method in his [latest review](https://github.com/leo-guinan/capability-relative-routing/pull/1#issuecomment-6445333948). The [empirical method](METHOD.md) and [analysis policy](ANALYSIS.md) now address his five requested clarifications and the uniform control. Final specification review and execution prerequisites remain open. No model calls or empirical routing results accompany this revision. The 180-question scope remains unchanged.
 
 ## Question and interpretation
 
@@ -18,7 +18,9 @@ This is an exploratory pilot. A successful result could justify a larger study. 
 - Record original dataset IDs. Engine case numbers are a separate namespace. Require a checked mapping before an engine run.
 - The proposed selection uses a declared hash ordering, with four SeqQA items from each of its 15 source subtasks. Development includes each SeqQA subtask. Treat this as within-subtask evaluation, not transfer to unseen capabilities.
 - Keep selected LitQA2 items sharing a source reference on one side of the split. The available metadata cannot certify independence between all biological concepts or paraphrases. Audit exact full-input duplicates and report the remaining limits.
-- Do not pass answers, key passages, source URLs, original IDs, or post-run outcomes as routing features. IDs remain bookkeeping keys. Approved features can include the task category and visible question/context/options. A finer SeqQA subtask lookup is a useful secondary baseline if the metadata is allowed at deployment.
+- Do not pass answers, key passages, source URLs, original IDs, or post-run outcomes as routing features. IDs remain bookkeeping keys. Approved features can include the task category and visible question/context/options. A finer SeqQA subtask lookup requires a future pre-test amendment and verified metadata availability at deployment.
+
+The category is the known task selected by the collector: LitQA2, ProtocolQA or SeqQA. The backend must verify this pre-inference identity through preparation and routing, and reject unknown or mismatched labels. `source_group` supports split checks, grouped development folds and resampling only. It never enters a routing feature or expected-cost signal.
 
 The committed manifest contains IDs and hashes, not task text or answer keys. The source dataset marks its content CC BY-SA 4.0. A published benchmark variant must retain attribution, licence and canary metadata. The public data may already occur in model training. Our internal holdout does not resolve that contamination risk.
 
@@ -34,10 +36,10 @@ Report accuracy over all assigned items, plus precision and coverage using the u
 
 ## Collection and freeze stages
 
-1. **Protocol review.** Agree source pins, selection, receipt fields, candidate model slots and the backend plan. Leave hosted availability explicitly unresolved until checked.
+1. **Specification review.** Agree and freeze the method and analysis policy, source pins, selection, receipt fields, candidate model slots and the backend plan before development execution. Leave hosted availability explicitly unresolved until checked.
 2. **Development smoke.** After model access, settings and a spend limit are agreed, run only the 15 development questions. Check prompt/answer mapping, parser behaviour, effective model identity, receipts and realistic cost. Any settings change creates a new configuration version.
 3. **Development collection.** Complete the 60-by-model matrix. Reuse smoke outcomes only when their full task/model configuration matches. Preserve obsolete smoke attempts and their cost separately.
-4. **Method freeze.** Fit profiles and select routing parameters using development only. Commit the feature construction, estimator, cost predictor, thresholds, baselines, failure policy and analysis plan before collecting or inspecting held-out outcomes. Document changes from this draft.
+4. **Fitted-artifact freeze.** Fit profiles and select routing parameters using development only. Hash-lock the fitted method, selected policies, route table and analysis artifacts before collecting or inspecting held-out outcomes. Preserve the agreed specification and document any reviewed amendment before evaluation.
 5. **Held-out collection.** Commit CRR's pre-inference choices before exposing held-out correctness or costs to its selection code. Keep gold scoring separate. Then collect the matched model matrix and analyse the frozen policies once.
 
 A limit of 60 on the canonical engine board does not implement this split. The [compatibility note](SCREAMINGFACE-COMPATIBILITY.md) proposes a versioned selected-ID variant inside ScreamingFace. Local and hosted variants must use the same dataset, prepared samples, scorer and manifest. Results from this subset need their own benchmark identity. They are not directly comparable with a full canonical leaderboard score.
@@ -66,22 +68,23 @@ Compare the following on identical held-out items:
 | Finer subtask lookup | Requires a separate pre-test amendment | Excluded from v0 because metadata permission and sparse support remain unresolved |
 | CRR | Frozen pre-inference features and development profiles | Candidate method under test |
 | Cheap-to-strong cascade | Cheap model output plus an observable gate | Separate sequential policy, with both calls charged when escalating |
+| Uniform mixture | Fixed probability 0.25 for each of four slots, independent of item information and outcomes | Secondary expected random-routing control from the complete matrix, with measured expected selection/dispatch overhead |
 | Fixed-model mixtures | A declared random mixture independent of item content | Cost/quality reference. A test-selected convex hull is retrospective |
 | Hindsight oracle | Observed answers and costs for all models | Optimistic reference on this finite outcome matrix |
 
-For each accuracy target, choose thresholds or mixtures on development and freeze them. Plot the predeclared grid on held out. Do not select a new threshold using held-out results and call it a deployable improvement.
+For each accuracy target, choose router thresholds on development and freeze them. The uniform control and pairwise mixture grid have fixed weights. Plot these predeclared points on held out. Do not select a new threshold using held-out results and call it a deployable improvement.
 
-The proposed primary target is 0.80, with 0.50, 0.60, 0.70 and 0.90 as secondary targets. The analysis separates retrospective oracle opportunity from CRR's incremental benefit over category routing. [ANALYSIS.md](ANALYSIS.md) fixes the comparators, ties, unavailable-target handling, cascade gate and secondary expected-mixture interpretation. The primary deterministic oracle comparison uses individual fixed models only. A common target alone does not establish matched quality.
+The primary target is 0.80, as declared on 26 October before any real collection recorded in this package. The secondary targets remain 0.50, 0.60, 0.70 and 0.90. If a primary router has no eligible development policy, the primary comparison remains unavailable. Inspection of development or held-out results cannot replace the primary target or promote a secondary result. [ANALYSIS.md](ANALYSIS.md) fixes the comparators, ties, unavailable-target handling, cascade gate and secondary expected-mixture interpretation. The primary deterministic oracle comparison uses individual fixed models only. A common target alone does not establish matched quality.
 
-The cascade gate must use observable evidence such as abstention or a predeclared confidence signal. It must never escalate because the cheap answer is known to be wrong. A confidence-generation call also costs money. Matrix replay is valid only if the strong model receives the same independent prompt as its collected call. If it sees the cheap answer or critique, that is another execution condition requiring new data. CRR's current uncertainty escalation happens before execution and is not this cascade.
+The empirical v0 cascade escalates only on abstention, malformed output or terminal failure. It never escalates because the cheap answer is known to be wrong, and it uses no confidence-generation call. Matrix replay is valid only if the strong model receives the same independent prompt as its collected call. If it sees the cheap answer or critique, that is another execution condition requiring new data. The repository's original synthetic router has a separate uncertainty escalation primitive. The empirical method does not use that primitive.
 
-Charge feature extraction, embeddings, profiling calls, router inference and escalation. Separate one-time calibration cost from per-query cost and report both. A single scalar model cost needs an explicit approximation policy when output length varies across questions.
+For deployable policies, charge feature extraction, prediction, selection, dispatch and all selected-model attempts, including retries, failures and cascade escalation. The v0 router uses no embeddings or extra profiling calls. Keep collection, calibration and one-time setup costs separate unless the protocol predeclares an amortization horizon. A single scalar model cost needs an explicit approximation policy when output length varies across questions.
 
 ## Oracle and accounting
 
 Build an outcome matrix for every assigned item and every frozen model. Include failed and all-model-miss items. At target accuracy `q`, compare the least-cost eligible individual fixed model with the retrospective oracle under the same denominator and price table. Report fixed-model mixtures separately as expected randomisation points. Compare frozen CRR and category policies with each other's achieved accuracy and full cost. Report unattainable targets as undefined.
 
-The current oracle uses observed outcomes and per-item costs. This selects successes after seeing them, including lucky single samples. It does not estimate reliable per-item success probabilities or an achievable future saving. Any capture fraction `(C_fixed - C_CRR) / (C_fixed - C_oracle)` is undefined when the denominator is zero, negative or based on an unattainable target. Report raw costs and accuracies alongside it.
+Oracle opportunity is an inference-cost-only retrospective upper bound within the observed matrix, with free oracle knowledge and zero decision cost. It selects successes after seeing them, including lucky single samples. It does not estimate reliable per-item success probabilities or an achievable future saving. CRR improvement uses total deployable cost instead. Any capture fraction `(C_fixed - C_CRR) / (C_fixed - C_oracle)` is undefined when the denominator is zero, negative or based on an unattainable target. Report raw costs and accuracies alongside it.
 
 Maintain three separate amounts: the actual bill for collecting all models, the replayed cost of a chosen policy, and its modelled cost under a frozen price table. Missing usage or price remains null with a reason. Never turn it into zero. Do not issue a dollar-savings claim while required amounts are unresolved. Trials that fail still count their known charges. Credits and discounts do not make inference computationally free.
 
@@ -89,7 +92,9 @@ With four models, the matrix contains 720 first attempts: 240 development and 48
 
 ## Uncertainty and stopping rules
 
-Use paired source-group comparisons, stratified by subset and equally weighted across subsets. Proposed reporting uses 5,000 bootstrap resamples with seed 261026, alongside raw numerators, denominators and paired accuracy differences. Report invalid or degenerate intervals instead of silently dropping them. Finite-data intervals condition on the development fit and do not measure model/provider stochastic variation with one draw per cell.
+Label the results a single-draw finite-matrix evaluation conditional on provider stochasticity. Use paired source-group comparisons, stratified by subset and equally weighted across subsets. Reporting uses 5,000 bootstrap resamples with seed 261026, alongside raw numerators, denominators and paired accuracy differences. Report invalid or degenerate intervals instead of silently dropping them. These intervals condition on the development fit and observed draws. They do not measure model/provider stochastic variation with one draw per cell.
+
+Optional repeated development items require predeclared IDs, repetition count and settings. Keep this sensitivity check separate from the primary fit, threshold selection and policy revision, with its own cost record.
 
 With 120 held-out items, small gains have substantial uncertainty, especially within 40-item subsets. An overlapping interval or a non-significant accuracy difference does not establish equivalent quality. A confirmatory matched-quality claim requires an agreed non-inferiority margin and adequate design, which this draft does not supply.
 

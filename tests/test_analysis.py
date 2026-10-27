@@ -7,7 +7,7 @@ import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from crr.empirical import Observation, Question
 from crr.analysis import (PolicyRow, replay, cascade_routes, fixed_selection, oracle_opportunity,
-                          mixture_frontier, paired_comparison)
+                          mixture_frontier, uniform_mixture, paired_comparison, EVALUATION_SCOPE)
 from crr.oracle import ModelOutcome, oracle_frontier, matched_cost, opportunity_capture
 
 
@@ -78,6 +78,8 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(result["oracle_cost_usd"], 7)
         self.assertEqual(result["opportunity_usd"], 5)
         self.assertEqual(result["selection"], "retrospective")
+        self.assertEqual(result["interpretation"], "inference_cost_only_retrospective_upper_bound")
+        self.assertEqual(result["evaluation_scope"], EVALUATION_SCOPE)
         self.assertIsNone(oracle_opportunity(self.questions, self.observations, 1, model_roster=self.roster)["opportunity_usd"])
 
     def test_oracle_matches_bruteforce_including_all_model_misses(self):
@@ -108,6 +110,8 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(result["accuracy_difference_ci"]["valid"], 100)
         self.assertEqual(result, paired_comparison(tuple(reversed(category)), tuple(reversed(crr)), target=.5, resamples=100))
         self.assertFalse(result["confirmatory_matched_quality_claim"])
+        self.assertEqual(result["evaluation_scope"], EVALUATION_SCOPE)
+        self.assertEqual(result["cost_basis"], "total_deployable_feature_prediction_dispatch_and_selected_model_attempts")
 
     def test_target_miss_and_degenerate_intervals_are_visible(self):
         rows = tuple(PolicyRow(str(i), "a", str(i), 0., 1., ("m",)) for i in range(5))
@@ -122,6 +126,84 @@ class AnalysisTests(unittest.TestCase):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 oracle_frontier((ModelOutcome("q", "m", False, value),))
         self.assertIsNone(opportunity_capture(1, 2, 3))
+
+
+class UniformMixtureTests(unittest.TestCase):
+    def setUp(self):
+        self.roster = ("a", "b", "c", "d")
+        self.questions = tuple(Question(str(i), "A" if i < 2 else "B", str(i), "text", ("x", "y"))
+                               for i in range(3))
+        # Three successes out of twelve cells, with failures retained. The last
+        # category costs twice as much and has one item, testing macro weighting.
+        self.observations = tuple(Observation(str(i), model, (i, j) in {(0, 0), (0, 2), (1, 2)},
+            "abstained" if i == 2 else "failed" if (i, j) == (1, 0) else "answered",
+            (j + 1) * (2 if i == 2 else 1)) for i in range(3) for j, model in enumerate(self.roster))
+        self.overhead = {"0": .1, "1": .3, "2": .7}
+
+    def report(self, observations=None, overhead=None, questions=None, roster=None):
+        return uniform_mixture(self.questions if questions is None else questions,
+            self.observations if observations is None else observations,
+            model_roster=self.roster if roster is None else roster,
+            overhead_usd=self.overhead if overhead is None else overhead)
+
+    def test_uniform_expectation_charges_one_model_and_macro_weights_subsets(self):
+        report = self.report()
+        self.assertEqual(report["model_weights"], {model: .25 for model in self.roster})
+        self.assertEqual(report["selected_models_per_item"], 1)
+        self.assertEqual(report["n_items"], 3)
+        self.assertEqual(report["subset_results"]["A"]["assigned"], 2)
+        self.assertEqual(report["subset_results"]["B"]["expected_accuracy"], 0)
+        self.assertEqual(report["expected_accuracy"], .1875)
+        self.assertEqual(report["expected_mean_inference_cost_usd"], 3.75)
+        self.assertAlmostEqual(report["expected_mean_routing_overhead_usd"], .45)
+        self.assertAlmostEqual(report["expected_mean_total_cost_usd"], 4.2)
+        self.assertEqual(report["status"], "secondary_expected_randomisation")
+        self.assertEqual(report["evaluation_scope"], EVALUATION_SCOPE)
+        self.assertFalse(report["primary_comparator"])
+
+    def test_uniform_weights_ignore_outcomes_and_costs(self):
+        changed = tuple(replace(r, solved=False, cost_usd=r.cost_usd * 7) for r in self.observations)
+        report = self.report(changed)
+        self.assertEqual(report["model_weights"], self.report()["model_weights"])
+        self.assertEqual(report["expected_accuracy"], 0)
+        self.assertEqual(report["n_items"], 3)
+
+    def test_uniform_missing_inference_preserves_accuracy_and_known_subset(self):
+        changed = (replace(self.observations[0], cost_usd=None),) + self.observations[1:]
+        report = self.report(changed)
+        self.assertEqual(report["expected_accuracy"], .1875)
+        self.assertIsNone(report["expected_mean_inference_cost_usd"])
+        self.assertIsNone(report["expected_mean_total_cost_usd"])
+        self.assertAlmostEqual(report["expected_mean_routing_overhead_usd"], .45)
+        self.assertEqual(report["subset_results"]["B"]["expected_mean_inference_cost_usd"], 5)
+        self.assertEqual(report["missing_cost_cells"], 1)
+
+    def test_uniform_missing_overhead_preserves_inference_only_result(self):
+        report = self.report(overhead={**self.overhead, "0": None})
+        self.assertEqual(report["expected_accuracy"], .1875)
+        self.assertEqual(report["expected_mean_inference_cost_usd"], 3.75)
+        self.assertIsNone(report["expected_mean_routing_overhead_usd"])
+        self.assertIsNone(report["expected_mean_total_cost_usd"])
+        self.assertEqual(report["missing_overhead_items"], 1)
+
+    def test_uniform_requires_all_roster_cells(self):
+        for observations in (self.observations[:-1], self.observations + (self.observations[0],),
+                             tuple(r for r in self.observations if r.model != "d")):
+            with self.subTest(rows=len(observations)), self.assertRaises(ValueError):
+                self.report(observations)
+        for roster in ((), self.roster + ("a",), self.roster + ("absent",)):
+            with self.subTest(roster=roster), self.assertRaises(ValueError):
+                self.report(roster=roster)
+
+    def test_uniform_overhead_requires_exact_coverage_and_valid_values(self):
+        for overhead in ({}, {**self.overhead, "extra": 0},
+                         *({**self.overhead, "0": value} for value in (-1, True, float("nan"), float("inf")))):
+            with self.subTest(overhead=overhead), self.assertRaises(ValueError):
+                self.report(overhead=overhead)
+
+    def test_uniform_result_is_permutation_invariant(self):
+        self.assertEqual(self.report(), self.report(tuple(reversed(self.observations)),
+                         questions=tuple(reversed(self.questions)), roster=tuple(reversed(self.roster))))
 
 
 if __name__ == "__main__":

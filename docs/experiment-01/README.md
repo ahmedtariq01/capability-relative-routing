@@ -2,7 +2,9 @@
 
 Start with [the protocol](PROTOCOL.md), [empirical CRR v0](METHOD.md), [the analysis policy](ANALYSIS.md) and [remaining decisions](DECISIONS.md). The [compatibility check](SCREAMINGFACE-COMPATIBILITY.md) answers Leo's source-level questions. [Related work](RELATED-WORK.md) covers overlapping methods and Reddit's practical cautions. [Receipts](RECEIPTS.md) defines the record we need from any backend.
 
-`manifest.draft.json` contains 180 original IDs, including 60 development, 120 held out and 15 smoke questions drawn from development. The new method/analysis proposal has an offline implementation and hashed definitions in `method-plan.json`. Exact model settings, real development fitting and execution prerequisites remain open. The scripts make no provider calls.
+`manifest.draft.json` contains 180 original IDs, including 60 development, 120 held out and 15 smoke questions drawn from development. The 27 October revision addresses Leo's conditional review, retains estimator `crr-empirical-v0.1` and updates the analysis to `crr-analysis-v0.2`. It makes the 0.80 primary designation explicit and adds a fixed four-model uniform-mixture control. The estimator and fold assignment remain unchanged. Exact model settings, backend checks, real development fitting and execution prerequisites remain open. The scripts make no provider calls.
+
+The primary result stays unavailable if development cannot attain 0.80. The uniform control reports expected accuracy and cost from the complete matrix, with explicit selection/dispatch overhead. It adds no model calls and remains secondary. The planned interpretation is a single-draw finite-matrix evaluation conditional on provider stochasticity.
 
 ## Offline checks
 

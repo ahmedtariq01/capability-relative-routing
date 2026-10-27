@@ -322,7 +322,15 @@ def fit_development(manifest: dict, questions: tuple[Question, ...],
     cheap = min(models, key=lambda m: (model_cost[m], -model_accuracy[m], m))
     stronger = [m for m in models if model_accuracy[m] > model_accuracy[cheap]]
     strong = min(stronger, key=lambda m: (-model_accuracy[m], model_cost[m], m)) if stronger else None
+    selections = {f: [select_threshold(questions, observations, oof, f, q) for q in TARGETS]
+                  for f in ("category", "crr")}
+    primary = {f: next(s for s in rows if s["target"] == PRIMARY_TARGET) for f, rows in selections.items()}
+    primary_available = all(s["selected"] is not None for s in primary.values())
     return {"method_version": METHOD_VERSION, "status": "development_fit_not_execution_approval",
+            "primary_comparison": {"target": PRIMARY_TARGET,
+                "status": "policies_selected_pending_evaluation" if primary_available else "unavailable_on_development",
+                "family_status": {f: s["status"] for f, s in primary.items()},
+                "secondary_target_promotion_allowed": False},
             "training_ids": [q.item_id for q in questions], "training_inputs_sha256": digest([asdict(q) for q in questions]),
             "training_outcomes_sha256": digest([asdict(r) for r in observations]),
             "folds": folds, "fold_audits": audits, "oof_predictions": oof,
@@ -331,8 +339,7 @@ def fit_development(manifest: dict, questions: tuple[Question, ...],
             "cascade": {"cheap": cheap, "strong": strong,
                         "status": "selected" if strong else "no_more_accurate_development_model",
                         "gate": "abstained_or_malformed_or_failed"},
-            "selections": {f: [select_threshold(questions, observations, oof, f, q) for q in TARGETS]
-                           for f in ("category", "crr")},
+            "selections": selections,
             "limitations": ["OOF selection scores are tuning diagnostics, not unbiased policy performance.",
                             "Posterior SD assumes independent Bernoulli trials within a category.",
                             "No fitted probability calibration or held-out performance is established."]}
@@ -356,14 +363,17 @@ def plan_routes(artifact: dict, questions: tuple[Question, ...], family: str, ta
         raise ValueError("unknown family or target")
     if not questions or len(questions) != len({q.item_id for q in questions}):
         raise ValueError("route inputs must be non-empty and unique")
+    target_role = "primary" if target == PRIMARY_TARGET else "secondary"
     selection = next(s for s in artifact["selections"][family] if s["target"] == target)
     if selection["selected"] is None:
-        return {"status": "unattainable_on_development", "family": family, "target": target, "routes": None}
+        return {"status": "unattainable_on_development", "family": family, "target": target,
+                "target_role": target_role, "routes": None}
     threshold = selection["selected"]["threshold"]
     profiles = restore_profiles(artifact)
     rows = {q.item_id: choose([p.predict(q) for p in profiles], family, threshold)
             for q in sorted(questions, key=lambda q: q.item_id)}
     return {"status": "planned_not_execution_approval", "family": family, "target": target,
+            "target_role": target_role,
             "threshold": threshold, "fit_sha256": digest(artifact),
             "visible_inputs_sha256": digest([asdict(q) for q in sorted(questions, key=lambda q: q.item_id)]),
             "routes": rows, "routes_sha256": digest(rows)}

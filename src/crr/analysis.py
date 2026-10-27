@@ -14,6 +14,9 @@ from statistics import mean
 from .empirical import Observation, Question, nonnegative, validate_matrix
 from .oracle import ModelOutcome, fixed_policies, matched_cost, oracle_frontier
 
+ANALYSIS_VERSION = "crr-analysis-v0.2"
+EVALUATION_SCOPE = "single_draw_finite_matrix_conditional_on_provider_stochasticity"
+
 
 @dataclass(frozen=True)
 class PolicyRow:
@@ -108,6 +111,8 @@ def oracle_opportunity(questions: tuple[Question, ...], observations: tuple[Obse
         raise ValueError("target must be in [0,1]")
     validate_matrix(questions, observations, model_roster)
     base = {"target": target, "n_items": len(questions), "selection": "retrospective",
+            "interpretation": "inference_cost_only_retrospective_upper_bound",
+            "evaluation_scope": EVALUATION_SCOPE,
             "cost_basis": "frozen_price_all_attempt_inference_only", "mixtures_in_primary": False,
             "oracle_routing_cost_assumption_usd": 0.0}
     if any(r.cost_usd is None for r in observations):
@@ -144,6 +149,57 @@ def mixture_frontier(questions: tuple[Question, ...], observations: tuple[Observ
                     "expected_accuracy": sum(w * mean(r.solved for r in rows) for w, rows in active),
                     "expected_mean_inference_cost_usd": cost, "status": "secondary_expected_randomisation"})
     return points
+
+
+def uniform_mixture(questions: tuple[Question, ...], observations: tuple[Observation, ...], *,
+                    model_roster: tuple[str, ...], overhead_usd: dict[str, float | None]) -> dict:
+    """Secondary expectation of selecting one model uniformly for each item.
+
+    Weights are fixed by the declared roster, independently of inputs, outcomes
+    and costs. The complete matrix integrates routing randomisation analytically;
+    it does not average over new provider draws or call all models at deployment.
+    Overhead is the measured expected selection/dispatch cost per assigned item.
+    Each cell's inference cost already includes every selected-model attempt.
+    """
+    models = tuple(sorted(model_roster))
+    index = validate_matrix(questions, observations, models)
+    if set(overhead_usd) != {q.item_id for q in questions}:
+        raise ValueError("uniform overhead records must cover every assigned item")
+    for overhead in overhead_usd.values():
+        if overhead is not None:
+            nonnegative(overhead, "uniform selection and dispatch overhead")
+    items = []
+    for q in sorted(questions, key=lambda q: q.item_id):
+        calls = [index[q.item_id, model] for model in models]
+        inference = None if any(r.cost_usd is None for r in calls) else mean(r.cost_usd for r in calls)
+        overhead = overhead_usd[q.item_id]
+        items.append({"item_id": q.item_id, "subset": q.subset,
+                      "expected_accuracy": mean(r.solved for r in calls),
+                      "expected_mean_inference_cost_usd": inference,
+                      "expected_mean_routing_overhead_usd": overhead,
+                      "expected_mean_total_cost_usd": None if inference is None or overhead is None else inference + overhead,
+                      "missing_cost_cells": sum(r.cost_usd is None for r in calls)})
+    fields = ("expected_accuracy", "expected_mean_inference_cost_usd",
+              "expected_mean_routing_overhead_usd", "expected_mean_total_cost_usd")
+    def summary(rows):
+        return {"assigned": len(rows),
+                **{field: mean(r[field] for r in rows) if all(r[field] is not None for r in rows) else None
+                   for field in fields},
+                "missing_cost_cells": sum(r["missing_cost_cells"] for r in rows),
+                "missing_overhead_items": sum(r["expected_mean_routing_overhead_usd"] is None for r in rows)}
+    subsets = {subset: summary([r for r in items if r["subset"] == subset])
+               for subset in sorted({q.subset for q in questions})}
+    macro = {field: mean(s[field] for s in subsets.values()) if all(s[field] is not None for s in subsets.values()) else None
+             for field in fields}
+    return {"analysis_version": ANALYSIS_VERSION, "status": "secondary_expected_randomisation",
+            "evaluation_scope": EVALUATION_SCOPE, "selection": "fixed_uniform_independent_of_item_and_outcomes",
+            "model_weights": {model: 1 / len(models) for model in models}, "selected_models_per_item": 1,
+            "n_items": len(questions), "subset_weights": "equal", "subset_results": subsets, **macro,
+            "missing_cost_cells": sum(r["missing_cost_cells"] for r in items),
+            "missing_overhead_items": sum(r["expected_mean_routing_overhead_usd"] is None for r in items),
+            "cost_basis": "frozen_price_all_attempt_inference_plus_selection_and_dispatch",
+            "primary_comparator": False,
+            "limitations": "Expected routing randomisation on the observed matrix, not a realised random route or repeated provider sample."}
 
 
 def _macro(rows: list[PolicyRow], field: str) -> float:
@@ -228,7 +284,9 @@ def paired_comparison(category: tuple[PolicyRow, ...], crr: tuple[PolicyRow, ...
                                            for status in sorted({r.terminal_status for r in rows})}}
     subset_results = {s: {"category": summary([r for r in category if r.subset == s]),
                           "crr": summary([r for r in crr if r.subset == s])} for s in sorted(groups)}
-    return {"n_items": len(a), "target": target, "subset_weights": "equal",
+    return {"analysis_version": ANALYSIS_VERSION, "evaluation_scope": EVALUATION_SCOPE,
+            "cost_basis": "total_deployable_feature_prediction_dispatch_and_selected_model_attempts",
+            "n_items": len(a), "target": target, "subset_weights": "equal",
             "subset_results": subset_results,
             "category_successes": sum(r.solved for r in category), "crr_successes": sum(r.solved for r in crr),
             "category_mean_cost_usd": _macro(list(category), "cost_usd") if all(r.cost_usd is not None for r in category) else None,
@@ -241,4 +299,4 @@ def paired_comparison(category: tuple[PolicyRow, ...], crr: tuple[PolicyRow, ...
             "both_targets_met": both_targets, "exploratory_zero_loss_rule_met": gate,
             "confirmatory_matched_quality_claim": False,
             "resamples": resamples, "seed": seed, "warnings": warnings,
-            "limitations": "Conditional on fixed development fit and one observed outcome per cell. No training or model-sampling uncertainty."}
+            "limitations": "Single-draw finite-matrix evaluation conditional on provider stochasticity and the fixed development fit. Bootstrap intervals exclude training and provider-sampling uncertainty."}
