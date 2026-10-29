@@ -209,6 +209,15 @@ class FittedModel:
                 "crr_probability": sigmoid(offset + sum(w * x for w, x in zip(self.coefficients, z))),
                 "expected_cost_usd": category.expected_cost_usd}
 
+    def predict_category(self, question: Question) -> dict:
+        """Category-only runtime: do not compute unused within-category features."""
+        if question.subset not in self.categories:
+            raise ValueError("unseen category")
+        category = self.categories[question.subset]
+        return {"model": self.model, "category_probability": category.probability,
+                "category_posterior_sd": category.posterior_sd,
+                "expected_cost_usd": category.expected_cost_usd}
+
 
 def _fit(questions: tuple[Question, ...], observations: tuple[Observation, ...],
          models: tuple[str, ...]) -> tuple[FittedModel, ...]:
@@ -257,7 +266,10 @@ def choose(predictions: list[dict], family: str, threshold: float) -> dict:
         raise ValueError("predictions must contain unique models")
     for p in predictions:
         nonnegative(p["expected_cost_usd"], "expected cost")
-        for field in ("category_probability", "crr_probability"):
+        fields = {family + "_probability"} | ({"category_probability", "crr_probability"} & p.keys())
+        for field in fields:
+            if field not in p:
+                raise ValueError("missing predicted probability for routing family")
             if type(p[field]) not in (int, float) or not math.isfinite(p[field]) or not 0 <= p[field] <= 1:
                 raise ValueError("invalid predicted probability")
     key = family + "_probability"
@@ -268,6 +280,17 @@ def choose(predictions: list[dict], family: str, threshold: float) -> dict:
         selected = min(predictions, key=lambda p: (-p[key], p["expected_cost_usd"], p["model"]))
     return {"model": selected["model"], "probability": selected[key],
             "expected_cost_usd": selected["expected_cost_usd"], "threshold_met": bool(viable)}
+
+
+def routing_predictions(profiles: tuple[FittedModel, ...], question: Question, family: str) -> list[dict]:
+    if family not in {"category", "crr"}:
+        raise ValueError("unknown routing family")
+    return [p.predict_category(question) if family == "category" else p.predict(question) for p in profiles]
+
+
+def route_question(profiles: tuple[FittedModel, ...], question: Question, family: str, threshold: float) -> dict:
+    """Shared per-query path for route planning and local overhead measurement."""
+    return choose(routing_predictions(profiles, question, family), family, threshold)
 
 
 def select_threshold(questions: tuple[Question, ...], observations: tuple[Observation, ...],
@@ -370,7 +393,7 @@ def plan_routes(artifact: dict, questions: tuple[Question, ...], family: str, ta
                 "target_role": target_role, "routes": None}
     threshold = selection["selected"]["threshold"]
     profiles = restore_profiles(artifact)
-    rows = {q.item_id: choose([p.predict(q) for p in profiles], family, threshold)
+    rows = {q.item_id: route_question(profiles, q, family, threshold)
             for q in sorted(questions, key=lambda q: q.item_id)}
     return {"status": "planned_not_execution_approval", "family": family, "target": target,
             "target_role": target_role,

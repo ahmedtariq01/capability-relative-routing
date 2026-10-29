@@ -1,6 +1,6 @@
 # Decisions before execution
 
-Leo's [27 October review](https://github.com/leo-guinan/capability-relative-routing/pull/1#issuecomment-6445333948) conditionally supports the v0 method. This revision addresses his five points: the fixed 0.80 primary target, distinct cost boundaries, pre-inference category availability and source-group limits, a uniform-routing control, and the single-draw interpretation. Final specification agreement and execution prerequisites remain open.
+Leo's [29 October review](https://github.com/leo-guinan/capability-relative-routing/pull/1#issuecomment-6497446267) approves the v0 method and analysis at `4dae9b5`. [spec-freeze.json](spec-freeze.json) preserves that approval and the exact document hashes. The numerical method, 0.80 primary target, baseline definitions, cost boundaries and analysis rules now form the approved specification. The operational prerequisites in [EXECUTION.md](EXECUTION.md) remain open. Model execution has no approval yet.
 
 | Decision | Prepared proposal | Needed before |
 | --- | --- | --- |
@@ -24,6 +24,6 @@ No personal-information question for Ahmed blocks this deliverable. Leo reviews 
 
 ## Suggested order of discussion
 
-Review these clarifications, then resolve backend equivalence, model access/settings and the supported selection mechanism. The source pins, original IDs, 60/120 split and 15 development-only smoke questions remain unchanged. After spending approval and the development-only smoke test, complete development collection and fitting. Hash-lock the fitted method, selected policies, route table and analysis artifacts before collecting or inspecting any held-out outcomes.
+The table above preserves the decisions prepared for the specification review. Its final-review and method-freeze entries are now resolved by Leo's 29 October approval. Resolve backend equivalence, model access/settings and spending next. The source pins, original IDs, 60/120 split and 15 development-only smoke questions remain unchanged. After the operational gates and development smoke pass, complete authorized development collection and fitting. Hash-lock the fitted method, selected policies, route table and analysis artifacts before collecting or inspecting any held-out outcomes.
 
 This branch remains a review contribution. It does not establish a grant, allocate authorship or produce empirical findings.

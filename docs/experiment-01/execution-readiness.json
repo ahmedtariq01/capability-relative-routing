@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "held_out_outcomes_seen": false,
+  "evidence": {
+    "manifest": {
+      "path": "docs/experiment-01/manifest.draft.json",
+      "sha256": "2885475fb12cad4627d07f4184ef74673093b55040a306fec8498046767c03e8"
+    },
+    "specification": {
+      "path": "docs/experiment-01/spec-freeze.json",
+      "sha256": "a5e348e6526e07909b58149f9e4fc37255b963fda0d68ed349b4afceef3e14e2"
+    },
+    "backend_equivalence": null,
+    "model_manifest": null,
+    "pricing_manifest": null,
+    "spending_approval": null,
+    "development_smoke": null,
+    "development_collection": null,
+    "fitted_method": null,
+    "routing_overhead": null,
+    "selected_policies": null,
+    "route_table": null,
+    "analysis_bundle": null,
+    "held_out_lock": null
+  },
+  "preliminary_evidence": {
+    "local_overhead": "docs/experiment-01/local-overhead.synthetic.json",
+    "official_backend_reference": "docs/experiment-01/backend/official-development.json"
+  },
+  "note": "Null references mark missing operational evidence. Preliminary fixture evidence never substitutes for measured development or engine validation."
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "status": "specification_approved",
+  "approved_commit": "4dae9b53d77bd75bbc97881bc3659dcfe65daf70",
+  "approved_by": "leo-guinan",
+  "approval_url": "https://github.com/leo-guinan/capability-relative-routing/pull/1#issuecomment-6497446267",
+  "approved_at": "2026-10-29T13:04:10Z",
+  "execution_authorized": false,
+  "documents": {
+    "docs/experiment-01/METHOD.md": "3c89f83d7e48b0409dc2d7e3e8f7804d874c17e004a9a0cd44a593c8caffa4c8",
+    "docs/experiment-01/ANALYSIS.md": "eb381e65eda91874abb1dfdf6c5850621ce956c2cc49f73b9b6227ef9844e9c1",
+    "docs/experiment-01/method-plan.json": "72e580e7fd0628374b601332bb2c91af3ec4296ae97d49b45418219425b17414"
+  },
+  "selection_sha256": "974e722fe0f342bfb26a7111b3c97d95b791dc187a2bc32de599381c9e5befec",
+  "scope": "Approval of the v0 method and analysis specification only. Operational evidence and spending approval remain separate."
+}

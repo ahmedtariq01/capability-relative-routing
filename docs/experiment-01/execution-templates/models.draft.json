@@ -1,0 +1,86 @@
+{
+  "evidence_kind": "model_configuration_manifest",
+  "status": "draft_unresolved",
+  "models": [
+    {
+      "slot": "model_1",
+      "api_id": null,
+      "version": null,
+      "provider_route": null,
+      "generation_settings": {
+        "reasoning": null,
+        "max_output_tokens": null,
+        "temperature": null,
+        "seed": null
+      },
+      "declared_provider_defaults": {},
+      "retry": {
+        "max_attempts": null,
+        "retryable_errors": [],
+        "backoff_seconds": null
+      },
+      "timeout_seconds": null,
+      "route_fallbacks": []
+    },
+    {
+      "slot": "model_2",
+      "api_id": null,
+      "version": null,
+      "provider_route": null,
+      "generation_settings": {
+        "reasoning": null,
+        "max_output_tokens": null,
+        "temperature": null,
+        "seed": null
+      },
+      "declared_provider_defaults": {},
+      "retry": {
+        "max_attempts": null,
+        "retryable_errors": [],
+        "backoff_seconds": null
+      },
+      "timeout_seconds": null,
+      "route_fallbacks": []
+    },
+    {
+      "slot": "model_3",
+      "api_id": null,
+      "version": null,
+      "provider_route": null,
+      "generation_settings": {
+        "reasoning": null,
+        "max_output_tokens": null,
+        "temperature": null,
+        "seed": null
+      },
+      "declared_provider_defaults": {},
+      "retry": {
+        "max_attempts": null,
+        "retryable_errors": [],
+        "backoff_seconds": null
+      },
+      "timeout_seconds": null,
+      "route_fallbacks": []
+    },
+    {
+      "slot": "model_4",
+      "api_id": null,
+      "version": null,
+      "provider_route": null,
+      "generation_settings": {
+        "reasoning": null,
+        "max_output_tokens": null,
+        "temperature": null,
+        "seed": null
+      },
+      "declared_provider_defaults": {},
+      "retry": {
+        "max_attempts": null,
+        "retryable_errors": [],
+        "backoff_seconds": null
+      },
+      "timeout_seconds": null,
+      "route_fallbacks": []
+    }
+  ]
+}

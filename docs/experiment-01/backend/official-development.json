@@ -1,0 +1,600 @@
+{
+  "schema_version": 1,
+  "role": "official",
+  "evidence_kind": "upstream_task_mock",
+  "provider_calls": 0,
+  "real_outcomes_collected": false,
+  "split": "development",
+  "dataset_revision": "5c77cec648430f30611808808861eb86f81d5eaa",
+  "selection_sha256": "974e722fe0f342bfb26a7111b3c97d95b791dc187a2bc32de599381c9e5befec",
+  "exporter_revision": "4dae9b53d77bd75bbc97881bc3659dcfe65daf70",
+  "exporter_worktree_dirty": true,
+  "exporter_revision_kind": "checkout_base_with_uncommitted_changes",
+  "exporter_source_sha256": "4865c77c772a6d13f3e5c3c6438c635073ca51bf55ee62a9edbd2e337bc752fd",
+  "source_case_id_namespace": "lab-bench-original-id",
+  "preparation": {
+    "inspect_ai": "0.3.263",
+    "inspect_evals": "0.20.0",
+    "dataset_shuffle_seed": 7,
+    "choice_shuffle_seed": 7,
+    "task_source_sha256": "ca9fa2fa1b277ad6880dbdce52a041d44b1159b418a28cc10695c0dad37a4384",
+    "solver_source_sha256": "583a3715a2820d18c34fcf2fdb3ffaf948f060869517df0c6f1ca579051a2e4a",
+    "scorer_source_sha256": "a2052389c6dc01f758abc251aea0e859dbebc892c5406c525b40feb31d4db4da",
+    "template_sha256": "96c75e269f763304330ffc999bc99b47ae77da7ae3312fd1b0953a9b72afe9c4"
+  },
+  "preparation_sha256": "bae4a1b1a814d6d3de502d96b8bd3b5eee1b707aa0acbb4d8ede004febe92228",
+  "selected_denominator": 60,
+  "records": [
+    {
+      "original_id": "0bac8974-554c-439a-a9a2-22fa509c8d5d",
+      "category": "LitQA2",
+      "source_case_id": "0bac8974-554c-439a-a9a2-22fa509c8d5d",
+      "variant_case_id": "0bac8974-554c-439a-a9a2-22fa509c8d5d",
+      "prepared_input_sha256": "aedbad704b552f4cff3be0f426019904609c5560137d84128a7d67713bf39daa",
+      "ordered_choices_sha256": "aa9560bc1bc22d4dfae4778d628eb8faa55505ef86b4058044ddcdc15d92b481",
+      "target_mapping_sha256": "90f9cf06011497b6464033c22edcc5e616dbf4cf83536ed036a87ae2e9ff539b"
+    },
+    {
+      "original_id": "1ccdc348-50e1-4941-9151-5e50411a2b41",
+      "category": "LitQA2",
+      "source_case_id": "1ccdc348-50e1-4941-9151-5e50411a2b41",
+      "variant_case_id": "1ccdc348-50e1-4941-9151-5e50411a2b41",
+      "prepared_input_sha256": "20af9d0676e2298e048d3edfd21d404deffde04548b08e75ea5bbd11074b30f1",
+      "ordered_choices_sha256": "fccc1c20ad0bb2884d9e0113664d7ac6d511259aa2f7ce9f08f6971a702ecf99",
+      "target_mapping_sha256": "19c3ae8859246ce9bb090d7172324af8d4b321d229b605e6382f778a58e086f0"
+    },
+    {
+      "original_id": "28ebecdf-949e-4d20-aca9-5989b7a9d6e9",
+      "category": "LitQA2",
+      "source_case_id": "28ebecdf-949e-4d20-aca9-5989b7a9d6e9",
+      "variant_case_id": "28ebecdf-949e-4d20-aca9-5989b7a9d6e9",
+      "prepared_input_sha256": "29ad5fefa1a5f69550206e09465ac3ff9add06c2a431238def725ec6e2562bd2",
+      "ordered_choices_sha256": "41f337de5cb4c3e7bcdd1b50f8417e9da979eb43c34ddfbbaf448b6ea39ed148",
+      "target_mapping_sha256": "53e4b754161fe44d356ff83373f37fd155453f0149a6870a6f88bb50fde36651"
+    },
+    {
+      "original_id": "2dc20a2f-de54-4bfe-a34f-1ba395f342cf",
+      "category": "LitQA2",
+      "source_case_id": "2dc20a2f-de54-4bfe-a34f-1ba395f342cf",
+      "variant_case_id": "2dc20a2f-de54-4bfe-a34f-1ba395f342cf",
+      "prepared_input_sha256": "b4aa147085fe26405f1917e47283036852eae94104aeee946728b05245141a50",
+      "ordered_choices_sha256": "debdeda7905fdeea508782e609ed1ca383fc9b020983c3af5e0ad93949c40ee3",
+      "target_mapping_sha256": "5d47207c1196feb5523c3dcc8208acbe0a6636b1fcd23338071abb913ba56e8c"
+    },
+    {
+      "original_id": "3d40f373-59d3-4666-87bd-6db64fd7b4fb",
+      "category": "LitQA2",
+      "source_case_id": "3d40f373-59d3-4666-87bd-6db64fd7b4fb",
+      "variant_case_id": "3d40f373-59d3-4666-87bd-6db64fd7b4fb",
+      "prepared_input_sha256": "feaa0d5ac3e8c29d08dc226e52dd471b4b1e60224cc09259a19be34afbef23bf",
+      "ordered_choices_sha256": "78cf2d1db3184374d455bccdcff751d5589fbfe8fc0c2e5509e250abe3152edc",
+      "target_mapping_sha256": "b1bb0059a7c6401dddfdce734c8cffe1a089dda6738ab80e2e5ba717f6624850"
+    },
+    {
+      "original_id": "4949fc05-5f78-4dd0-8d9c-3dbb6004740a",
+      "category": "LitQA2",
+      "source_case_id": "4949fc05-5f78-4dd0-8d9c-3dbb6004740a",
+      "variant_case_id": "4949fc05-5f78-4dd0-8d9c-3dbb6004740a",
+      "prepared_input_sha256": "1437400d8444aa6dbb91e492cfb9110394ffb7fc97bbd26253d79ed84ccbc310",
+      "ordered_choices_sha256": "2c39a805a83aa0599ecf60821925a5af986d1d816df269830893229c90c57640",
+      "target_mapping_sha256": "a0c8f43b3a032b51024a4405d08506a84e042d75dab6a7182911553ec2cdaa74"
+    },
+    {
+      "original_id": "517e7cf8-c5d2-4391-9e2a-235b79d93050",
+      "category": "LitQA2",
+      "source_case_id": "517e7cf8-c5d2-4391-9e2a-235b79d93050",
+      "variant_case_id": "517e7cf8-c5d2-4391-9e2a-235b79d93050",
+      "prepared_input_sha256": "550faefb8978402dcc8ce7481f09a98cd68c9ff8faeacc91684136a4782f86c0",
+      "ordered_choices_sha256": "1a84cbd2fff77860b409d22150cfe40aee52eb605577f068af9ebc30e1111579",
+      "target_mapping_sha256": "0181c3db80e39722bf02daba36dc9d8db66a9b56c2b715c6e632e35d807573ac"
+    },
+    {
+      "original_id": "55668039-396e-488a-b2c3-bbe840550433",
+      "category": "LitQA2",
+      "source_case_id": "55668039-396e-488a-b2c3-bbe840550433",
+      "variant_case_id": "55668039-396e-488a-b2c3-bbe840550433",
+      "prepared_input_sha256": "7cc66da1ed6ce3d51c691c5d0281e7bcec416d0a7ee924d8e7f2823039472f71",
+      "ordered_choices_sha256": "fd55340d8002e8a5b7c423617e8b038ca391daf37a6d0248de4962933e0dcd25",
+      "target_mapping_sha256": "6e028ece87059de28c2668b3ba227842ed911380e684577db34232b38a316e35"
+    },
+    {
+      "original_id": "58b39fab-337b-452d-b74f-84f9a188ce88",
+      "category": "LitQA2",
+      "source_case_id": "58b39fab-337b-452d-b74f-84f9a188ce88",
+      "variant_case_id": "58b39fab-337b-452d-b74f-84f9a188ce88",
+      "prepared_input_sha256": "b148f96f4a49bee4069a7110968d081978094f17afe7acc54d7364c500ef87ff",
+      "ordered_choices_sha256": "41f07526c5597e94e582bc880743bfab109b54b52c3cb4eb37c25fcec7539a14",
+      "target_mapping_sha256": "8f3ea2ab9117bf99bd7d74c2befbbb2c50875494b55909d25818f3fc8b94dbee"
+    },
+    {
+      "original_id": "5a9c6697-a65c-49c0-9e02-38b2a276fde7",
+      "category": "LitQA2",
+      "source_case_id": "5a9c6697-a65c-49c0-9e02-38b2a276fde7",
+      "variant_case_id": "5a9c6697-a65c-49c0-9e02-38b2a276fde7",
+      "prepared_input_sha256": "f26d6ebdd3dba7859762a190c9b90acaa9b4d082598083b3c9dce1c0f64548d3",
+      "ordered_choices_sha256": "c40a3e7b7047ace6f297672c8750416553758415bf2fd3dd824221129be69684",
+      "target_mapping_sha256": "1ec7be869879c446e034f6949a3fcce2e5e64a3aa52b97bbe5fe8ca2f3ec59b3"
+    },
+    {
+      "original_id": "76184ccf-4bf0-469e-a442-11d04b4ff8b0",
+      "category": "LitQA2",
+      "source_case_id": "76184ccf-4bf0-469e-a442-11d04b4ff8b0",
+      "variant_case_id": "76184ccf-4bf0-469e-a442-11d04b4ff8b0",
+      "prepared_input_sha256": "66eea23ca048de77b260b0d4757c96bea92f317ed4541525ef4efd75924c0582",
+      "ordered_choices_sha256": "996c0045abf5503a0fa9c612600478d6a0921b37c056026295e19781adda8d31",
+      "target_mapping_sha256": "a5a9005adc23238667d54e53aa40315c0ab71b33b42be5ca29f832c577902e09"
+    },
+    {
+      "original_id": "7a88e6f7-fb8e-4a24-b08d-9b7a6edafe57",
+      "category": "LitQA2",
+      "source_case_id": "7a88e6f7-fb8e-4a24-b08d-9b7a6edafe57",
+      "variant_case_id": "7a88e6f7-fb8e-4a24-b08d-9b7a6edafe57",
+      "prepared_input_sha256": "9e91097d4c819d0a2a4f983d4cb27fefc6fbd05e8481099ea94d36b0deb8eea5",
+      "ordered_choices_sha256": "c022bd085adda957240016f46c6a550340fc2041a55150b15de9df457d69dbb0",
+      "target_mapping_sha256": "4aeedb4b07377692ad728c3b79a53c75b649587317ec0b9c4f7a648397336009"
+    },
+    {
+      "original_id": "7d805bb8-4c7c-431f-b068-acf5e5459985",
+      "category": "LitQA2",
+      "source_case_id": "7d805bb8-4c7c-431f-b068-acf5e5459985",
+      "variant_case_id": "7d805bb8-4c7c-431f-b068-acf5e5459985",
+      "prepared_input_sha256": "6c8284dfc744065a8f145aedfc7a3db3dad53653858755d189cb5b36737d947f",
+      "ordered_choices_sha256": "2e579187bcc4210e7e50b64140321b93c95cf3b8b045dec8e346e96174cc27b5",
+      "target_mapping_sha256": "60e5b4327db9d84773d7011b1cd2fc35e7743ea65ef8b3d018535f67fa627388"
+    },
+    {
+      "original_id": "8ade3e3a-4792-4965-b9d9-05e528ebbfa0",
+      "category": "LitQA2",
+      "source_case_id": "8ade3e3a-4792-4965-b9d9-05e528ebbfa0",
+      "variant_case_id": "8ade3e3a-4792-4965-b9d9-05e528ebbfa0",
+      "prepared_input_sha256": "aa0a12c7dd875b9f22463e7b078a8f3428bebb70d3ee73259ca06c7a29375c36",
+      "ordered_choices_sha256": "1e9877c0722c1c977cb6627003980f786bda51093ae1f78138f9416ef7653213",
+      "target_mapping_sha256": "9dd9ed4166d2e90df506670642f31cb23a669574425f643f452e9b7f0c2f543b"
+    },
+    {
+      "original_id": "925ffe20-b8a9-4ac4-943c-7a16966f4a4b",
+      "category": "LitQA2",
+      "source_case_id": "925ffe20-b8a9-4ac4-943c-7a16966f4a4b",
+      "variant_case_id": "925ffe20-b8a9-4ac4-943c-7a16966f4a4b",
+      "prepared_input_sha256": "3951bc38f819336ebb0196fc4cbb546310f68f4bf2ddd4f90896b6d3ad6998fb",
+      "ordered_choices_sha256": "f416ecee97ea0e8872cb4f9d4a0359b802197ad022957d8d281f07e5056d5ca0",
+      "target_mapping_sha256": "99ae2b6477d6886a4f344e2ba09208b178272de039aae7783734d14c447dcc19"
+    },
+    {
+      "original_id": "a73b2c2d-a3ac-49e6-8e2e-44b4c1e6de94",
+      "category": "LitQA2",
+      "source_case_id": "a73b2c2d-a3ac-49e6-8e2e-44b4c1e6de94",
+      "variant_case_id": "a73b2c2d-a3ac-49e6-8e2e-44b4c1e6de94",
+      "prepared_input_sha256": "f8098b3c4a03d0f3bb4703f0b1a1bbbbe93e9bf041e683018d2d3b99ebd3c583",
+      "ordered_choices_sha256": "9d5c74821fdd75b465078b136c86a21dcf1f0dd19f58d071a7a8a445afc2b824",
+      "target_mapping_sha256": "d5f63bd3583fa10ce5c51486b8e6ac154f38ed07f2bc7fd5fc1445f97db4be1b"
+    },
+    {
+      "original_id": "aaa85379-1e4b-4642-9ec4-e1a6d6c29c3b",
+      "category": "LitQA2",
+      "source_case_id": "aaa85379-1e4b-4642-9ec4-e1a6d6c29c3b",
+      "variant_case_id": "aaa85379-1e4b-4642-9ec4-e1a6d6c29c3b",
+      "prepared_input_sha256": "25e21df04562e4d86dfbd925da008ba92eb71bff95f044401b33a9414bb0db7b",
+      "ordered_choices_sha256": "c931ef4a23feb81a38e4fad456da9a9548e954711cc1270b609c30a445250448",
+      "target_mapping_sha256": "1e8738fe553212128fffffeaed07d9e086ca5020624f22a2caefb64615d004a0"
+    },
+    {
+      "original_id": "d1307e50-3c03-4c76-81ee-2decb5de5f14",
+      "category": "LitQA2",
+      "source_case_id": "d1307e50-3c03-4c76-81ee-2decb5de5f14",
+      "variant_case_id": "d1307e50-3c03-4c76-81ee-2decb5de5f14",
+      "prepared_input_sha256": "90751625573366bfbba7a4660916cb9ca1776ee05f1e27c0d02840395d3a6478",
+      "ordered_choices_sha256": "fdc04d9d99ef2a01110ab045b24659564cd68908b1d6d1073dbeb9d82386b932",
+      "target_mapping_sha256": "cf56846e7f8c133ab5482773f0d2d2d7184fed4c0be9ae72f753f2bf25b24d8c"
+    },
+    {
+      "original_id": "e2fb56b7-08cd-4dc0-bc63-b45931a74fc9",
+      "category": "LitQA2",
+      "source_case_id": "e2fb56b7-08cd-4dc0-bc63-b45931a74fc9",
+      "variant_case_id": "e2fb56b7-08cd-4dc0-bc63-b45931a74fc9",
+      "prepared_input_sha256": "aa2957d328731c5166a25c0041b90500e53abb91c8bc6703664f8b261136a71f",
+      "ordered_choices_sha256": "004a5a86cc63d9f6f2e16663440d1d2869a374822c57e2a5d7386d5e83ffbcac",
+      "target_mapping_sha256": "432f2012fddff2039861c4d028c9a982d732df9797ba2ec0e01a22affefc9afc"
+    },
+    {
+      "original_id": "ef07d562-fc18-43c9-8201-7a189d76eeb9",
+      "category": "LitQA2",
+      "source_case_id": "ef07d562-fc18-43c9-8201-7a189d76eeb9",
+      "variant_case_id": "ef07d562-fc18-43c9-8201-7a189d76eeb9",
+      "prepared_input_sha256": "18d8991740f3ddb41b9c8b71f80c2daafa3f8b032959bbcbd245ad7f97f96efa",
+      "ordered_choices_sha256": "ecb467c2e1e8a891a554a23ae4155a2e58cbcd52de6ec115a63a513fd61dbdea",
+      "target_mapping_sha256": "81d63ab6780298d456514f6cbd1d6b9b3e1146110429f337015e42bb46cc51cd"
+    },
+    {
+      "original_id": "0ab55714-9ed1-4e4d-924a-0b297d5260d2",
+      "category": "ProtocolQA",
+      "source_case_id": "0ab55714-9ed1-4e4d-924a-0b297d5260d2",
+      "variant_case_id": "0ab55714-9ed1-4e4d-924a-0b297d5260d2",
+      "prepared_input_sha256": "f5eed2985e046bc598d50a7b621a961a8dffdbb52a5805c5d34b7be95596b366",
+      "ordered_choices_sha256": "71442792990ea7b84477bb078c3a71ad77adc7b424e013bb99ee269d618fd9be",
+      "target_mapping_sha256": "dae4258405a4acf0907d343a47e0accf3944860b7d5b64a7991988da5f846058"
+    },
+    {
+      "original_id": "11d73398-7b2b-4720-bf75-9f63af095c80",
+      "category": "ProtocolQA",
+      "source_case_id": "11d73398-7b2b-4720-bf75-9f63af095c80",
+      "variant_case_id": "11d73398-7b2b-4720-bf75-9f63af095c80",
+      "prepared_input_sha256": "d78279f554bc3fc5f7a521b71ee3aa9d7901a9a793ea5235116081a89ad21512",
+      "ordered_choices_sha256": "680625e7298ed20845d98a6b33190ce1e3171053fa51cf480f34e2b3967b90d0",
+      "target_mapping_sha256": "15603bb12dab09e09013faa3d5414920d5e0c183af8bd7838c7d81340a43f360"
+    },
+    {
+      "original_id": "11d7d19c-cb15-4ced-968f-8a270ce38477",
+      "category": "ProtocolQA",
+      "source_case_id": "11d7d19c-cb15-4ced-968f-8a270ce38477",
+      "variant_case_id": "11d7d19c-cb15-4ced-968f-8a270ce38477",
+      "prepared_input_sha256": "89e6726324f2dfca909dfee7bff893d9e62a9fb04926d75e52a81a35c23c7957",
+      "ordered_choices_sha256": "e681c64963a9a1cb46e363571da3deab6067db5d7b74aed9073d62d9bca7e0e0",
+      "target_mapping_sha256": "8e440781307673f5b9d6076632e7a4dc3534cf071e4efb7e3d410cd970e519fb"
+    },
+    {
+      "original_id": "2fd6e57a-3da6-4952-8d36-da12414b4882",
+      "category": "ProtocolQA",
+      "source_case_id": "2fd6e57a-3da6-4952-8d36-da12414b4882",
+      "variant_case_id": "2fd6e57a-3da6-4952-8d36-da12414b4882",
+      "prepared_input_sha256": "04e6b42ad193f2d10e0c19bbb14cd7cce3cf6ab68f5929f78eb25ff54168b5d9",
+      "ordered_choices_sha256": "156d681be2d8df8884818d3f390976119e0ff1b765e24f9f5b93c546ac2f3d21",
+      "target_mapping_sha256": "b27b3b3adbdf7284480d1661a28fdcb7f5cf20e4cac36445263b9b7af2e81e87"
+    },
+    {
+      "original_id": "3b5bd87a-a3f5-4082-a5b0-20e0806fdfe7",
+      "category": "ProtocolQA",
+      "source_case_id": "3b5bd87a-a3f5-4082-a5b0-20e0806fdfe7",
+      "variant_case_id": "3b5bd87a-a3f5-4082-a5b0-20e0806fdfe7",
+      "prepared_input_sha256": "40a295bc2f60680cf99d7b695664ab6d78874f43731a80bf620f6c0a1e94a8e2",
+      "ordered_choices_sha256": "1d48af1e3edd142994c16137b27eb93a169d4b68f17dc013fce468653e45a1f3",
+      "target_mapping_sha256": "a9292dd82cc9cd2022f603c441aeab45ba1a4cf2539402f35c0cc896223e7bf1"
+    },
+    {
+      "original_id": "3c62b0cb-f6cf-480a-8a37-d54c90d5c287",
+      "category": "ProtocolQA",
+      "source_case_id": "3c62b0cb-f6cf-480a-8a37-d54c90d5c287",
+      "variant_case_id": "3c62b0cb-f6cf-480a-8a37-d54c90d5c287",
+      "prepared_input_sha256": "8157c1896234999877a4a625fc1bbba1098b9ebd3f168bd626f757c70ddc809a",
+      "ordered_choices_sha256": "c06227d7026c340d29ad05c3fcdb9659ff530bb241d83277f3bae743360759d8",
+      "target_mapping_sha256": "46f3a8151645e72f02b1cc01be6dde04c9b032872e063d0d40affc78fd1d4739"
+    },
+    {
+      "original_id": "4fb3c795-2181-4f3b-a231-c84d1ec7ebf2",
+      "category": "ProtocolQA",
+      "source_case_id": "4fb3c795-2181-4f3b-a231-c84d1ec7ebf2",
+      "variant_case_id": "4fb3c795-2181-4f3b-a231-c84d1ec7ebf2",
+      "prepared_input_sha256": "4dc91d199c0bef504e747246cff7d14c3915cecd503205dadff165ee7d4e5916",
+      "ordered_choices_sha256": "c74ab20e88d26515c254666400f1e886796817f3bc72bbfb0b39c8c6c35f3182",
+      "target_mapping_sha256": "a5bb209ac495c3ec503e37783c94ba68dc00839de37fff80b25215e8f312cee9"
+    },
+    {
+      "original_id": "51b68661-5ee1-4089-9b98-65327180a4cf",
+      "category": "ProtocolQA",
+      "source_case_id": "51b68661-5ee1-4089-9b98-65327180a4cf",
+      "variant_case_id": "51b68661-5ee1-4089-9b98-65327180a4cf",
+      "prepared_input_sha256": "97b9f0bc7e60ea1ad194a76e9676d6ec278a539589e8eb3ac7ca94d10d768ad2",
+      "ordered_choices_sha256": "e45b09887c50e022d91a3866a9a4a74b1b4372bfa5b3e7fdf7009c4d35c550e1",
+      "target_mapping_sha256": "07814e586bf69c08e234e003f25a80ab6d34fab2d34c147210cbd3bbc793b930"
+    },
+    {
+      "original_id": "53b5b115-0c63-446e-b671-b6017f518cef",
+      "category": "ProtocolQA",
+      "source_case_id": "53b5b115-0c63-446e-b671-b6017f518cef",
+      "variant_case_id": "53b5b115-0c63-446e-b671-b6017f518cef",
+      "prepared_input_sha256": "9dd7614c1864a4d2cc096b8e22e75f49924b8fda254bfdea77b32ab20faa5b4f",
+      "ordered_choices_sha256": "7f5efbbe8e7322cebddcc15bf3dc87fab2122c20ecc7ac9a4746e5065321aa38",
+      "target_mapping_sha256": "3b4fc96ec36b06d832e46a0693faccaf56f65a142cccfff4dbfb920737247dea"
+    },
+    {
+      "original_id": "6928664e-070a-45a8-9a14-074dac6941e7",
+      "category": "ProtocolQA",
+      "source_case_id": "6928664e-070a-45a8-9a14-074dac6941e7",
+      "variant_case_id": "6928664e-070a-45a8-9a14-074dac6941e7",
+      "prepared_input_sha256": "6805ff72d30aea76d1492bfd1a0a77ce44b68ef7d84ba679e9f2e978143089c2",
+      "ordered_choices_sha256": "73f05ac962a78d991303ec364c9a77fc2982fbefe1537fdfe28ca6ef2985a665",
+      "target_mapping_sha256": "260d9bfd98d4c5ea8f394c260b8eeeb4ab4b40eb928e33c7bb2c96b3c9555805"
+    },
+    {
+      "original_id": "6bc0df89-5aae-47b4-9d2e-2ebc5fa08e96",
+      "category": "ProtocolQA",
+      "source_case_id": "6bc0df89-5aae-47b4-9d2e-2ebc5fa08e96",
+      "variant_case_id": "6bc0df89-5aae-47b4-9d2e-2ebc5fa08e96",
+      "prepared_input_sha256": "02f405d11ee761d9ea32bea6719d22db93125c91e420f357576f01ca767b53f9",
+      "ordered_choices_sha256": "b86cd810ee9d00718eea077a393a280c2bea75295d74c18ada7e31110640ea7c",
+      "target_mapping_sha256": "4892b0cd85e2da62ef92527d3cc277daa44eccf6158576f43f420ca52d2836e3"
+    },
+    {
+      "original_id": "6d2e1370-8c82-4142-9bcc-6675e730aa46",
+      "category": "ProtocolQA",
+      "source_case_id": "6d2e1370-8c82-4142-9bcc-6675e730aa46",
+      "variant_case_id": "6d2e1370-8c82-4142-9bcc-6675e730aa46",
+      "prepared_input_sha256": "eb8c17ffb6d6cba44f3004ea1f1615b20af86ad822c0007df73604e64ea66b26",
+      "ordered_choices_sha256": "375aa7b5090cc1ab3f90ac1eeb5c0f4f294c0eaf874b445d9210a55b85f8e350",
+      "target_mapping_sha256": "e403bd5bbb1576b4da2b86eef77b47f4cf1f95893eff25fcf87fbda877c3b6ca"
+    },
+    {
+      "original_id": "6de81829-08c5-4466-acb3-36b72451f1ee",
+      "category": "ProtocolQA",
+      "source_case_id": "6de81829-08c5-4466-acb3-36b72451f1ee",
+      "variant_case_id": "6de81829-08c5-4466-acb3-36b72451f1ee",
+      "prepared_input_sha256": "4c8c54a3d3cccbd3a0036c71c214ce89c88d591af0da42ff80ce6b0e55b8198e",
+      "ordered_choices_sha256": "2a03642ad6aa49e759c26e626d66515dddfce5e5d3332d006585a086890933e7",
+      "target_mapping_sha256": "0e8b65e288b6ec27076ab3a889dd866823dc92baaceec0643af18ba45aaf332a"
+    },
+    {
+      "original_id": "819abfdb-fcf6-4678-847f-bd1c6f2699e1",
+      "category": "ProtocolQA",
+      "source_case_id": "819abfdb-fcf6-4678-847f-bd1c6f2699e1",
+      "variant_case_id": "819abfdb-fcf6-4678-847f-bd1c6f2699e1",
+      "prepared_input_sha256": "87fcf7fe40f2f1493662409a258ade6cffedc60c34d56b71c9c5d3408470f0c3",
+      "ordered_choices_sha256": "34b44aa44efc4fe1a9883a170e26b936146e300b57c86e509750b227b44a8747",
+      "target_mapping_sha256": "04985e737b591e5a93d6d20b59e07371963bf4a7f698104764c88919279b2f30"
+    },
+    {
+      "original_id": "a28d2081-f953-45cb-992f-8d0e394e60ab",
+      "category": "ProtocolQA",
+      "source_case_id": "a28d2081-f953-45cb-992f-8d0e394e60ab",
+      "variant_case_id": "a28d2081-f953-45cb-992f-8d0e394e60ab",
+      "prepared_input_sha256": "2b2c18d5d96c0464df40569efeec7b72b7eb5582221a73444fb383c333c6ad85",
+      "ordered_choices_sha256": "ed2db9961c942b3985c420d176621bfc5d0148cd937b4e504516c2167419d38e",
+      "target_mapping_sha256": "1251970323aecc38a9464d03d397f7675c870cdee74d6bb0a784aa4a16d687f5"
+    },
+    {
+      "original_id": "a516333c-21b1-47cf-851f-4c1f34f83aaf",
+      "category": "ProtocolQA",
+      "source_case_id": "a516333c-21b1-47cf-851f-4c1f34f83aaf",
+      "variant_case_id": "a516333c-21b1-47cf-851f-4c1f34f83aaf",
+      "prepared_input_sha256": "4a0896e08bb041fdb623603503ba8e3c9e588c9768b533de5ccb95428f30884d",
+      "ordered_choices_sha256": "12b4320443a76129a294ddf87260bc80c1bef0e7e61aea53834948656817a386",
+      "target_mapping_sha256": "3cdc63e525c5e3b999783ac7a5d92b7e9332360f00a4633f022e8c5d25023e41"
+    },
+    {
+      "original_id": "a6231697-bb0c-41bc-b3bf-c7e237d7d423",
+      "category": "ProtocolQA",
+      "source_case_id": "a6231697-bb0c-41bc-b3bf-c7e237d7d423",
+      "variant_case_id": "a6231697-bb0c-41bc-b3bf-c7e237d7d423",
+      "prepared_input_sha256": "bc7505ad03fdcaec386864d48a290594d750f74324b5c9d511de10845e0f25fa",
+      "ordered_choices_sha256": "2cbc77a0dd81036547b3850d97671a1be3849576218de6337608683490d099ba",
+      "target_mapping_sha256": "113f8f76cef17ea87dc66d92130a17877a5dc4e5d25feb290f211d314641ae0f"
+    },
+    {
+      "original_id": "a9c6aaa4-ce50-4225-9073-b88a7e671bfd",
+      "category": "ProtocolQA",
+      "source_case_id": "a9c6aaa4-ce50-4225-9073-b88a7e671bfd",
+      "variant_case_id": "a9c6aaa4-ce50-4225-9073-b88a7e671bfd",
+      "prepared_input_sha256": "f2e18875e4e1361413804cdf9826645db4aaf51cdb0d4bf6d75f548e55647b52",
+      "ordered_choices_sha256": "dd6e6a39fbb32045bcb10ad4c7921665b36b5e434037bd2dbe9be7c4dbffb119",
+      "target_mapping_sha256": "734fa5019a63eb2caed7c8485eb6acd21f49a7ceba127b77075e1159d0bf2b98"
+    },
+    {
+      "original_id": "be697753-fe7c-4ed5-ad28-4853e435d21e",
+      "category": "ProtocolQA",
+      "source_case_id": "be697753-fe7c-4ed5-ad28-4853e435d21e",
+      "variant_case_id": "be697753-fe7c-4ed5-ad28-4853e435d21e",
+      "prepared_input_sha256": "738a55350b28de6d0fb376b0c9b1ede5dbbd758897810d4eb77062fe41d942f3",
+      "ordered_choices_sha256": "9eba3018494ca59085e5a1f02a948965221a9f0f40e3f473698178017ddd8ed4",
+      "target_mapping_sha256": "b4eadde65966005b1367006deb598333f82a8589f4672ecc7727637295cf7dcc"
+    },
+    {
+      "original_id": "e39ca05b-5554-4287-a2f7-f9737df86931",
+      "category": "ProtocolQA",
+      "source_case_id": "e39ca05b-5554-4287-a2f7-f9737df86931",
+      "variant_case_id": "e39ca05b-5554-4287-a2f7-f9737df86931",
+      "prepared_input_sha256": "7843c31a5cde7a74a72eb6d18736a11147e14050fe1ca6357c8fe47d39567b8b",
+      "ordered_choices_sha256": "201476e66a25c093aec944fbad2bf583c2d86f8f0804d6d4bb24a76723e1bee0",
+      "target_mapping_sha256": "11560b1ba9cfda0feec0652c5741f67ecaa01ee3ebc92dbbbaea5e983e556038"
+    },
+    {
+      "original_id": "1355683c-b52b-49dd-845a-7d282c211010",
+      "category": "SeqQA",
+      "source_case_id": "1355683c-b52b-49dd-845a-7d282c211010",
+      "variant_case_id": "1355683c-b52b-49dd-845a-7d282c211010",
+      "prepared_input_sha256": "830416b898419f2ebcc1dab8ade5580f5eea6a0a8db9f2bd516a15cff1e1f31b",
+      "ordered_choices_sha256": "2a43fc7c665c04b22066f27c6aea1b4d5e2782d58b09e9ff14a39b4c5f783144",
+      "target_mapping_sha256": "2a9515eb521fc98a3a69c3731bdffe46e1136959f360dc13ca4a7411511a85bd"
+    },
+    {
+      "original_id": "18d20d53-b90a-4dfb-be27-d52e540aa614",
+      "category": "SeqQA",
+      "source_case_id": "18d20d53-b90a-4dfb-be27-d52e540aa614",
+      "variant_case_id": "18d20d53-b90a-4dfb-be27-d52e540aa614",
+      "prepared_input_sha256": "10e1cb609a5bd4ae0281081f8177f6c28358c891b98457b9a0fc649db764db2f",
+      "ordered_choices_sha256": "b9f3b51b4f9a338b768917cfe50cb440e1a2a45c0607d0f6a14eaa6d74356c7c",
+      "target_mapping_sha256": "99ac97b293f8e3294ef6b6e1a8f25a9741aee481b2962a6bea65389d5df34b74"
+    },
+    {
+      "original_id": "34701a08-857d-435f-ae2a-d9357eddbbff",
+      "category": "SeqQA",
+      "source_case_id": "34701a08-857d-435f-ae2a-d9357eddbbff",
+      "variant_case_id": "34701a08-857d-435f-ae2a-d9357eddbbff",
+      "prepared_input_sha256": "e84d9d2083f73ddf3ec2b77ef00c74d42572f56f4b4858b94b4d0fe612754b85",
+      "ordered_choices_sha256": "704fd4b0dca838893f85eb6fb2df69bd52cb498e0010b13bdd441561e7afb5c1",
+      "target_mapping_sha256": "e11dc40bff20916f12a03eb48f9dfd96c4bec22effe5ab24cbde704831d4e869"
+    },
+    {
+      "original_id": "679691a7-2b52-4e76-bb23-89774a8fa4f4",
+      "category": "SeqQA",
+      "source_case_id": "679691a7-2b52-4e76-bb23-89774a8fa4f4",
+      "variant_case_id": "679691a7-2b52-4e76-bb23-89774a8fa4f4",
+      "prepared_input_sha256": "3ce5ddde32dfb972ef377b39dd00c6999aa58d69107bf7759b1bae8cebeae66c",
+      "ordered_choices_sha256": "e4ecbc7339c16a834ad2efc282e4d917c0fd4bb1352984633c3bb54fceb7d5cd",
+      "target_mapping_sha256": "ddeb317c87d361e39f53b3ab8535fe9b7396d96afd8cc42ad11b472a0daa889d"
+    },
+    {
+      "original_id": "700e03a7-385f-4d7c-b4dd-2e3320d52262",
+      "category": "SeqQA",
+      "source_case_id": "700e03a7-385f-4d7c-b4dd-2e3320d52262",
+      "variant_case_id": "700e03a7-385f-4d7c-b4dd-2e3320d52262",
+      "prepared_input_sha256": "65f29dd1874b96c15862733fbdc70c33d516271377e491bd14c0f745ede9c589",
+      "ordered_choices_sha256": "6c46826f1a543ed83fcc687ae962aa81318d9b1e8fd20a368a999d72c94f9ebf",
+      "target_mapping_sha256": "aa1a4926742a2ce6069eef166a44db04193740ef89dbf2724f3bdad1763474d2"
+    },
+    {
+      "original_id": "836a5015-5209-48c0-9901-6f3fdbc9ea2c",
+      "category": "SeqQA",
+      "source_case_id": "836a5015-5209-48c0-9901-6f3fdbc9ea2c",
+      "variant_case_id": "836a5015-5209-48c0-9901-6f3fdbc9ea2c",
+      "prepared_input_sha256": "645fe98ca4a971788761bf3885c989a0ca2b6db218a96eeac9440c3f3767b255",
+      "ordered_choices_sha256": "5352aaa4698c8886e29ee06e37320a7e22f216c891a984d38cfd74f196eff047",
+      "target_mapping_sha256": "b9d61029781c7ed7af83e28c3358782ea8c6d58b449969865ce1b6b14fbc694f"
+    },
+    {
+      "original_id": "934eac94-2b6c-491f-9326-ca7ac52f669c",
+      "category": "SeqQA",
+      "source_case_id": "934eac94-2b6c-491f-9326-ca7ac52f669c",
+      "variant_case_id": "934eac94-2b6c-491f-9326-ca7ac52f669c",
+      "prepared_input_sha256": "8cec82474433aab562c7a60fc7e19644ccd569637acff21cfcb7f2239420c344",
+      "ordered_choices_sha256": "7f676bd087ecdbf4c1f60a3be52e56edb984dce98c127c70a3ad0a58aed11a6f",
+      "target_mapping_sha256": "dbda32eb5c3290f156ed67868b432ecf8ca8d775a76d269e7743335625188d32"
+    },
+    {
+      "original_id": "9d2e1186-32f7-48a5-abeb-e721d6baa91b",
+      "category": "SeqQA",
+      "source_case_id": "9d2e1186-32f7-48a5-abeb-e721d6baa91b",
+      "variant_case_id": "9d2e1186-32f7-48a5-abeb-e721d6baa91b",
+      "prepared_input_sha256": "344abed66e7142b8a1b436264631ffb9fcd954fb9a66c1f03d57efc7874be142",
+      "ordered_choices_sha256": "bd8c1b550fad0795cd6e433303593902281c98d4c16758b2577307902a443d50",
+      "target_mapping_sha256": "677ca21bc603cef92264684e9eaff1003e2e588327c3223e6daa4038655a1a11"
+    },
+    {
+      "original_id": "9db6ef72-fa9d-4e20-a54b-9b8e53b86bbf",
+      "category": "SeqQA",
+      "source_case_id": "9db6ef72-fa9d-4e20-a54b-9b8e53b86bbf",
+      "variant_case_id": "9db6ef72-fa9d-4e20-a54b-9b8e53b86bbf",
+      "prepared_input_sha256": "1370ff8dc57001ef3b479c2640b02d884d86c2e22334d486a41237d32da97a90",
+      "ordered_choices_sha256": "e78abe2f9450d95a0b3900bd092a4b0c7d997a36f5362b20d45b861ca28478a1",
+      "target_mapping_sha256": "8691e1e1cf2f2d43b65f546dfdfe673f29c83cf00d5233b1b39ee47cbdf43e37"
+    },
+    {
+      "original_id": "9e2c4de8-8179-4c5d-97d4-b75b6aad5692",
+      "category": "SeqQA",
+      "source_case_id": "9e2c4de8-8179-4c5d-97d4-b75b6aad5692",
+      "variant_case_id": "9e2c4de8-8179-4c5d-97d4-b75b6aad5692",
+      "prepared_input_sha256": "23142334b80f37b32848dd4720c99935bf33c4a9b19fb3727af618dce2fb3840",
+      "ordered_choices_sha256": "e3c18d29289fe4cb9c5802933f7bcc395791fd1babc21c5abc9e8ccf7c92fbe9",
+      "target_mapping_sha256": "cc4625c2a0d0da338591300fff120e3935cfec8eea7db9f212d27edb45662a47"
+    },
+    {
+      "original_id": "a3775559-e542-4142-a882-8e87a2ef2efd",
+      "category": "SeqQA",
+      "source_case_id": "a3775559-e542-4142-a882-8e87a2ef2efd",
+      "variant_case_id": "a3775559-e542-4142-a882-8e87a2ef2efd",
+      "prepared_input_sha256": "f8dc49e039ab8a7802057160beecd6e3cdc978e005a8f1f07daad36db471f52e",
+      "ordered_choices_sha256": "2cce3db72c2d9185e7db2a0152046f68e1bfcbadc97c3ae5085e10e7c5bb006b",
+      "target_mapping_sha256": "cd50ddff4c6a6cd7eaeaba898555789fae1522edd67d10af98cba00f1290b96a"
+    },
+    {
+      "original_id": "af3b3a9b-4567-4391-bfcd-61c621dce7da",
+      "category": "SeqQA",
+      "source_case_id": "af3b3a9b-4567-4391-bfcd-61c621dce7da",
+      "variant_case_id": "af3b3a9b-4567-4391-bfcd-61c621dce7da",
+      "prepared_input_sha256": "ba4cf30349b3f527e2761183f0bc3aacab07556ccacc859fb4847e518f987ff6",
+      "ordered_choices_sha256": "86ce8bc8bd796b42cb5cb2a2b97ce30b6696b14e9b721973585b584ab6c648d1",
+      "target_mapping_sha256": "b75c6824848a160db18d44c07477cb27736c95052e8f5ef2e00ce79c49e7853c"
+    },
+    {
+      "original_id": "b0f80f7b-fb37-4d03-b8a0-34c1e6c1db96",
+      "category": "SeqQA",
+      "source_case_id": "b0f80f7b-fb37-4d03-b8a0-34c1e6c1db96",
+      "variant_case_id": "b0f80f7b-fb37-4d03-b8a0-34c1e6c1db96",
+      "prepared_input_sha256": "187bf46da18a41f02a41e398d21708123cb87a28a281e9898ec301e391ac900d",
+      "ordered_choices_sha256": "876c0bbda69a142c4d32c540f249d215f92da46061729a5d304eaa662ae80ddd",
+      "target_mapping_sha256": "f164c981038234a1cd2473c2e2bc8a0e3bd11135131ea60b43d92d9b0568fe23"
+    },
+    {
+      "original_id": "b2e42042-2590-4564-ab23-961ef7adea2f",
+      "category": "SeqQA",
+      "source_case_id": "b2e42042-2590-4564-ab23-961ef7adea2f",
+      "variant_case_id": "b2e42042-2590-4564-ab23-961ef7adea2f",
+      "prepared_input_sha256": "44840da078e672d439011908403299231d777e38d2be7151e739204ea54bd6ec",
+      "ordered_choices_sha256": "3f6a5bc07288c79fef6b39c6eac6a22966eda2d852b0f9224306c46d06e8638b",
+      "target_mapping_sha256": "379162b0ebe0c43b3e3f9eaeaad174aaa7df9b5f14287de15f261d2cbc7e0bea"
+    },
+    {
+      "original_id": "c0f530dd-ca31-4bcb-86cb-93b7b5523bf7",
+      "category": "SeqQA",
+      "source_case_id": "c0f530dd-ca31-4bcb-86cb-93b7b5523bf7",
+      "variant_case_id": "c0f530dd-ca31-4bcb-86cb-93b7b5523bf7",
+      "prepared_input_sha256": "56f4773bc7dab9fc5906730261cd9daeb8e0d57cb7e15d2d78a37761c08f81c8",
+      "ordered_choices_sha256": "a262059741c009d8d431edc9cfd9254f7d55185e906ddf099b82d0edf812b3a2",
+      "target_mapping_sha256": "f80099beb6545948b2f322b4fa1ed9890bd4e1e38fc091546554f14f0f9a55ba"
+    },
+    {
+      "original_id": "de756539-c341-4af2-9895-803ef8082ec8",
+      "category": "SeqQA",
+      "source_case_id": "de756539-c341-4af2-9895-803ef8082ec8",
+      "variant_case_id": "de756539-c341-4af2-9895-803ef8082ec8",
+      "prepared_input_sha256": "c2205a64f7f022a00f313e2df3aab78b0469964f71969dd4d7c30a48192070a5",
+      "ordered_choices_sha256": "9ebac9c8a4439db416e46d61a22f5e77ce977b60d247ca3be2334d115bc7691f",
+      "target_mapping_sha256": "200c64e591b272b063dace9fd8c0b624bfa77236479aafb2a8c01ebc7402990d"
+    },
+    {
+      "original_id": "ded3f6ac-c54c-4626-86b4-cc607a44334f",
+      "category": "SeqQA",
+      "source_case_id": "ded3f6ac-c54c-4626-86b4-cc607a44334f",
+      "variant_case_id": "ded3f6ac-c54c-4626-86b4-cc607a44334f",
+      "prepared_input_sha256": "ebb492079415c68a126b89f52a60620a9a4203fafd8e840f673bfbfaf61072d6",
+      "ordered_choices_sha256": "48cd9f3a72accb53d62f207b623b91c7353d2b565c39282897c9cb3879a54965",
+      "target_mapping_sha256": "4f8f15cb2ad22dbbb132dcb2149a903ceaea0cf99bfd0ea321d2795a8c4d81f9"
+    },
+    {
+      "original_id": "e673fe4c-e776-45ab-9821-7e77eaee0c53",
+      "category": "SeqQA",
+      "source_case_id": "e673fe4c-e776-45ab-9821-7e77eaee0c53",
+      "variant_case_id": "e673fe4c-e776-45ab-9821-7e77eaee0c53",
+      "prepared_input_sha256": "544b3755888e76a9b539f19c588d77d9a02fe969569318d71f0e259135433bb1",
+      "ordered_choices_sha256": "073dc1700b882bc4f7ecc153933d9fd76a621c71de0a3dca71899354e2f1127c",
+      "target_mapping_sha256": "2b20493cb6e3fd38b1f887d3ad9f23e04700b4e74fa208a26ef74fc62bd8301f"
+    },
+    {
+      "original_id": "edc8f52b-2054-4ed3-9d8a-1263966e39cb",
+      "category": "SeqQA",
+      "source_case_id": "edc8f52b-2054-4ed3-9d8a-1263966e39cb",
+      "variant_case_id": "edc8f52b-2054-4ed3-9d8a-1263966e39cb",
+      "prepared_input_sha256": "8e62b2d0e504e29727964e87e19ca3772bab5ccdc341661840073a2cd5f1c2a1",
+      "ordered_choices_sha256": "14d95c5cd6ff02777336c1888bf601a4e45e1065ce6566b7bf3fa92c3a04bfec",
+      "target_mapping_sha256": "87d7edc13bfb6bfa8ade163fb0114a537055d162d9828addcf79b8ba07f48651"
+    },
+    {
+      "original_id": "edfe16a8-b7a7-4dd5-b1fb-d185c9bd204c",
+      "category": "SeqQA",
+      "source_case_id": "edfe16a8-b7a7-4dd5-b1fb-d185c9bd204c",
+      "variant_case_id": "edfe16a8-b7a7-4dd5-b1fb-d185c9bd204c",
+      "prepared_input_sha256": "4ade1fb5c0a1762f7253d699715fc5651911895ba7bde04871a70e6b1f350506",
+      "ordered_choices_sha256": "5bb657b38641be87ed344eac06971cc7ffe212ee0d0fa5bfca8b0a70f14c03d7",
+      "target_mapping_sha256": "358bf2d9a91fb1f72b9c74e295a0a3a27361dff4b83ff1d505e980c2182d988e"
+    }
+  ],
+  "scorer_probes": {
+    "correct": {
+      "input_sha256": "05d2d6a68fecc78f3befad1c7e4636da6444a9be68468600433fea98e477d88a",
+      "response_sha256": "b26c1282e21a15adfa0870cbb556180c6b1b6f268899c8a01163f600c6ad6df2",
+      "score": "C"
+    },
+    "incorrect": {
+      "input_sha256": "28b88a88cc8e21cbedd7576663d57f5a5612aa233c5b580da975a15e9a5a7cca",
+      "response_sha256": "c5172470803b75b7f129f0d18ba3736e34c56bda1b9e4731ac7a8a9f389c5857",
+      "score": "I"
+    },
+    "abstain": {
+      "input_sha256": "0fa609357ff9a702846664a06615c41604f50e302cb843cb8f9c8342ab22181b",
+      "response_sha256": "26c409070c7a95fe31eee72915ab789299e22fb03415d9aacb642ee5a494c88d",
+      "score": "N"
+    },
+    "malformed": {
+      "input_sha256": "70108abde04a35594deab7792af8a85ad02d8ce75640c0f0fb2220d7b9f5f1ab",
+      "response_sha256": "417c35e8ec670281bf69f5e2e69a14a19176cea38bc141c31bf8a3f0f0e2f41f",
+      "score": "I"
+    }
+  },
+  "probe_aggregate": {
+    "n_samples": 4,
+    "n_scored": 4,
+    "score_counts": {
+      "C": 1,
+      "I": 2,
+      "N": 1
+    }
+  }
+}

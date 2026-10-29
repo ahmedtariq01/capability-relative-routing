@@ -1,0 +1,49 @@
+{
+  "evidence_kind": "pricing_manifest",
+  "status": "draft_unresolved",
+  "currency": "USD",
+  "model_manifest_sha256": null,
+  "models": {
+    "model_1": {
+      "input_per_million_tokens_usd": null,
+      "output_per_million_tokens_usd": null,
+      "source_url": null,
+      "retrieved_at": null,
+      "reasoning_billing": null,
+      "cache_billing": null,
+      "failed_attempt_billing": null
+    },
+    "model_2": {
+      "input_per_million_tokens_usd": null,
+      "output_per_million_tokens_usd": null,
+      "source_url": null,
+      "retrieved_at": null,
+      "reasoning_billing": null,
+      "cache_billing": null,
+      "failed_attempt_billing": null
+    },
+    "model_3": {
+      "input_per_million_tokens_usd": null,
+      "output_per_million_tokens_usd": null,
+      "source_url": null,
+      "retrieved_at": null,
+      "reasoning_billing": null,
+      "cache_billing": null,
+      "failed_attempt_billing": null
+    },
+    "model_4": {
+      "input_per_million_tokens_usd": null,
+      "output_per_million_tokens_usd": null,
+      "source_url": null,
+      "retrieved_at": null,
+      "reasoning_billing": null,
+      "cache_billing": null,
+      "failed_attempt_billing": null
+    }
+  },
+  "cost_boundary": {
+    "inference": "all_attempts",
+    "credits": "billing_only",
+    "routing": "feature_prediction_selection_dispatch"
+  }
+}

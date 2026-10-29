@@ -1,5 +1,7 @@
 # Experiment 01 review package
 
+Leo [approved the v0 specification on 29 October](https://github.com/leo-guinan/capability-relative-routing/pull/1#issuecomment-6497446267) at `4dae9b5`. [spec-freeze.json](spec-freeze.json) records the approved document hashes. Those files retain their original review-era wording and bytes. This approval does not authorize model execution. [EXECUTION.md](EXECUTION.md) tracks the remaining operational work and separates fixture checks, real development and held-out evaluation.
+
 Start with [the protocol](PROTOCOL.md), [empirical CRR v0](METHOD.md), [the analysis policy](ANALYSIS.md) and [remaining decisions](DECISIONS.md). The [compatibility check](SCREAMINGFACE-COMPATIBILITY.md) answers Leo's source-level questions. [Related work](RELATED-WORK.md) covers overlapping methods and Reddit's practical cautions. [Receipts](RECEIPTS.md) defines the record we need from any backend.
 
 `manifest.draft.json` contains 180 original IDs, including 60 development, 120 held out and 15 smoke questions drawn from development. The 27 October revision addresses Leo's conditional review, retains estimator `crr-empirical-v0.1` and updates the analysis to `crr-analysis-v0.2`. It makes the 0.80 primary designation explicit and adds a fixed four-model uniform-mixture control. The estimator and fold assignment remain unchanged. Exact model settings, backend checks, real development fitting and execution prerequisites remain open. The scripts make no provider calls.

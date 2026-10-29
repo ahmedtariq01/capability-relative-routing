@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "record_type": "local_routing_overhead",
+  "created_at": "2026-10-29T18:46:03.131189+00:00",
+  "data_kind": "synthetic",
+  "fit_data_kind": "synthetic",
+  "fit_sha256": "6806488c141810b77d5481148af84dd21829c2161fd3817151a9cca81f22975e",
+  "input_sha256": "7f3cd36ea2d20a806df45d87bda28144e3be8edab5ca6904880f699ab2ca6b8d",
+  "input_ids": [
+    "synthetic-LitQA2-0",
+    "synthetic-LitQA2-1",
+    "synthetic-LitQA2-10",
+    "synthetic-LitQA2-11",
+    "synthetic-LitQA2-12",
+    "synthetic-LitQA2-13",
+    "synthetic-LitQA2-14",
+    "synthetic-LitQA2-15",
+    "synthetic-LitQA2-16",
+    "synthetic-LitQA2-17",
+    "synthetic-LitQA2-18",
+    "synthetic-LitQA2-19",
+    "synthetic-LitQA2-2",
+    "synthetic-LitQA2-3",
+    "synthetic-LitQA2-4",
+    "synthetic-LitQA2-5",
+    "synthetic-LitQA2-6",
+    "synthetic-LitQA2-7",
+    "synthetic-LitQA2-8",
+    "synthetic-LitQA2-9",
+    "synthetic-ProtocolQA-0",
+    "synthetic-ProtocolQA-1",
+    "synthetic-ProtocolQA-10",
+    "synthetic-ProtocolQA-11",
+    "synthetic-ProtocolQA-12",
+    "synthetic-ProtocolQA-13",
+    "synthetic-ProtocolQA-14",
+    "synthetic-ProtocolQA-15",
+    "synthetic-ProtocolQA-16",
+    "synthetic-ProtocolQA-17",
+    "synthetic-ProtocolQA-18",
+    "synthetic-ProtocolQA-19",
+    "synthetic-ProtocolQA-2",
+    "synthetic-ProtocolQA-3",
+    "synthetic-ProtocolQA-4",
+    "synthetic-ProtocolQA-5",
+    "synthetic-ProtocolQA-6",
+    "synthetic-ProtocolQA-7",
+    "synthetic-ProtocolQA-8",
+    "synthetic-ProtocolQA-9",
+    "synthetic-SeqQA-0",
+    "synthetic-SeqQA-1",
+    "synthetic-SeqQA-10",
+    "synthetic-SeqQA-11",
+    "synthetic-SeqQA-12",
+    "synthetic-SeqQA-13",
+    "synthetic-SeqQA-14",
+    "synthetic-SeqQA-15",
+    "synthetic-SeqQA-16",
+    "synthetic-SeqQA-17",
+    "synthetic-SeqQA-18",
+    "synthetic-SeqQA-19",
+    "synthetic-SeqQA-2",
+    "synthetic-SeqQA-3",
+    "synthetic-SeqQA-4",
+    "synthetic-SeqQA-5",
+    "synthetic-SeqQA-6",
+    "synthetic-SeqQA-7",
+    "synthetic-SeqQA-8",
+    "synthetic-SeqQA-9"
+  ],
+  "split": "development",
+  "source_sha256": {
+    "empirical.py": "75d0f9d6a34deb7dce385f8c103f0215dffe31020a593b67d0b896b0de4ed7c5",
+    "overhead.py": "b0e07ddb806d9d0b3c60ef8693ce4ae4a79d203fd9c59e3bf0cc9e0655318fc8"
+  },
+  "target": 0.8,
+  "target_role": "primary",
+  "warmup_passes": 5,
+  "measurement_passes": 25,
+  "clock": {
+    "elapsed": "perf_counter_ns",
+    "cpu": "process_time_ns"
+  },
+  "environment": {
+    "system": "Darwin",
+    "release": "27.0.0",
+    "machine": "arm64",
+    "processor": "arm",
+    "cpu_count": 12,
+    "python": "3.14.7"
+  },
+  "router_cpu_usd_per_second": null,
+  "cost_status": "unavailable_no_cpu_rate",
+  "families": {
+    "category": {
+      "status": "local_measurement_only",
+      "threshold": 0.7,
+      "components": {
+        "prediction": {
+          "samples": 1500,
+          "elapsed_ns": {
+            "mean": 1393.1306666666667,
+            "median": 1250.0,
+            "p95": 1583
+          },
+          "cpu_ns": {
+            "mean": 1452.6666666666667,
+            "median": 1000.0,
+            "p95": 2000
+          },
+          "mean_local_cpu_cost_usd": null
+        },
+        "selection": {
+          "samples": 1500,
+          "elapsed_ns": {
+            "mean": 4254.243333333333,
+            "median": 3833.0,
+            "p95": 4750
+          },
+          "cpu_ns": {
+            "mean": 4232.666666666667,
+            "median": 4000.0,
+            "p95": 5000
+          },
+          "mean_local_cpu_cost_usd": null
+        },
+        "local_dispatch_preparation": {
+          "samples": 1500,
+          "elapsed_ns": {
+            "mean": 3773.02,
+            "median": 3500.0,
+            "p95": 4375
+          },
+          "cpu_ns": {
+            "mean": 3809.3333333333335,
+            "median": 4000.0,
+            "p95": 5000
+          },
+          "mean_local_cpu_cost_usd": null
+        },
+        "total": {
+          "samples": 1500,
+          "elapsed_ns": {
+            "mean": 9420.394,
+            "median": 8624.0,
+            "p95": 11000
+          },
+          "cpu_ns": {
+            "mean": 9494.666666666666,
+            "median": 9000.0,
+            "p95": 12000
+          },
+          "mean_local_cpu_cost_usd": null
+        }
+      }
+    },
+    "crr": {
+      "status": "local_measurement_only",
+      "threshold": 0.75,
+      "components": {
+        "prediction": {
+          "samples": 1500,
+          "elapsed_ns": {
+            "mean": 43357.77933333333,
+            "median": 42417.0,
+            "p95": 52792
+          },
+          "cpu_ns": {
+            "mean": 43228.666666666664,
+            "median": 42500.0,
+            "p95": 53000
+          },
+          "mean_local_cpu_cost_usd": null
+        },
+        "selection": {
+          "samples": 1500,
+          "elapsed_ns": {
+            "mean": 4970.958666666666,
+            "median": 4750.0,
+            "p95": 5792
+          },
+          "cpu_ns": {
+            "mean": 4973.333333333333,
+            "median": 5000.0,
+            "p95": 6000
+          },
+          "mean_local_cpu_cost_usd": null
+        },
+        "local_dispatch_preparation": {
+          "samples": 1500,
+          "elapsed_ns": {
+            "mean": 4190.060666666666,
+            "median": 3833.0,
+            "p95": 6500
+          },
+          "cpu_ns": {
+            "mean": 4187.333333333333,
+            "median": 4000.0,
+            "p95": 6000
+          },
+          "mean_local_cpu_cost_usd": null
+        },
+        "total": {
+          "samples": 1500,
+          "elapsed_ns": {
+            "mean": 52518.79866666667,
+            "median": 51375.0,
+            "p95": 63001
+          },
+          "cpu_ns": {
+            "mean": 52389.333333333336,
+            "median": 52000.0,
+            "p95": 63000
+          },
+          "mean_local_cpu_cost_usd": null
+        }
+      }
+    }
+  },
+  "boundary": {
+    "prediction": "category lookup only; CRR includes visible feature extraction",
+    "selection": "frozen threshold, expected cost and fallback selection",
+    "dispatch": "local JSON-envelope serialization only",
+    "excluded": [
+      "artifact loading and profile restoration",
+      "fit/calibration/setup",
+      "backend adapter dispatch",
+      "network/provider/queue time",
+      "provider attempts/retries and inference costs"
+    ]
+  },
+  "backend_dispatch_measured": false,
+  "total_deployable_overhead_available": false,
+  "execution_gate_satisfied": false,
+  "provider_calls": 0,
+  "held_out_outcomes_loaded": 0,
+  "limitations": [
+    "Local measurements include Python timing instrumentation overhead.",
+    "Synthetic-fit timing does not establish final fitted-method runtime.",
+    "Re-measure the final fit and adapter boundary before a full-cost claim.",
+    "No USD amount is inferred from absence of billing."
+  ],
+  "raw_sample_count": 3000,
+  "raw_measurement_file_sha256": "b5a8ec895a6e50c7b0f3c3d25fe20dd78a4750ce5e40aeb542c24cba172fe9d1",
+  "reproduction": "python3 scripts/measure_routing_overhead.py --synthetic --output artifacts/generated/local-overhead.synthetic.json"
+}

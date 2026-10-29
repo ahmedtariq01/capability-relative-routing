@@ -1,0 +1,11 @@
+{
+  "evidence_kind": "spending_approval",
+  "status": "draft_unapproved",
+  "approved_by": null,
+  "approved_at": null,
+  "source": null,
+  "scopes": [],
+  "limits_usd": {},
+  "model_manifest_sha256": null,
+  "pricing_manifest_sha256": null
+}
