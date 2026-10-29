@@ -7,9 +7,9 @@
   "split": "development",
   "dataset_revision": "5c77cec648430f30611808808861eb86f81d5eaa",
   "selection_sha256": "974e722fe0f342bfb26a7111b3c97d95b791dc187a2bc32de599381c9e5befec",
-  "exporter_revision": "4dae9b53d77bd75bbc97881bc3659dcfe65daf70",
-  "exporter_worktree_dirty": true,
-  "exporter_revision_kind": "checkout_base_with_uncommitted_changes",
+  "exporter_revision": "a5de4488ddbdb93763859e13b8142c16b6753aaf",
+  "exporter_worktree_dirty": false,
+  "exporter_revision_kind": "clean_checkout_commit",
   "exporter_source_sha256": "4865c77c772a6d13f3e5c3c6438c635073ca51bf55ee62a9edbd2e337bc752fd",
   "source_case_id_namespace": "lab-bench-original-id",
   "preparation": {
