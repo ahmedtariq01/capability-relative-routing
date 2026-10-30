@@ -1,0 +1,138 @@
+{
+  "evidence_kind": "public_pricing_proposal",
+  "status": "UNAPPROVED_NOT_A_FROZEN_PRICE_MANIFEST",
+  "currency": "USD",
+  "date": "2026-10-29",
+  "models_proposal_sha256": "76d57bad9853d6dabd4d7712e27cb120cd7921556bf0cf12f8c1537ccc83278c",
+  "models": {
+    "model_1": {
+      "api_id": "google/gemini-3.5-flash-lite",
+      "endpoint_tag": "google-ai-studio",
+      "input_per_million_tokens_usd": 0.3,
+      "output_per_million_tokens_usd": 2.5,
+      "cache_read_per_million_tokens_usd": 0.03,
+      "cache_write_catalogue_field": "0.0000000833333333333333",
+      "cache_write_catalogue_field_unit": "Raw OpenRouter field preserved. Provider-specific creation/storage semantics require reconciliation; do not blindly sum with prompt price.",
+      "raw_endpoint_pricing": {
+        "prompt": "0.0000003",
+        "completion": "0.0000025",
+        "image": "0.0000003",
+        "audio": "0.0000003",
+        "input_audio_cache": "0.00000003",
+        "web_search": "0.014",
+        "internal_reasoning": "0.0000025",
+        "input_cache_read": "0.00000003",
+        "input_cache_write": "0.0000000833333333333333",
+        "discount": 0
+      },
+      "source_url": "https://openrouter.ai/api/v1/models/google/gemini-3.5-flash-lite/endpoints",
+      "retrieved_at": "2026-10-29T20:07:49.896115+00:00",
+      "reasoning_billing": "Reasoning is output-priced. Completion totals can already include reasoning; never add the same reasoning tokens again.",
+      "cache_billing": "Separate uncached/read/write native counters and normalize each provider semantics. Preserve automatic cache-write premiums, provider storage charges and actual bill. Engine replay is separate.",
+      "failed_attempt_billing": "Keep all attempts. Provider-confirmed insurance/error credits differ from local timeouts, truncated answers and parser failures. Unknown bills stay null until reconciled."
+    },
+    "model_2": {
+      "api_id": "anthropic/claude-haiku-5.5",
+      "endpoint_tag": "anthropic",
+      "input_per_million_tokens_usd": 0.1,
+      "output_per_million_tokens_usd": 0.5,
+      "cache_read_per_million_tokens_usd": 0.01,
+      "cache_write_catalogue_field": "0.000000125",
+      "cache_write_catalogue_field_unit": "Raw OpenRouter field preserved. Provider-specific creation/storage semantics require reconciliation; do not blindly sum with prompt price.",
+      "raw_endpoint_pricing": {
+        "prompt": "0.0000001",
+        "completion": "0.0000005",
+        "web_search": "0.01",
+        "input_cache_read": "0.00000001",
+        "input_cache_write": "0.000000125",
+        "input_cache_write_1h": "0.0000002",
+        "discount": 0,
+        "overrides": [
+          {
+            "min_prompt_tokens": 100000,
+            "prompt": "0.0000005",
+            "completion": "0.0000025",
+            "input_cache_read": "0.00000005",
+            "input_cache_write": "0.000000625",
+            "input_cache_write_1h": "0.000001"
+          }
+        ]
+      },
+      "source_url": "https://openrouter.ai/api/v1/models/anthropic/claude-haiku-5.5/endpoints",
+      "retrieved_at": "2026-10-29T20:07:49.896115+00:00",
+      "reasoning_billing": "Reasoning is output-priced. Completion totals can already include reasoning; never add the same reasoning tokens again.",
+      "cache_billing": "Separate uncached/read/write native counters and normalize each provider semantics. Preserve automatic cache-write premiums, provider storage charges and actual bill. Engine replay is separate.",
+      "failed_attempt_billing": "Keep all attempts. Provider-confirmed insurance/error credits differ from local timeouts, truncated answers and parser failures. Unknown bills stay null until reconciled."
+    },
+    "model_3": {
+      "api_id": "openai/gpt-5.6-luna",
+      "endpoint_tag": "openai",
+      "input_per_million_tokens_usd": 0.2,
+      "output_per_million_tokens_usd": 1.2,
+      "cache_read_per_million_tokens_usd": 0.02,
+      "cache_write_catalogue_field": "0.00000025",
+      "cache_write_catalogue_field_unit": "Raw OpenRouter field preserved. Provider-specific creation/storage semantics require reconciliation; do not blindly sum with prompt price.",
+      "raw_endpoint_pricing": {
+        "prompt": "0.0000002",
+        "completion": "0.0000012",
+        "web_search": "0.01",
+        "input_cache_read": "0.00000002",
+        "input_cache_write": "0.00000025",
+        "discount": 0,
+        "overrides": [
+          {
+            "min_prompt_tokens": 272000,
+            "prompt": "0.0000004",
+            "completion": "0.0000018",
+            "input_cache_read": "0.00000004",
+            "input_cache_write": "0.0000005"
+          }
+        ]
+      },
+      "source_url": "https://openrouter.ai/api/v1/models/openai/gpt-5.6-luna/endpoints",
+      "retrieved_at": "2026-10-29T20:07:49.896115+00:00",
+      "reasoning_billing": "Reasoning is output-priced. Completion totals can already include reasoning; never add the same reasoning tokens again.",
+      "cache_billing": "Separate uncached/read/write native counters and normalize each provider semantics. Preserve automatic cache-write premiums, provider storage charges and actual bill. Engine replay is separate.",
+      "failed_attempt_billing": "Keep all attempts. Provider-confirmed insurance/error credits differ from local timeouts, truncated answers and parser failures. Unknown bills stay null until reconciled."
+    },
+    "model_4": {
+      "api_id": "anthropic/claude-sonnet-5.5",
+      "endpoint_tag": "anthropic",
+      "input_per_million_tokens_usd": 2.0,
+      "output_per_million_tokens_usd": 10.0,
+      "cache_read_per_million_tokens_usd": 0.1,
+      "cache_write_catalogue_field": "0.0000025",
+      "cache_write_catalogue_field_unit": "Raw OpenRouter field preserved. Provider-specific creation/storage semantics require reconciliation; do not blindly sum with prompt price.",
+      "raw_endpoint_pricing": {
+        "prompt": "0.000002",
+        "completion": "0.00001",
+        "web_search": "0.01",
+        "input_cache_read": "0.0000001",
+        "input_cache_write": "0.0000025",
+        "input_cache_write_1h": "0.000004",
+        "discount": 0
+      },
+      "source_url": "https://openrouter.ai/api/v1/models/anthropic/claude-sonnet-5.5/endpoints",
+      "retrieved_at": "2026-10-29T20:07:49.896115+00:00",
+      "reasoning_billing": "Reasoning is output-priced. Completion totals can already include reasoning; never add the same reasoning tokens again.",
+      "cache_billing": "Separate uncached/read/write native counters and normalize each provider semantics. Preserve automatic cache-write premiums, provider storage charges and actual bill. Engine replay is separate.",
+      "failed_attempt_billing": "Keep all attempts. Provider-confirmed insurance/error credits differ from local timeouts, truncated answers and parser failures. Unknown bills stay null until reconciled."
+    }
+  },
+  "cpu_rate_proposal": {
+    "usd_per_cpu_second": 1.1244e-05,
+    "basis": "Published AWS Fargate Linux/x86 CPU unit price in us-east-1; nominal comparison reference only, not a deployment or our actual local bill.",
+    "source_url": "https://aws.amazon.com/fargate/pricing/",
+    "approved": false,
+    "limits": "Mac timings do not establish cloud runtime performance. Actual adapter dispatch, runtime, memory, minimum billing and gateway/network charges remain unresolved. Zero CPU cost belongs only in sensitivity analysis."
+  },
+  "cost_boundaries": {
+    "oracle": "Retrospective selected-model inference only, every attempt at frozen rates.",
+    "deployable_crr": "Feature extraction, prediction, selection, actual dispatch and all selected-model attempts. Include known gateway fees explicitly.",
+    "collection": "All-model matrix bill kept separately from replayed selected-policy costs.",
+    "setup_fitting": "Report separately; no amortization horizon approved.",
+    "credits": "Actual billing only. They do not change comparative computational price.",
+    "reasoning": "Output total includes reasoning where the provider reports inclusive completion usage.",
+    "unresolved_costs": "Null with reason. Never impute zero from an error, cache hit, timeout or missing usage."
+  }
+}

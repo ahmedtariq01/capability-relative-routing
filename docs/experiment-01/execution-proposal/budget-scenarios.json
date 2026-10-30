@@ -1,0 +1,174 @@
+{
+  "evidence_kind": "budget_scenarios",
+  "status": "PROPOSAL_ONLY_NO_SPENDING_APPROVAL",
+  "currency": "USD",
+  "input_allowance_tokens_per_call": 20000,
+  "output_cap_tokens_per_call": 8192,
+  "max_attempts": 3,
+  "input_price_sum_per_million": 2.6,
+  "output_price_sum_per_million": 14.2,
+  "formula": "questions * (20000 * sum(input_rates_per_M) + 8192 * sum(output_rates_per_M)) / 1000000; multiply by3 only when every item/model consumes all three attempts",
+  "rows": [
+    {
+      "scope": "smoke",
+      "questions_per_model": 15,
+      "first_attempt_calls": 60,
+      "maximum_calls_at_three_attempts": 180,
+      "input_at_declared_allowance_usd": 0.78,
+      "output_if_every_attempt_reaches_cap_usd": 1.744896,
+      "one_attempt_base_token_scenario_usd": 2.524896,
+      "three_attempt_base_token_scenario_usd": 7.574688
+    },
+    {
+      "scope": "development_including_reusable_smoke",
+      "questions_per_model": 60,
+      "first_attempt_calls": 240,
+      "maximum_calls_at_three_attempts": 720,
+      "input_at_declared_allowance_usd": 3.12,
+      "output_if_every_attempt_reaches_cap_usd": 6.979584,
+      "one_attempt_base_token_scenario_usd": 10.099584,
+      "three_attempt_base_token_scenario_usd": 30.298752
+    },
+    {
+      "scope": "held_out_only_after_lock",
+      "questions_per_model": 120,
+      "first_attempt_calls": 480,
+      "maximum_calls_at_three_attempts": 1440,
+      "input_at_declared_allowance_usd": 6.24,
+      "output_if_every_attempt_reaches_cap_usd": 13.959168,
+      "one_attempt_base_token_scenario_usd": 20.199168,
+      "three_attempt_base_token_scenario_usd": 60.597504
+    },
+    {
+      "scope": "complete_matrix_including_reusable_smoke",
+      "questions_per_model": 180,
+      "first_attempt_calls": 720,
+      "maximum_calls_at_three_attempts": 2160,
+      "input_at_declared_allowance_usd": 9.36,
+      "output_if_every_attempt_reaches_cap_usd": 20.938752,
+      "one_attempt_base_token_scenario_usd": 30.298752,
+      "three_attempt_base_token_scenario_usd": 90.896256
+    }
+  ],
+  "actual_development_input_audit": {
+    "source_sha256": "8e89b7e6688198d9c98ff2db0b45b9f66268adccc80087ac8ed9215017f5e96a",
+    "smoke_utf8_content_bytes": 52096,
+    "development_utf8_content_bytes": 173797,
+    "local_gpt_family_token_estimates": {
+      "provenance": {
+        "package": "tiktoken",
+        "package_version": "0.14.0",
+        "requested_model": "gpt-5.6-luna",
+        "encoding": "o200k_base",
+        "mapping": {
+          "kind": "model_family_prefix_mapping",
+          "key": "gpt-5"
+        },
+        "method": "encode_ordinary on official rendered user-message content",
+        "source_url": "https://openaipublic.blob.core.windows.net/encodings/o200k_base.tiktoken",
+        "source_sha256": "446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "source_expected_sha256": "446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "encoding_constructor_sha256": "b2783ad55a8e978f5c5b85556d02b4dda6d1d6f60e3a4fc6ca51374504b6641b",
+        "model_mapping_source_sha256": "600f26902d1cf6a1a5f54e37be988b3e0d911f1ff17ba7060bb361f9b5295521",
+        "encoding_pattern_sha256": "2d1b8dc11e89af71459b36004f698ab3693f59fd84f63e8ec2b49564ab857420",
+        "encoding_special_tokens_sha256": "94c390bc2638a0888b4ce311255bb8ba2c1f8240037ea4a6ad069bdde7e7ee04",
+        "api_credentials_used": false,
+        "token_count_api_calls": 0,
+        "model_calls": 0,
+        "provider_request_wrapper_included": false,
+        "proof_limit": "Local family-prefix/surrogate content tokenization is not a provider-billed count or a verification of the named model's availability. Provider headers, message wrappers and output/reasoning usage are excluded."
+      },
+      "development": {
+        "LitQA2": {
+          "items": 20,
+          "local_tokens_total": 3366,
+          "local_tokens_min": 138,
+          "local_tokens_median": 167.5,
+          "local_tokens_p95_nearest_rank": 207,
+          "local_tokens_max": 211
+        },
+        "ProtocolQA": {
+          "items": 20,
+          "local_tokens_total": 33688,
+          "local_tokens_min": 386,
+          "local_tokens_median": 1239.5,
+          "local_tokens_p95_nearest_rank": 4729,
+          "local_tokens_max": 4755
+        },
+        "SeqQA": {
+          "items": 20,
+          "local_tokens_total": 16877,
+          "local_tokens_min": 227,
+          "local_tokens_median": 715.0,
+          "local_tokens_p95_nearest_rank": 1861,
+          "local_tokens_max": 2301
+        },
+        "all": {
+          "items": 60,
+          "local_tokens_total": 53931,
+          "local_tokens_min": 138,
+          "local_tokens_median": 476.0,
+          "local_tokens_p95_nearest_rank": 3298,
+          "local_tokens_max": 4755
+        }
+      },
+      "smoke": {
+        "LitQA2": {
+          "items": 5,
+          "local_tokens_total": 813,
+          "local_tokens_min": 148,
+          "local_tokens_median": 154,
+          "local_tokens_p95_nearest_rank": 195,
+          "local_tokens_max": 195
+        },
+        "ProtocolQA": {
+          "items": 5,
+          "local_tokens_total": 10765,
+          "local_tokens_min": 388,
+          "local_tokens_median": 1803,
+          "local_tokens_p95_nearest_rank": 4755,
+          "local_tokens_max": 4755
+        },
+        "SeqQA": {
+          "items": 5,
+          "local_tokens_total": 4640,
+          "local_tokens_min": 229,
+          "local_tokens_median": 690,
+          "local_tokens_p95_nearest_rank": 2301,
+          "local_tokens_max": 2301
+        },
+        "all": {
+          "items": 15,
+          "local_tokens_total": 16218,
+          "local_tokens_min": 148,
+          "local_tokens_median": 521,
+          "local_tokens_p95_nearest_rank": 4755,
+          "local_tokens_max": 4755
+        }
+      }
+    },
+    "provider_billable_input_tokens": null,
+    "held_out_prompt_measurement": false
+  },
+  "funding_proposal": {
+    "smoke_ceiling_usd_for_review": 20,
+    "basis": "Retain Leo’s earlier proposed smoke ceiling as a discussion cap, subject to funding and actual-route/cache costs. No existing authorization is implied.",
+    "approved_by": null,
+    "approval_source": null,
+    "approved_at": null,
+    "funded_account": null,
+    "current_balance_verified": false,
+    "full_collection_ceiling": null,
+    "next_budget_decision": "Approve a funded smoke scope tied to configuration/price hashes. Re-estimate remaining development and held-out collection from reconciled smoke usage, with separate approval.",
+    "stop_rule": "Before each attempt reserve the verified maximum billable request cost, unresolved earlier charges and known fees. Stop rather than exceed approved scope/cap or rerun missing-bill attempts blindly."
+  },
+  "excluded_from_base_token_scenarios": [
+    "automatic or explicit cache-write/storage premiums",
+    "engine/gateway and routing compute",
+    "credit-purchase fees",
+    "tax",
+    "extra changed-configuration reruns",
+    "unapproved sensitivity repeats"
+  ],
+  "proof_limit": "Scenarios use a proposed20k-input preflight guard and8192-generated-token cap, not measured billable tokens or expected costs. They are not hard billing guarantees until route, wrapper, reasoning-cap and cache semantics are verified. No held-out input distribution was inspected."
+}

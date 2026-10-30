@@ -8,6 +8,8 @@ Start with [the protocol](PROTOCOL.md), [empirical CRR v0](METHOD.md), [the anal
 
 The primary result stays unavailable if development cannot attain 0.80. The uniform control reports expected accuracy and cost from the complete matrix, with explicit selection/dispatch overhead. It adds no model calls and remains secondary. The planned interpretation is a single-draw finite-matrix evaluation conditional on provider stochasticity.
 
+The [model/settings/cost proposal](execution-proposal/README.md) adds dated public API evidence and conditional budget scenarios. Native selected-case execution of the stock task is the preferred integration path, subject to verification of the feature under development. Model/provider controls, funding, actual engine parity and real development remain open.
+
 ## Offline checks
 
 From the repository root:

@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "execution_model_proposal",
+  "status": "PUBLIC_RESEARCH_COMPLETE_UNAPPROVED_UNVALIDATED",
+  "prepared_for": "Ahmed Tariq and Leo Guinan",
+  "research_date": "2026-10-29",
+  "execution_authorized": false,
+  "models": [
+    {
+      "slot": "model_1",
+      "candidate_openrouter_api_id": "google/gemini-3.5-flash-lite",
+      "candidate_direct_api_id": "gemini-3.5-flash-lite",
+      "observed_catalogue_canonical_slug": "google/gemini-3.5-flash-lite-20260721",
+      "canonical_slug_callable_snapshot_verified": false,
+      "candidate_screamingface_route": "openrouter/google/gemini-3.5-flash-lite",
+      "preferred_downstream_endpoint_tag": "google-ai-studio",
+      "endpoint_pinning_supported_by_captured_screamingface": false,
+      "public_endpoint_context_tokens": 1048576,
+      "public_endpoint_max_completion_tokens": 65536,
+      "proposed_screamingface_params": {
+        "max_tokens": 8192,
+        "reasoning.effort": "low"
+      },
+      "omitted_controls": [
+        "temperature",
+        "top_p",
+        "top_k",
+        "seed",
+        "stop",
+        "response_format",
+        "tools"
+      ],
+      "omitted_controls_reason": "Retain official task presentation and scorer. Sampling controls are unsupported, ignored or inconsistent across these exact models. No tools, custom stopping or JSON response format.",
+      "account_access_verified": false,
+      "actual_engine_payload_verified": false
+    },
+    {
+      "slot": "model_2",
+      "candidate_openrouter_api_id": "anthropic/claude-haiku-5.5",
+      "candidate_direct_api_id": "claude-haiku-5-5",
+      "observed_catalogue_canonical_slug": "anthropic/claude-haiku-5.5-20261007",
+      "canonical_slug_callable_snapshot_verified": false,
+      "candidate_screamingface_route": "openrouter/anthropic/claude-haiku-5.5",
+      "preferred_downstream_endpoint_tag": "anthropic",
+      "endpoint_pinning_supported_by_captured_screamingface": false,
+      "public_endpoint_context_tokens": 1000000,
+      "public_endpoint_max_completion_tokens": 128000,
+      "proposed_screamingface_params": {
+        "max_tokens": 8192,
+        "reasoning.effort": "low"
+      },
+      "omitted_controls": [
+        "temperature",
+        "top_p",
+        "top_k",
+        "seed",
+        "stop",
+        "response_format",
+        "tools"
+      ],
+      "omitted_controls_reason": "Retain official task presentation and scorer. Sampling controls are unsupported, ignored or inconsistent across these exact models. No tools, custom stopping or JSON response format.",
+      "account_access_verified": false,
+      "actual_engine_payload_verified": false
+    },
+    {
+      "slot": "model_3",
+      "candidate_openrouter_api_id": "openai/gpt-5.6-luna",
+      "candidate_direct_api_id": "gpt-5.6-luna",
+      "observed_catalogue_canonical_slug": "openai/gpt-5.6-luna-20260709",
+      "canonical_slug_callable_snapshot_verified": false,
+      "candidate_screamingface_route": "openrouter/openai/gpt-5.6-luna",
+      "preferred_downstream_endpoint_tag": "openai",
+      "endpoint_pinning_supported_by_captured_screamingface": false,
+      "public_endpoint_context_tokens": 1050000,
+      "public_endpoint_max_completion_tokens": 128000,
+      "proposed_screamingface_params": {
+        "max_tokens": 8192,
+        "reasoning.effort": "low"
+      },
+      "omitted_controls": [
+        "temperature",
+        "top_p",
+        "top_k",
+        "seed",
+        "stop",
+        "response_format",
+        "tools"
+      ],
+      "omitted_controls_reason": "Retain official task presentation and scorer. Sampling controls are unsupported, ignored or inconsistent across these exact models. No tools, custom stopping or JSON response format.",
+      "account_access_verified": false,
+      "actual_engine_payload_verified": false
+    },
+    {
+      "slot": "model_4",
+      "candidate_openrouter_api_id": "anthropic/claude-sonnet-5.5",
+      "candidate_direct_api_id": "claude-sonnet-5-5",
+      "observed_catalogue_canonical_slug": "anthropic/claude-sonnet-5.5-20260928",
+      "canonical_slug_callable_snapshot_verified": false,
+      "candidate_screamingface_route": "openrouter/anthropic/claude-sonnet-5.5",
+      "preferred_downstream_endpoint_tag": "anthropic",
+      "endpoint_pinning_supported_by_captured_screamingface": false,
+      "public_endpoint_context_tokens": 1000000,
+      "public_endpoint_max_completion_tokens": 128000,
+      "proposed_screamingface_params": {
+        "max_tokens": 8192,
+        "reasoning.effort": "low"
+      },
+      "omitted_controls": [
+        "temperature",
+        "top_p",
+        "top_k",
+        "seed",
+        "stop",
+        "response_format",
+        "tools"
+      ],
+      "omitted_controls_reason": "Retain official task presentation and scorer. Sampling controls are unsupported, ignored or inconsistent across these exact models. No tools, custom stopping or JSON response format.",
+      "account_access_verified": false,
+      "actual_engine_payload_verified": false
+    }
+  ],
+  "proposed_operation": {
+    "reasoning_fairness_policy": "Compare four explicitly configured systems at supported low effort. Equal names or token caps do not imply equal computation. Retain original upstream visible reasoning instruction.",
+    "max_total_generated_tokens_per_attempt": 8192,
+    "output_cap_includes_hidden_reasoning_must_be_verified_on_actual_route": true,
+    "initial_concurrency": 1,
+    "model_call_order": "Predeclare rotating/interleaved model-slot order across manifest-sorted smoke/development items. Record the exact schedule hash before collection.",
+    "max_total_attempts_per_item_model": 3,
+    "retry_owner": "One audited gateway layer. Disable extra client/SDK retries and verify no nested retry multiplication.",
+    "retry_eligible": [
+      "429 with Retry-After",
+      "502",
+      "503",
+      "504",
+      "confirmed transient pre-response transport failure"
+    ],
+    "never_retry_for_better_score": [
+      "incorrect answer",
+      "abstention",
+      "malformed answer",
+      "length-truncated answer"
+    ],
+    "timeout_policy": "Propose 600 seconds active provider execution per attempt, matching captured gateway default. Queue/client deadlines must exceed and expose the configured attempts. Reconcile an ambiguous timeout before blind resubmission.",
+    "backoff": {
+      "base_seconds": 0.5,
+      "maximum_seconds": 8,
+      "total_wait_seconds": 30,
+      "jitter_seconds": 0.25
+    },
+    "retry_after_precedence": "Honor provider Retry-After. If it exceeds the configured individual or total waiting allowance, defer/stop rather than shorten the delay.",
+    "model_or_provider_fallbacks": "None proposed. Actual no-fallback behavior is unresolved through ScreamingFace.",
+    "service_tier": "Standard only proposed. Exact service-tier transport through the engine remains unverified.",
+    "fresh_collection": "Disable engine response reuse and preserve capture. Keep provider prompt caching as separately recorded billing behavior. The supported engine cache-control path remains unverified.",
+    "input_budget_guard_tokens_per_call": 20000,
+    "input_guard_status": "Proposed pre-dispatch check including actual provider message wrapper. A guard, not an observed input token count; no truncation of official prompts permitted.",
+    "privacy_policy": {
+      "status": "unresolved_before_route_freeze",
+      "data_collection": null,
+      "zdr": null,
+      "account_guardrails_checked": false,
+      "engine_cache_log_retention": null,
+      "route_dependency": "Strict ZDR can exclude the preferred first-party endpoints. Agree policy first, then verify an eligible exact endpoint and reprice any change."
+    }
+  },
+  "blocking_integration_findings": [
+    "Captured ScreamingFace rejects raw OpenRouter provider/only/order/allow_fallbacks. Its five price/privacy controls are not transported by URL4.",
+    "Native direct OpenAI source currently exposes only max_tokens, so changing to native routes does not automatically preserve explicit reasoning controls.",
+    "Model.prompt has an SDK default distinct from benchmark formatting. Actual prepared-input parity must reject any extra prefix or changed task instruction.",
+    "Public canonical slugs, catalogue entries and source tests do not establish account access, a callable immutable snapshot or a deployed engine configuration."
+  ],
+  "alternatives_for_review": [
+    {
+      "api_id": "openai/gpt-6-luna",
+      "input_usd_per_million": 0.1,
+      "output_usd_per_million": 0.5,
+      "status": "Optional substitution only. Do not silently replace Leo’s provisional GPT-5.6 Luna candidate."
+    },
+    {
+      "api_id": "google/gemini-2.5-flash-lite",
+      "input_usd_per_million": 0.1,
+      "output_usd_per_million": 0.4,
+      "status": "Legacy access constraint. Not selected as the new-account default."
+    }
+  ],
+  "source_catalogue_sha256": "95c778d915e69d43db9adadabc399412e6e9f32aad20e1fb2dfa8a68fba435eb",
+  "approved_manifest_sha256_unchanged": "2885475fb12cad4627d07f4184ef74673093b55040a306fec8498046767c03e8"
+}

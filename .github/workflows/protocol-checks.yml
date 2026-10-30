@@ -40,5 +40,7 @@ jobs:
         run: python scripts/validate_lab_bench_protocol.py docs/experiment-01/manifest.draft.json
       - name: Check the approved specification and report operational blockers
         run: python scripts/check_execution_readiness.py docs/experiment-01/execution-readiness.json --stage specification
+      - name: Check the unapproved execution proposal and public price evidence
+        run: python scripts/check_execution_proposal.py
       - name: Validate synthetic receipt cases
         run: python scripts/check_receipt_contract.py

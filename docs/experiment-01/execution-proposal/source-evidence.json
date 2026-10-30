@@ -1,0 +1,28 @@
+{
+  "research_date": "2026-10-29",
+  "provider_calls": 0,
+  "credentials_read": false,
+  "held_out_prompts_rendered": 0,
+  "held_out_outcomes_inspected": false,
+  "screamingface_source_revision": "a7e5d85770d775ab05c5fef4b43d61bd2d5a2d1d",
+  "source_files": {
+    "evidence/public-model-endpoints.json": "95c778d915e69d43db9adadabc399412e6e9f32aad20e1fb2dfa8a68fba435eb",
+    "evidence/development-prompt-audit.json": "8e89b7e6688198d9c98ff2db0b45b9f66268adccc80087ac8ed9215017f5e96a"
+  },
+  "proposal_files": {
+    "README.md": "f420139de335141b233efa40bb45051a64782b6b9732b8d46e7800b3de8d727f",
+    "models.proposal.json": "76d57bad9853d6dabd4d7712e27cb120cd7921556bf0cf12f8c1537ccc83278c",
+    "pricing.proposal.json": "73d18413ecda5682ed478b6a1b19862eb507efa3d562f89b89aadbe356c8a0a1",
+    "budget-scenarios.json": "3cbb78a245ce637fcd57191b22b8c33ca24a367dc8daffadb6b339bf383ebe0b"
+  },
+  "approved_files_unchanged": {
+    "METHOD.md": "3c89f83d7e48b0409dc2d7e3e8f7804d874c17e004a9a0cd44a593c8caffa4c8",
+    "ANALYSIS.md": "eb381e65eda91874abb1dfdf6c5850621ce956c2cc49f73b9b6227ef9844e9c1",
+    "method-plan.json": "72e580e7fd0628374b601332bb2c91af3ec4296ae97d49b45418219425b17414",
+    "manifest.draft.json": "2885475fb12cad4627d07f4184ef74673093b55040a306fec8498046767c03e8",
+    "spec-freeze.json": "a5e348e6526e07909b58149f9e4fc37255b963fda0d68ed349b4afceef3e14e2"
+  },
+  "publication_date": "2026-10-30",
+  "source_archive": "Full dated source captures retained in the project audit; public inputs needed for the offline proposal check are included below.",
+  "audit_script_sha256": "1807b40d77e914632ded10c900ffb56e6db377f3fc31a34f19bed66cccaa06b3"
+}

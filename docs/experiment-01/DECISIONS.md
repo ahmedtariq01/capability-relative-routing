@@ -7,7 +7,7 @@ Leo's [29 October review](https://github.com/leo-guinan/capability-relative-rout
 | Numerical method | Beta(1,1) category profiles, six visible features, within-category centering, ridge 1, five source-group folds and no extra calibrator or routing LLM | Development collection and method review |
 | Policy selection | Retain the 0.80 primary target declared on 26 October. An unattainable development target leaves the primary result unavailable. Never promote a secondary target. Retain threshold steps of 0.05 and minimum out-of-fold cost among eligible candidates | Final specification review |
 | Input availability | Category comes from the selected LitQA2/ProtocolQA/SeqQA task before inference. Verify backend propagation. Source groups serve split checks, grouped folds and resampling only | Engine smoke |
-| Backend selection | Prefer native frozen-ID selection if Khoa confirms it. Otherwise use the versioned ScreamingFace variant with official preparation, formatting and scorer | Engine smoke |
+| Backend selection | Prefer the native frozen-ID selector under development. Verify original-ID mapping, official preparation, formatting and scorer on delivery. Keep the versioned variant as fallback | Engine smoke |
 | Hosted access | Treat grant/engine access as unavailable until confirmed. Continue local preparation. | Hosted run |
 | Dataset selection | Review the deterministic ID manifest, source-overlap checks and balanced SeqQA subtask coverage. | First development call |
 | Model roster | Four slots, exact model IDs/settings/provider routes pending. Do not silently convert conversational names into API versions. | Cost estimate and smoke |
@@ -20,7 +20,7 @@ Leo's [29 October review](https://github.com/leo-guinan/capability-relative-rout
 | Interpretation | Single-draw finite-matrix evaluation conditional on provider stochasticity. Optional predeclared development repeats remain separate sensitivity data and cannot change the primary policy | Final specification review |
 | Real fit | Complete development only, preserve obsolete smoke costs, fit profiles and commit the fit hash and selected policies | Held-out collection |
 
-No personal-information question for Ahmed blocks this deliverable. Leo reviews the numerical method and analysis choices. Khoa/backend checks and verified provider access resolve execution dependencies. Ahmed decides the spending limit once there is a concrete roster and cost estimate.
+No personal-information question for Ahmed blocks this deliverable. Leo reviews the numerical method and analysis choices. Khoa/backend checks and verified provider access resolve execution dependencies. Review the [model/settings/cost proposal](execution-proposal/README.md) separately from the approved numerical method. Ahmed decides the spending limit once there is a concrete roster and cost estimate.
 
 ## Suggested order of discussion
 

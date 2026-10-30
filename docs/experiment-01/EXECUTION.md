@@ -9,7 +9,7 @@ The approval covers implementation and preparation for development validation. I
 | Requirement | Evidence prepared | Remaining dependency |
 | --- | --- | --- |
 | Specification freeze | Live GitHub approval and exact document/selection hashes | Complete |
-| Backend equivalence | Comparator for original IDs, categories, prepared input, choice order, target mappings, mock scores, selected denominator and cache identity | Khoa must confirm the supported variant registration path. Obtain and compare an actual candidate-engine export |
+| Backend equivalence | Comparator for original IDs, categories, prepared input, choice order, target mappings, mock scores, selected denominator and cache identity | Validate the delivered native selected-case feature and its frozen original-ID mapping. Obtain and compare an actual candidate-engine export |
 | Model and price manifest | Required fields and cross-file checks below | Exact accessible API IDs, snapshots/routes, generation settings, retry policy, timeouts and dated prices |
 | Routing overhead | Local category/CRR measurement command and a separately labelled synthetic measurement | Actual adapter dispatch measurement, declared CPU price and remeasurement with the final development fit |
 | Spending | Separate scope-bound approval record required | Agree the funded route and exact cap against the actual model/price manifest |
@@ -46,9 +46,11 @@ python3 scripts/check_backend_equivalence.py --help
 
 The 29 October pinned upstream check prepared all 907 source rows, preserved the original selection and exported the 60 development cases (20 per category) in [backend/official-development.json](backend/official-development.json). It exercised correct, incorrect, abstained and malformed mock responses, which scored C, I, N and I. No provider took part. The reference hashes the rendered official messages, choice order and target mappings.
 
-A candidate export must come from the actual ScreamingFace variant. Copying the official export and changing its label would supply no integration evidence. Keep the official preparation before selection, retain the original/scoped case mapping, and include the selection and configuration in each variant's revision and cache identity. Use separate development and held-out identities.
+A candidate export must come from the actual ScreamingFace selected-case path, whether native selection or the fallback variant. Copying the official export and changing its label would supply no integration evidence. Keep the official preparation before selection, retain the original/scoped case mapping, and include the selection and configuration in the revision and cache identity. Use separate development and held-out identities.
 
-Khoa still needs to confirm where the variant belongs, how a contributor can register it for local and hosted engines, and which deployed engine revision to validate. Keep the endpoint and access unresolved until confirmed. No current evidence establishes an accepted variant or end-to-end engine equivalence.
+Native selected-case support is the preferred path for the stock task, with the feature still under development. Confirm the delivered original-ID mapping, frozen task/preparation revision and local/hosted engine behavior before execution. Keep the endpoint and access unresolved until confirmed. The existing selected-ID variant remains a fallback proposal. No current evidence establishes end-to-end engine equivalence.
+
+The [30 October model and cost proposal](execution-proposal/README.md) records public API IDs, prices and supported reasoning/output settings. It also identifies an independent gap in exact OpenRouter endpoint/fallback transport. Those choices and a funded smoke limit remain unapproved.
 
 ## Model, price and spending records
 

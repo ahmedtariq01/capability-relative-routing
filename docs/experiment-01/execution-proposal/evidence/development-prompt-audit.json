@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "offline_development_prompt_content_size_audit",
+  "provider_calls": 0,
+  "model_outcomes_collected": false,
+  "held_out_prompts_rendered": 0,
+  "held_out_outcomes_inspected": false,
+  "versions": {
+    "inspect_ai": "0.3.263",
+    "inspect_evals": "0.20.0",
+    "datasets": "5.0.1"
+  },
+  "source_files": [
+    {
+      "subset": "LitQA2",
+      "path": "LitQA2_train-00000-of-00001.parquet",
+      "sha256": "3e578fdaaa4728a77e884954dbf85ae0e3899791631a3be0838313b3e2334114",
+      "source_rows_prepared": 199
+    },
+    {
+      "subset": "ProtocolQA",
+      "path": "ProtocolQA_train-00000-of-00001.parquet",
+      "sha256": "d48d455638ff49b0c02ae96135703f239ea865a5936233045ee010a5d819239a",
+      "source_rows_prepared": 108
+    },
+    {
+      "subset": "SeqQA",
+      "path": "SeqQA_train-00000-of-00001.parquet",
+      "sha256": "5864776d3d85774f91d82432e30ac31e9222f1670621e8ea141414173c5e9b46",
+      "source_rows_prepared": 600
+    }
+  ],
+  "preparation": {
+    "inspect_ai": "0.3.263",
+    "inspect_evals": "0.20.0",
+    "dataset_shuffle_seed": 7,
+    "choice_shuffle_seed": 7,
+    "task_source_sha256": "ca9fa2fa1b277ad6880dbdce52a041d44b1159b418a28cc10695c0dad37a4384",
+    "solver_source_sha256": "583a3715a2820d18c34fcf2fdb3ffaf948f060869517df0c6f1ca579051a2e4a",
+    "scorer_source_sha256": "a2052389c6dc01f758abc251aea0e859dbebc892c5406c525b40feb31d4db4da",
+    "template_sha256": "96c75e269f763304330ffc999bc99b47ae77da7ae3312fd1b0953a9b72afe9c4"
+  },
+  "preparation_sha256": "bae4a1b1a814d6d3de502d96b8bd3b5eee1b707aa0acbb4d8ede004febe92228",
+  "script_sha256": "1807b40d77e914632ded10c900ffb56e6db377f3fc31a34f19bed66cccaa06b3",
+  "manifest_sha256": "2885475fb12cad4627d07f4184ef74673093b55040a306fec8498046767c03e8",
+  "reference_sha256": "dedb291745b902e47d0e47dffd4ea24d56ab9a0b8f02334bbe52e6c06686ce1f",
+  "selection_sha256": "974e722fe0f342bfb26a7111b3c97d95b791dc187a2bc32de599381c9e5befec",
+  "all_60_prepared_input_hashes_match_committed_reference": true,
+  "measured_development_input_hashes_sha256": "01decd7ff84520bee56448dd840651e3ce6817e196bd583389c95392dcc1d49b",
+  "billable_token_counts": null,
+  "billable_token_counts_status": "not_measured_provider_specific_tokenizer_and_request_wrapper_unresolved",
+  "provider_request_wrapper_included": false,
+  "proof_limit": "Characters and UTF-8 bytes measure official user-message content only. They are not billable tokens, output/reasoning usage, an exact provider request size or a dollar estimate. Whole source tasks are prepared for upstream choice-order parity, but only frozen development prompts are rendered and measured; no prompt or answer text is exported.",
+  "development": {
+    "LitQA2": {
+      "items": 20,
+      "characters_total": 14787,
+      "characters_min": 636,
+      "characters_median": 715.5,
+      "characters_p95_nearest_rank": 986,
+      "characters_max": 988,
+      "utf8_bytes_total": 14867,
+      "utf8_bytes_max": 992
+    },
+    "ProtocolQA": {
+      "items": 20,
+      "characters_total": 117120,
+      "characters_min": 1448,
+      "characters_median": 4306.5,
+      "characters_p95_nearest_rank": 15154,
+      "characters_max": 15288,
+      "utf8_bytes_total": 118722,
+      "utf8_bytes_max": 15560
+    },
+    "SeqQA": {
+      "items": 20,
+      "characters_total": 40128,
+      "characters_min": 842,
+      "characters_median": 1746.0,
+      "characters_p95_nearest_rank": 3953,
+      "characters_max": 4679,
+      "utf8_bytes_total": 40208,
+      "utf8_bytes_max": 4683
+    },
+    "all": {
+      "items": 60,
+      "characters_total": 172035,
+      "characters_min": 636,
+      "characters_median": 1643.0,
+      "characters_p95_nearest_rank": 11804,
+      "characters_max": 15288,
+      "utf8_bytes_total": 173797,
+      "utf8_bytes_max": 15560
+    }
+  },
+  "smoke": {
+    "LitQA2": {
+      "items": 5,
+      "characters_total": 3569,
+      "characters_min": 674,
+      "characters_median": 676,
+      "characters_p95_nearest_rank": 851,
+      "characters_max": 851,
+      "utf8_bytes_total": 3589,
+      "utf8_bytes_max": 855
+    },
+    "ProtocolQA": {
+      "items": 5,
+      "characters_total": 37315,
+      "characters_min": 1448,
+      "characters_median": 6629,
+      "characters_p95_nearest_rank": 15288,
+      "characters_max": 15288,
+      "utf8_bytes_total": 37814,
+      "utf8_bytes_max": 15560
+    },
+    "SeqQA": {
+      "items": 5,
+      "characters_total": 10673,
+      "characters_min": 842,
+      "characters_median": 1721,
+      "characters_p95_nearest_rank": 4679,
+      "characters_max": 4679,
+      "utf8_bytes_total": 10693,
+      "utf8_bytes_max": 4683
+    },
+    "all": {
+      "items": 15,
+      "characters_total": 51557,
+      "characters_min": 674,
+      "characters_median": 1660,
+      "characters_p95_nearest_rank": 15288,
+      "characters_max": 15288,
+      "utf8_bytes_total": 52096,
+      "utf8_bytes_max": 15560
+    }
+  },
+  "local_tokenizer_estimate": {
+    "provenance": {
+      "package": "tiktoken",
+      "package_version": "0.14.0",
+      "requested_model": "gpt-5.6-luna",
+      "encoding": "o200k_base",
+      "mapping": {
+        "kind": "model_family_prefix_mapping",
+        "key": "gpt-5"
+      },
+      "method": "encode_ordinary on official rendered user-message content",
+      "source_url": "https://openaipublic.blob.core.windows.net/encodings/o200k_base.tiktoken",
+      "source_sha256": "446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+      "source_expected_sha256": "446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+      "encoding_constructor_sha256": "b2783ad55a8e978f5c5b85556d02b4dda6d1d6f60e3a4fc6ca51374504b6641b",
+      "model_mapping_source_sha256": "600f26902d1cf6a1a5f54e37be988b3e0d911f1ff17ba7060bb361f9b5295521",
+      "encoding_pattern_sha256": "2d1b8dc11e89af71459b36004f698ab3693f59fd84f63e8ec2b49564ab857420",
+      "encoding_special_tokens_sha256": "94c390bc2638a0888b4ce311255bb8ba2c1f8240037ea4a6ad069bdde7e7ee04",
+      "api_credentials_used": false,
+      "token_count_api_calls": 0,
+      "model_calls": 0,
+      "provider_request_wrapper_included": false,
+      "proof_limit": "Local family-prefix/surrogate content tokenization is not a provider-billed count or a verification of the named model's availability. Provider headers, message wrappers and output/reasoning usage are excluded."
+    },
+    "development": {
+      "LitQA2": {
+        "items": 20,
+        "local_tokens_total": 3366,
+        "local_tokens_min": 138,
+        "local_tokens_median": 167.5,
+        "local_tokens_p95_nearest_rank": 207,
+        "local_tokens_max": 211
+      },
+      "ProtocolQA": {
+        "items": 20,
+        "local_tokens_total": 33688,
+        "local_tokens_min": 386,
+        "local_tokens_median": 1239.5,
+        "local_tokens_p95_nearest_rank": 4729,
+        "local_tokens_max": 4755
+      },
+      "SeqQA": {
+        "items": 20,
+        "local_tokens_total": 16877,
+        "local_tokens_min": 227,
+        "local_tokens_median": 715.0,
+        "local_tokens_p95_nearest_rank": 1861,
+        "local_tokens_max": 2301
+      },
+      "all": {
+        "items": 60,
+        "local_tokens_total": 53931,
+        "local_tokens_min": 138,
+        "local_tokens_median": 476.0,
+        "local_tokens_p95_nearest_rank": 3298,
+        "local_tokens_max": 4755
+      }
+    },
+    "smoke": {
+      "LitQA2": {
+        "items": 5,
+        "local_tokens_total": 813,
+        "local_tokens_min": 148,
+        "local_tokens_median": 154,
+        "local_tokens_p95_nearest_rank": 195,
+        "local_tokens_max": 195
+      },
+      "ProtocolQA": {
+        "items": 5,
+        "local_tokens_total": 10765,
+        "local_tokens_min": 388,
+        "local_tokens_median": 1803,
+        "local_tokens_p95_nearest_rank": 4755,
+        "local_tokens_max": 4755
+      },
+      "SeqQA": {
+        "items": 5,
+        "local_tokens_total": 4640,
+        "local_tokens_min": 229,
+        "local_tokens_median": 690,
+        "local_tokens_p95_nearest_rank": 2301,
+        "local_tokens_max": 2301
+      },
+      "all": {
+        "items": 15,
+        "local_tokens_total": 16218,
+        "local_tokens_min": 148,
+        "local_tokens_median": 521,
+        "local_tokens_p95_nearest_rank": 4755,
+        "local_tokens_max": 4755
+      }
+    }
+  }
+}
